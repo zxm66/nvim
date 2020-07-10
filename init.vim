@@ -17,6 +17,8 @@ set nowritebackup
 set	noswapfile
 
 set showcmd
+set cmdheight=2
+
 set showmode
 set wildmenu
 set smartcase
@@ -120,8 +122,6 @@ map ff :FZF<CR>
 map <LEADER>w :w<CR>
 map <LEADER>f :FZF<CR>
 map <LEADER>n :NERDTreeToggle<CR>
-
-
 
 let g:markdown_fenced_languages = ['css', 'js=javascript']
 
