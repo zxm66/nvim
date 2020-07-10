@@ -51,7 +51,7 @@ map sk :set nosplitbelow<CR>:split<CR>
 map sl :set splitbelow<CR>:split<CR>
 
 map ga :!git add .<CR>
-map gc :!git commit -a <CR>
+map gc :!git commit -a -m "gc" <CR>
 map gl :!git pull<CR>
 map gs :!git push<CR>
 
@@ -61,14 +61,12 @@ map <LEADER>s :nohlsearch<CR>
 map <C-h> :tabprevious<CR>
 map <C-l> :tabNext<CR>
 map <C-s> :w<CR>
-map ww :w<CR>
-map qq :q<CR>
 map <LEADER>q :q<CR>
 
 noremap J 5j
-noremap H 5h
+noremap H :vertical resize+10<CR>
 noremap K 5k
-noremap L 5l
+noremap L :vertical resize-10<CR>
 noremap cc <C-w>
 noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
 noremap <LEADER>sc :source ~/.config/nvim/init.vim<CR>
