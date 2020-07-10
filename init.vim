@@ -1,14 +1,21 @@
 
-
 " <leader> = <space>
 let mapleader=" "
 set mouse=a
 set tabstop=4
+set smarttab 
+set smartindent
 set encoding=utf-8
+
 set number
 set relativenumber
 set cursorline
 " set cursorcolumn
+
+set nobackup
+set nowritebackup
+set	noswapfile
+
 set showcmd
 set showmode
 set wildmenu
@@ -36,9 +43,46 @@ filetype plugin indent on
 
 syntax on
 
+map sj :set splitright<CR>:vsplit<CR>
+map sh :set nosplitright<CR>:vsplit<CR>
+map sk :set nosplitbelow<CR>:split<CR>
+map sl :set splitbelow<CR>:split<CR>
+
+map ga :!git add .<CR>
+map gc :!git commit -a -m "gc"<CR>
+map gl :!git pull<CR>
+map gs :!git push<CR>
+
+map <C-h> :tabprevious<CR>
+map <C-l> :tabNext<CR>
+map <C-s> :w<CR>
+map ww :w<CR>
+map qq :q<CR>
+map <LEADER>q :q<CR>
+
+
+
+
+noremap J 5j
+noremap H 5h
+noremap K 5k
+noremap L 5l
+noremap cc <C-w>
+noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
+noremap <LEADER>sc :source ~/.config/nvim/init.vim<CR>
+
+
+
 call plug#begin()
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+" Autoformat
+Plug 'Chiel92/vim-autoformat'
 " Auto Complete
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+
+
 
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
@@ -55,6 +99,7 @@ Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'vimwiki/vimwiki'
 " HTML, CSS, JavaScript, PHP, JSON, etc.
 Plug 'elzr/vim-json'
+Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'spf13/PIV', { 'for' :['php', 'vim-plug'] }
 Plug 'gko/vim-coloresque', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
@@ -63,38 +108,23 @@ Plug 'mattn/emmet-vim'
 
 call plug#end()
 
-noremap J 5j
-noremap H 5h
-noremap K 5k
-noremap L 5l
-noremap cc <C-w>
+noremap <LEADER>c  :CocList<CR>
+
 
 
 map <C-n> :NERDTreeToggle<CR>
 map <C-f> :FZF<CR>
-map <C-s> :w<CR>
-map <C-h> :tabprevious<CR>
-map <C-l> :tabNext<CR>
-
-map ww :w<CR>
 map ff :FZF<CR>
-map qq :q<CR>
+
 
 map <LEADER>w :w<CR>
 map <LEADER>f :FZF<CR>
 map <LEADER>n :NERDTreeToggle<CR>
-map <LEADER>q :q<CR>
-
-map sj :set splitright<CR>:vsplit<CR>
-map sh :set nosplitright<CR>:vsplit<CR>
-map sk :set nosplitbelow<CR>:split<CR>
-map sl :set splitbelow<CR>:split<CR>
 
 
-map ga :!git add .<CR>
-map gc :!git commit -a -m "gc"<CR>
-map gl :!git pull<CR>
-map gs :!git push<CR>
+
+let g:markdown_fenced_languages = ['css', 'js=javascript']
+
 
 " ==
 " == NERDTree-git
