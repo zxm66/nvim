@@ -55,15 +55,15 @@ map gc :!git commit -a -m "gc"<CR>
 map gl :!git pull<CR>
 map gs :!git push<CR>
 
+
+map s <nop>
+map <LEADER>s :nohlsearch<CR>
 map <C-h> :tabprevious<CR>
 map <C-l> :tabNext<CR>
 map <C-s> :w<CR>
 map ww :w<CR>
 map qq :q<CR>
 map <LEADER>q :q<CR>
-
-
-
 
 noremap J 5j
 noremap H 5h
@@ -82,9 +82,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'Chiel92/vim-autoformat'
 " Auto Complete
 " Plug 'Valloric/YouCompleteMe'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-
-
+" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
