@@ -51,7 +51,7 @@ map sk :set nosplitbelow<CR>:split<CR>
 map sl :set splitbelow<CR>:split<CR>
 
 map ga :!git add .<CR>
-map gc :!git commit -a -m "gc"<CR>
+map gc :!git commit -a <CR>
 map gl :!git pull<CR>
 map gs :!git push<CR>
 
