@@ -80,7 +80,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'Chiel92/vim-autoformat'
 " Auto Complete
 " Plug 'Valloric/YouCompleteMe'
-" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
@@ -107,8 +107,6 @@ Plug 'mattn/emmet-vim'
 call plug#end()
 
 noremap <LEADER>c  :CocList<CR>
-
-
 
 map <C-n> :NERDTreeToggle<CR>
 map <C-f> :FZF<CR>
