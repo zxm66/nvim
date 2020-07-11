@@ -62,6 +62,7 @@ map <C-h> :tabprevious<CR>
 map <C-l> :tabNext<CR>
 map <C-s> :w<CR>
 map <LEADER>q :q<CR>
+map <LEADER>w :w<CR>
 
 noremap J 5j
 noremap H :vertical resize+10<CR>
@@ -106,14 +107,49 @@ Plug 'mattn/emmet-vim'
 
 call plug#end()
 
+
+let g:mkdp_auto_start = 0
+let g:mkdp_auto_close = 1
+let g:mkdp_refresh_slow = 0
+let g:mkdp_command_for_global = 0
+let g:mkdp_open_to_the_world = 0
+let g:mkdp_open_ip = ''
+let g:mkdp_browser = ''
+let g:mkdp_echo_preview_url = 0
+let g:mkdp_browserfunc = ''
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false
+    \ }
+let g:mkdp_markdown_css = ''
+let g:mkdp_highlight_css = ''
+
+" use a custom port to start server or random for empty
+let g:mkdp_port = '8888'
+let g:mkdp_page_title = '「${name}」'
+
+
+execute 'source ~/.config/nvim/coc.vim'
+
 noremap <LEADER>c  :CocList<CR>
+
+
+
+let g:NERDTreeDirArrowExpandable = '🍎'
+let g:NERDTreeDirArrowCollapsible = '🌰'
 
 map <C-n> :NERDTreeToggle<CR>
 map <C-f> :FZF<CR>
 map ff :FZF<CR>
 
-
-map <LEADER>w :w<CR>
 map <LEADER>f :FZF<CR>
 map <LEADER>n :NERDTreeToggle<CR>
 
