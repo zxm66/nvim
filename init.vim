@@ -45,11 +45,15 @@ filetype plugin indent on
 
 syntax on
 
+
+set fillchars=vert:*
+set splitright
+set splitbelow
 map sj :set splitright<CR>:vsplit<CR>
 map sh :set nosplitright<CR>:vsplit<CR>
 map sk :set nosplitbelow<CR>:split<CR>
 map sl :set splitbelow<CR>:split<CR>
-
+highlight VertSplit guifg=#2e3330 guibg=#688060 ctermfg=236 ctermbg=65 
 map ga :!git add .<CR>
 map gc :!git commit -a -m "gc" <CR>
 map gl :!git pull<CR>
@@ -184,7 +188,7 @@ let NERDTreeOpenVSplit = ""
 let NERDTreeMapActivateNode = ""
 let NERDTreeMapOpenInTab = ""
 let NERDTreeMapPreview = ""
-let NERDTreeMapCloseDir = ""
+let NERDTreeMapCloseDir = "h"
 let NERDTreeMapChangeRoot = ""
 
 
