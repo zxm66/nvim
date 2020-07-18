@@ -58,6 +58,7 @@ map ga :!git add .<CR>
 map gc :!git commit -a -m "gc" <CR>
 map gl :!git pull<CR>
 map gs :!git push<CR>
+map lg :!git status && git add . && git commit -a -m "gc" && git pull && git push <CR>
 
 
 map s <nop>
@@ -67,6 +68,8 @@ map <C-l> :tabNext<CR>
 map <C-s> :w<CR>
 map <LEADER>q :q<CR>
 map <LEADER>w :w<CR>
+
+inoremap <C-q> <ESC>
 
 noremap J 5j
 noremap H :vertical resize+10<CR>
