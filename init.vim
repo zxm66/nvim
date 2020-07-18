@@ -76,15 +76,25 @@ noremap cc <C-w>
 noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
 noremap <LEADER>sc :source ~/.config/nvim/init.vim<CR>
 
-
+autocmd FileType c nnoremap <buffer> <C-i> :!gcc % && ./a.out <CR>
+autocmd FileType cpp nnoremap <buffer> <C-i> :!g++ % && ./a.out <CR>
+autocmd FileType python nnoremap <buffer> <C-i> :!python % <CR>
+autocmd FileType sh nnoremap <buffer> <C-i> :!sh % <CR>
+autocmd FileType golang nnoremap <buffer> <C-i> :!go run % <CR>
+nnoremap <buffer> <C-i> :!./% <CR>
+autocmd FileType vim,zsh,tmux nnoremap <buffer> <C-i> :source % <CR>
 
 call plug#begin()
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
+
+Plug 'majutsushi/tagbar'
 " Autoformat
 Plug 'Chiel92/vim-autoformat'
 " Auto Complete
 " Plug 'Valloric/YouCompleteMe'
+" Plug 'puremourning/vimspector'
+
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-sensible'
