@@ -125,6 +125,9 @@ Plug 'mattn/emmet-vim'
 
 call plug#end()
 
+autocmd FileType java nested :TagbarOpen
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+
 
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
