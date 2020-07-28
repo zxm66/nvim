@@ -46,7 +46,7 @@ filetype plugin indent on
 syntax on
 
 
-set fillchars=vert:*
+set fillchars=vert:$
 set splitright
 set splitbelow
 map sj :set splitright<CR>:vsplit<CR>
@@ -106,6 +106,7 @@ Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 " Plug 'connorholyday/vim-snazzy'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+" Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 " Git
 " Plug 'airblade/vim-gitgutter'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
