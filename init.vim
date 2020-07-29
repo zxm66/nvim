@@ -209,3 +209,6 @@ let NERDTreeMapCloseDir = "h"
 let NERDTreeMapChangeRoot = ""
 
 
+
+autocmd BufNewFile *.java 0r ~/.config/nvim/template/java.tpl | autocmd! BufNewFile
+autocmd BufNewFile *.py 0r ~/.config/nvim/template/python.tpl | autocmd! BufNewFile
