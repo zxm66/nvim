@@ -88,6 +88,8 @@ nnoremap <buffer> <C-i> :!./% <CR>
 autocmd FileType vim,zsh,tmux nnoremap <buffer> <C-i> :source % <CR>
 
 call plug#begin()
+Plug 'voldikss/vim-floaterm'
+
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 
