@@ -165,16 +165,10 @@ execute 'source ~/.config/nvim/coc.vim'
 noremap <LEADER>c  :CocList<CR>
 
 
-
-let g:NERDTreeDirArrowExpandable = '🍎'
-let g:NERDTreeDirArrowCollapsible = '🌰'
-
-map <C-n> :NERDTreeToggle<CR>
 map <C-f> :FZF<CR>
 map ff :FZF<CR>
 
 map <LEADER>f :FZF<CR>
-map <LEADER>n :NERDTreeToggle<CR>
 
 let g:markdown_fenced_languages = ['css', 'js=javascript']
 
@@ -199,6 +193,11 @@ let g:NERDTreeIndicatorMapCustom = {
 " === NERDTree
 " ===
 map tt :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable = '🍎'
+let g:NERDTreeDirArrowCollapsible = '🌰'
+map <LEADER>n :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
+
 
 
 autocmd BufNewFile *.java 0r ~/.config/nvim/template/java.tpl | autocmd! BufNewFile
