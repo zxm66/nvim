@@ -80,6 +80,14 @@ noremap cc <C-w>
 noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
 noremap <LEADER>sc :source ~/.config/nvim/init.vim<CR>
 
+autocmd FileType c nnoremap <buffer> <LEADER>i :!gcc % && ./a.out && rm ./a.out <CR>
+autocmd FileType cpp nnoremap <buffer> <LEADER>i :!g++ % && ./a.out && rm ./a.out <CR>
+autocmd FileType python nnoremap <buffer> <LEADER>i :!python % <CR>
+autocmd FileType sh nnoremap <buffer> <LEADER>i :!sh % <CR>
+autocmd FileType golang nnoremap <buffer> <LEADER>i :!go run % <CR>
+nnoremap <buffer> <LEADER>i :!./% <CR>
+autocmd FileType vim,zsh,tmux nnoremap <buffer> <LEADER>i :source % <CR>
+
 autocmd FileType c nnoremap <buffer> <C-i> :!gcc % && ./a.out && rm ./a.out <CR>
 autocmd FileType cpp nnoremap <buffer> <C-i> :!g++ % && ./a.out && rm ./a.out <CR>
 autocmd FileType python nnoremap <buffer> <C-i> :!python % <CR>
