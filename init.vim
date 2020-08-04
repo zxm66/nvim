@@ -112,7 +112,10 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-sensible'
+
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 " Plug 'connorholyday/vim-snazzy'
@@ -202,8 +205,8 @@ let g:NERDTreeIndicatorMapCustom = {
 " === NERDTree
 " ===
 map tt :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '🍎'
-let g:NERDTreeDirArrowCollapsible = '🌰'
+let g:NERDTreeDirArrowExpandable = '👉'
+let g:NERDTreeDirArrowCollapsible = '👇'
 map <LEADER>n :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 
@@ -218,3 +221,10 @@ autocmd BufNewFile *.rs 0r ~/.config/nvim/template/rust.tpl | autocmd! BufNewFil
 autocmd BufNewFile *.html 0r ~/.config/nvim/template/html.tpl | autocmd! BufNewFile
 autocmd BufNewFile *.js 0r ~/.config/nvim/template/javascript.tpl | autocmd! BufNewFile
 autocmd BufNewFile *.sh 0r ~/.config/nvim/template/shell.tpl | autocmd! BufNewFile
+
+
+
+
+
+
+
