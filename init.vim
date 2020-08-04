@@ -140,6 +140,10 @@ Plug 'mattn/emmet-vim'
 call plug#end()
 
 
+
+" coc-nvim
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
 "
 " tagbar
 "
@@ -222,7 +226,7 @@ map <C-n> :NERDTreeToggle<CR>
 " ===
 " === vim-airline
 " ===
-let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
