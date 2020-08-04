@@ -6,7 +6,8 @@ set tabstop=4
 set smarttab 
 set smartindent
 set encoding=utf-8
-
+set shortmess=atI
+set clipboard+=unnamed
 set number
 set relativenumber
 set cursorline
