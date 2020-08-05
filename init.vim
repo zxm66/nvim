@@ -224,7 +224,7 @@ let g:NERDTreeDirArrowExpandable = '👉'
 let g:NERDTreeDirArrowCollapsible = '👇'
 map <LEADER>n :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
-autocmd BufEnter * :NERDTree
+" autocmd BufEnter * :NERDTree
 
 " ===
 " === vim-airline
