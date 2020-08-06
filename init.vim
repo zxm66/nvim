@@ -24,7 +24,7 @@ set showmode
 set wildmenu
 set smartcase
 set wrap
-set autochdir
+" set autochdir
 set background=light
 
 set hlsearch
@@ -73,9 +73,9 @@ map <LEADER>w :w<CR>
 inoremap <C-q> <ESC>
 
 noremap - $
-noremap J 5j
+noremap J <C-d>
 noremap H :vertical resize+10<CR>
-noremap K 5k
+noremap K <C-u>
 noremap L :vertical resize-10<CR>
 noremap cc <C-w>
 noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
