@@ -4,6 +4,10 @@ let mapleader=" "
 set mouse=a
 set tabstop=4
 set smarttab 
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
+set autoindent
 set smartindent
 set encoding=utf-8
 set shortmess=atI
@@ -24,7 +28,7 @@ set showmode
 set wildmenu
 set smartcase
 set wrap
-" set autochdir
+set autochdir
 set background=light
 
 set hlsearch
@@ -86,6 +90,7 @@ autocmd FileType cpp nnoremap <buffer> <LEADER>i :!g++ % && ./a.out && rm ./a.ou
 autocmd FileType python nnoremap <buffer> <LEADER>i :!python % <CR>
 autocmd FileType sh nnoremap <buffer> <LEADER>i :!sh % <CR>
 autocmd FileType go nnoremap <buffer> <LEADER>i :!go run % <CR>
+autocmd FileType java nnoremap <buffer> <LEADER>i :!javac % && java %:r <CR>
 nnoremap <buffer> <LEADER>i :!./% <CR>
 autocmd FileType vim,zsh,tmux nnoremap <buffer> <LEADER>i :source % <CR>
 
