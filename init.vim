@@ -76,6 +76,7 @@ map <LEADER>w :w<CR>
 
 inoremap <C-q> <ESC>
 
+noremap ; :
 noremap - $
 noremap J <C-d>
 noremap H :vertical resize+10<CR>
