@@ -3,7 +3,7 @@
 let mapleader=" "
 set mouse=a
 set tabstop=4
-set smarttab 
+set smarttab
 set softtabstop=4
 set shiftwidth=4
 set noexpandtab
@@ -58,7 +58,7 @@ map sj :set splitright<CR>:vsplit<CR>
 map sh :set nosplitright<CR>:vsplit<CR>
 map sk :set nosplitbelow<CR>:split<CR>
 map sl :set splitbelow<CR>:split<CR>
-highlight VertSplit guifg=#2e3330 guibg=#688060 ctermfg=236 ctermbg=65 
+highlight VertSplit guifg=#2e3330 guibg=#688060 ctermfg=236 ctermbg=65
 map ga :!git add .<CR>
 map gc :!git commit -a -m "gc" <CR>
 map gl :!git pull<CR>
@@ -104,12 +104,12 @@ autocmd FileType vim,zsh,tmux nnoremap <buffer> <LEADER>i :source % <CR>
 " autocmd FileType vim,zsh,tmux nnoremap <buffer> <C-i> :source % <CR>
 
 call plug#begin("~/.config/nvim/plugged")
-Plug 'voldikss/vim-floaterm'
+" Plug 'voldikss/vim-floaterm'
 
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
-
 Plug 'majutsushi/tagbar'
+
 " Autoformat
 Plug 'Chiel92/vim-autoformat'
 " Auto Complete
@@ -126,7 +126,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
-Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 " Plug 'connorholyday/vim-snazzy'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -134,17 +133,18 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " Plug 'airblade/vim-gitgutter'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 " markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
-Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
-Plug 'vimwiki/vimwiki'
+" Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
+" Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
+" Plug 'vimwiki/vimwiki'
 " HTML, CSS, JavaScript, PHP, JSON, etc.
-Plug 'elzr/vim-json'
-Plug 'othree/html5.vim'
-Plug 'hail2u/vim-css3-syntax'
+" Plug 'elzr/vim-json'
+" Plug 'othree/html5.vim'
+" Plug 'hail2u/vim-css3-syntax'
 " Plug 'spf13/PIV', { 'for' :['php', 'vim-plug'] }
-Plug 'gko/vim-coloresque', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-Plug 'pangloss/vim-javascript', { 'for' :['javascript', 'vim-plug'] }
-Plug 'mattn/emmet-vim'
+" Plug 'gko/vim-coloresque', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
+" Plug 'pangloss/vim-javascript', { 'for' :['javascript', 'vim-plug'] }
+" Plug 'mattn/emmet-vim'
 
 call plug#end()
 
@@ -174,17 +174,17 @@ let g:mkdp_browser = ''
 let g:mkdp_echo_preview_url = 0
 let g:mkdp_browserfunc = ''
 let g:mkdp_preview_options = {
-    \ 'mkit': {},
-    \ 'katex': {},
-    \ 'uml': {},
-    \ 'maid': {},
-    \ 'disable_sync_scroll': 0,
-    \ 'sync_scroll_type': 'middle',
-    \ 'hide_yaml_meta': 1,
-    \ 'sequence_diagrams': {},
-    \ 'flowchart_diagrams': {},
-    \ 'content_editable': v:false
-    \ }
+			\ 'mkit': {},
+			\ 'katex': {},
+			\ 'uml': {},
+			\ 'maid': {},
+			\ 'disable_sync_scroll': 0,
+			\ 'sync_scroll_type': 'middle',
+			\ 'hide_yaml_meta': 1,
+			\ 'sequence_diagrams': {},
+			\ 'flowchart_diagrams': {},
+			\ 'content_editable': v:false
+			\ }
 let g:mkdp_markdown_css = ''
 let g:mkdp_highlight_css = ''
 
@@ -211,16 +211,16 @@ let g:markdown_fenced_languages = ['css', 'js=javascript']
 " ==
 
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ "Unknown"   : "?"
-    \ }
+			\ "Modified"  : "✹",
+			\ "Staged"    : "✚",
+			\ "Untracked" : "✭",
+			\ "Renamed"   : "➜",
+			\ "Unmerged"  : "═",
+			\ "Deleted"   : "✖",
+			\ "Dirty"     : "✗",
+			\ "Clean"     : "✔︎",
+			\ "Unknown"   : "?"
+			\ }
 
 " ===
 " === NERDTree
