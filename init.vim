@@ -86,14 +86,6 @@ noremap cc <C-w>
 noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
 noremap <LEADER>sc :source ~/.config/nvim/init.vim<CR>
 
-autocmd FileType c nnoremap <buffer> <LEADER>i :!gcc % && ./a.out && rm ./a.out <CR>
-autocmd FileType cpp nnoremap <buffer> <LEADER>i :!g++ % && ./a.out && rm ./a.out <CR>
-autocmd FileType python nnoremap <buffer> <LEADER>i :!python % <CR>
-autocmd FileType sh nnoremap <buffer> <LEADER>i :!sh % <CR>
-autocmd FileType go nnoremap <buffer> <LEADER>i :!go run % <CR>
-autocmd FileType java nnoremap <buffer> <LEADER>i :!javac % && java %:r <CR>
-nnoremap <buffer> <LEADER>i :!./% <CR>
-autocmd FileType vim,zsh,tmux nnoremap <buffer> <LEADER>i :source % <CR>
 
 call plug#begin("~/.config/nvim/plugged")
 " Plug 'voldikss/vim-floaterm'
@@ -188,17 +180,14 @@ let g:mkdp_page_title = '「${name}」'
 
 execute 'source ~/.config/nvim/airline.vim'
 execute 'source ~/.config/nvim/coc.vim'
+execute 'source ~/.config/nvim/filetype.vim'
 
 noremap <LEADER>c  :CocList<CR>
-
-
 map <C-f> :FZF<CR>
 map ff :FZF<CR>
-
 map <LEADER>f :FZF<CR>
 
 let g:markdown_fenced_languages = ['css', 'js=javascript']
-
 
 " ==
 " == NERDTree-git
@@ -224,18 +213,6 @@ map tt :NERDTreeToggle<CR>
 " let g:NERDTreeDirArrowCollapsible = '👇'
 map <LEADER>n :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
-" autocmd BufEnter * :NERDTree
-
-autocmd BufNewFile *.java 0r ~/.config/nvim/template/java.tpl | autocmd! BufNewFile
-autocmd BufNewFile *.py 0r ~/.config/nvim/template/python.tpl | autocmd! BufNewFile
-autocmd BufNewFile *.go 0r ~/.config/nvim/template/golang.tpl | autocmd! BufNewFile
-autocmd BufNewFile *.c 0r ~/.config/nvim/template/c.tpl | autocmd! BufNewFile
-autocmd BufNewFile *.cpp 0r ~/.config/nvim/template/cpp.tpl | autocmd! BufNewFile
-autocmd BufNewFile *.rs 0r ~/.config/nvim/template/rust.tpl | autocmd! BufNewFile
-autocmd BufNewFile *.html 0r ~/.config/nvim/template/html.tpl | autocmd! BufNewFile
-autocmd BufNewFile *.js 0r ~/.config/nvim/template/javascript.tpl | autocmd! BufNewFile
-autocmd BufNewFile *.sh 0r ~/.config/nvim/template/shell.tpl | autocmd! BufNewFile
-
 
 
 
