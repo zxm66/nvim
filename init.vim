@@ -78,9 +78,9 @@ inoremap <C-q> <ESC>
 
 noremap ; :
 noremap - $
-noremap J <C-d>
+noremap J <PageDown>
 noremap H :vertical resize+10<CR>
-noremap K <C-u>
+noremap K <PageUp>
 noremap L :vertical resize-10<CR>
 noremap cc <C-w>
 noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
@@ -94,14 +94,6 @@ autocmd FileType go nnoremap <buffer> <LEADER>i :!go run % <CR>
 autocmd FileType java nnoremap <buffer> <LEADER>i :!javac % && java %:r <CR>
 nnoremap <buffer> <LEADER>i :!./% <CR>
 autocmd FileType vim,zsh,tmux nnoremap <buffer> <LEADER>i :source % <CR>
-
-" autocmd FileType c nnoremap <buffer> <C-i> :!gcc % && ./a.out && rm ./a.out <CR>
-" autocmd FileType cpp nnoremap <buffer> <C-i> :!g++ % && ./a.out && rm ./a.out <CR>
-" autocmd FileType python nnoremap <buffer> <C-i> :!python % <CR>
-" autocmd FileType sh nnoremap <buffer> <C-i> :!sh % <CR>
-" autocmd FileType golang nnoremap <buffer> <C-i> :!go run % <CR>
-" nnoremap <buffer> <C-i> :!./% <CR>
-" autocmd FileType vim,zsh,tmux nnoremap <buffer> <C-i> :source % <CR>
 
 call plug#begin("~/.config/nvim/plugged")
 " Plug 'voldikss/vim-floaterm'
