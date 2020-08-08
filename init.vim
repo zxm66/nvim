@@ -116,6 +116,8 @@ Plug 'mhinz/vim-startify'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'dense-analysis/ale'
+
 
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 " Plug 'connorholyday/vim-snazzy'
@@ -227,6 +229,7 @@ map <C-n> :NERDTreeToggle<CR>
 " ===
 " === vim-airline
 " ===
+let g:aitline_theme='dark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
