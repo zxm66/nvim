@@ -52,11 +52,12 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 
-let g:airline#extensions#coc#enabled = 1
+let g:airline#extensions#coc#enabled = 0
 let g:airline#extensions#coc#error_symbol = 'Error:'
 let g:airline#extensions#coc#warning_symbol = 'Warning:'
 let g:airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
 let g:airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
+
 let g:airline#extensions#fzf#enabled = 1
 let g:airline#extensions#nerdtree_status = 1
 

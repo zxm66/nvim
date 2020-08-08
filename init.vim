@@ -70,9 +70,7 @@ map s <nop>
 map <LEADER>s :nohlsearch<CR>
 map <C-h> :tabprevious<CR>
 map <C-l> :tabNext<CR>
-map <C-s> :w<CR>
-map <LEADER>q :q<CR>
-map <LEADER>w :w<CR>
+map tt :terminal<CR>
 
 inoremap <C-q> <ESC>
 
@@ -208,7 +206,6 @@ let g:NERDTreeIndicatorMapCustom = {
 " ===
 " === NERDTree
 " ===
-map tt :NERDTreeToggle<CR>
 " let g:NERDTreeDirArrowExpandable = '👉'
 " let g:NERDTreeDirArrowCollapsible = '👇'
 map <LEADER>n :NERDTreeToggle<CR>
