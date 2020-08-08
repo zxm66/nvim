@@ -186,7 +186,7 @@ let g:mkdp_highlight_css = ''
 let g:mkdp_port = '8888'
 let g:mkdp_page_title = '「${name}」'
 
-
+execute 'source ~/.config/nvim/airline.vim'
 execute 'source ~/.config/nvim/coc.vim'
 
 noremap <LEADER>c  :CocList<CR>
@@ -220,49 +220,11 @@ let g:NERDTreeIndicatorMapCustom = {
 " === NERDTree
 " ===
 map tt :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '👉'
-let g:NERDTreeDirArrowCollapsible = '👇'
+" let g:NERDTreeDirArrowExpandable = '👉'
+" let g:NERDTreeDirArrowCollapsible = '👇'
 map <LEADER>n :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 " autocmd BufEnter * :NERDTree
-
-" ===
-" === vim-airline
-" ===
-let g:aitline_theme='dark'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_splits = 1
-let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'default'
-let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#tabline#show_tab_count = 1
-let g:airline#extensions#tabline#show_tab_count = 2
-let g:airline#extensions#tabline#excludes = []
-let g:airline#extensions#tabline#exclude_preview = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
-nmap <leader>- <Plug>AirlineSelectPrevTab
-nmap <leader>+ <Plug>AirlineSelectNextTab
-
-let g:airline#extensions#coc#enabled = 1
-let airline#extensions#coc#error_symbol = 'Error:'
-let airline#extensions#coc#warning_symbol = 'Warning:'
-let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
-let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
-let g:airline#extensions#fzf#enabled = 1
-let g:airline#extensions#nerdtree_status = 1
-
 
 autocmd BufNewFile *.java 0r ~/.config/nvim/template/java.tpl | autocmd! BufNewFile
 autocmd BufNewFile *.py 0r ~/.config/nvim/template/python.tpl | autocmd! BufNewFile
