@@ -79,7 +79,7 @@ noremap L :vertical resize-10<CR>
 noremap cc <C-w>
 noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
 noremap <LEADER>sc :source ~/.config/nvim/init.vim<CR>
-
+command! VimConfig :execute 'edit ~/.config/nvim/init.vim'
 
 call plug#begin("~/.config/nvim/plugged")
 " Plug 'voldikss/vim-floaterm'
