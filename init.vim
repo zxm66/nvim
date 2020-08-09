@@ -59,17 +59,13 @@ map sh :set nosplitright<CR>:vsplit<CR>
 map sk :set nosplitbelow<CR>:split<CR>
 map sl :set splitbelow<CR>:split<CR>
 highlight VertSplit guifg=#2e3330 guibg=#688060 ctermfg=236 ctermbg=65
-map ga :!git add .<CR>
-map gc :!git commit -a -m "gc" <CR>
-map gl :!git pull<CR>
-map gs :!git push<CR>
+
 map lg :!git status && git add . && git commit -a -m "gc" && git pull && git push <CR>
 
 
 map s <nop>
 map <LEADER>s :nohlsearch<CR>
-map <C-h> :tabprevious<CR>
-map <C-l> :tabNext<CR>
+
 map tt :terminal<CR>
 
 inoremap <C-q> <ESC>
@@ -101,6 +97,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-pathogen'
 
 Plug 'mhinz/vim-startify'
 
@@ -108,7 +105,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dense-analysis/ale'
 
-
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 " Plug 'connorholyday/vim-snazzy'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -140,7 +137,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "
 " tagbar
 "
-autocmd FileType java nested :TagbarOpen
+" autocmd FileType java nested :TagbarOpen
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 map <LEADER>t :TagbarToggle<CR>
 
