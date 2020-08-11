@@ -4,7 +4,7 @@
 	"golang":{
 		"command": "gopls",
 		"rootPatterns": [".git/",".vim/"],
-		"filetypes": ["go-unavaliable"]
+		"filetypes": ["go"]
 	}   
   }
 }
