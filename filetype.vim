@@ -4,6 +4,7 @@ autocmd FileType python nnoremap <buffer> <LEADER>i :!python % <CR>
 autocmd FileType sh nnoremap <buffer> <LEADER>i :!sh % <CR>
 autocmd FileType go nnoremap <buffer> <LEADER>i :!go run % <CR>
 autocmd FileType java nnoremap <buffer> <LEADER>i :!javac % && java %:r <CR>
+autocmd FileType rust nnoremap <buffer> <LEADER>i :!cargo run <CR>
 nnoremap <buffer> <LEADER>i :!./% <CR>
 autocmd FileType vim,zsh,tmux nnoremap <buffer> <LEADER>i :source % <CR>
 
