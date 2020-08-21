@@ -85,7 +85,7 @@ call plug#begin("~/.config/nvim/plugged")
 " Plug 'voldikss/vim-floaterm'
 
 Plug 'tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
+"Plug 'easymotion/vim-easymotion'
 Plug 'majutsushi/tagbar'
 
 " Autoformat
@@ -126,6 +126,17 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " Plug 'gko/vim-coloresque', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 " Plug 'pangloss/vim-javascript', { 'for' :['javascript', 'vim-plug'] }
 " Plug 'mattn/emmet-vim'
+" assuming you're using vim-plug: https://github.com/junegunn/vim-plug
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+" NOTE: you need to install completion sources to get completions. Check
+" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
 
 call plug#end()
 
@@ -205,7 +216,6 @@ let g:NERDTreeIndicatorMapCustom = {
 " let g:NERDTreeDirArrowExpandable = '👉'
 " let g:NERDTreeDirArrowCollapsible = '👇'
 map <LEADER>n :NERDTreeToggle<CR>
-map <C-n> :NERDTreeToggle<CR>
 
 
 
