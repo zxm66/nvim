@@ -87,4 +87,5 @@ command! VimConfig :execute 'edit ~/.config/nvim/init.vim'
 
 
 
+execute 'source ~/.config/nvim/plugin.vim'
 
