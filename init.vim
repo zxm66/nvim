@@ -70,7 +70,7 @@ map <LEADER><LEADER> :set spell!<CR>
 
 map tt :terminal<CR>
 map <LEADER>q :bdelete %<CR>
-map <LEADER>n :Ntree .<CR>
+map <LEADER>n :NERDTreeToggle<CR>
 
 inoremap <C-q> <ESC>
 
@@ -83,7 +83,23 @@ noremap L :vertical resize-10<CR>
 noremap cc <C-w>
 noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
 noremap <LEADER>sc :source ~/.config/nvim/init.vim<CR>
+noremap 'af :Autoformat<CR>
+
 command! VimConfig :execute 'edit ~/.config/nvim/init.vim'
+
+
+" coc-nvim
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" autocmd FileType java nested :TagbarOpen
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+map <LEADER>t :TagbarToggle<CR>
+
+noremap <LEADER>c  :CocList<CR>
+map <C-f> :FZF<CR>
+map ff :FZF<CR>
+
+map <LEADER>f :FZF ~/workSpace/<CR>
 
 
 

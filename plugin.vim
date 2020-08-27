@@ -1,33 +1,35 @@
 
 
 call plug#begin("~/.config/nvim/plugged")
-" Plug 'voldikss/vim-floaterm'
 
-Plug 'tpope/vim-surround'
-"Plug 'easymotion/vim-easymotion'
-Plug 'majutsushi/tagbar'
 
 " Autoformat
 Plug 'Chiel92/vim-autoformat'
+Plug 'mhinz/vim-startify'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'voldikss/vim-floaterm'
+Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
+
+"Plug 'easymotion/vim-easymotion'
+"Plug 'majutsushi/tagbar'
+
 " Auto Complete
 " Plug 'Valloric/YouCompleteMe'
 " Plug 'puremourning/vimspector'
 
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-Plug 'honza/vim-snippets'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-pathogen'
+"Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'honza/vim-snippets'
+"Plug 'tpope/vim-sensible'
+"Plug 'tpope/vim-pathogen'
 
-Plug 'mhinz/vim-startify'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
 
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 " Plug 'connorholyday/vim-snazzy'
-" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 " Git
 " Plug 'airblade/vim-gitgutter'
@@ -51,33 +53,16 @@ Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 " Plug 'ncm2/ncm2-path'
 
 " pdf
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+"Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 " notes
 Plug 'xolox/vim-notes'
 call plug#end()
 
-
-
-" enable ncm2 for all buffers
-"autocmd BufEnter * call ncm2#enable_for_buffer()
-" IMPORTANT: :help Ncm2PopupOpen for more information
-"set completeopt=noinsert,menuone,noselect
-" NOTE: you need to install completion sources to get completions. Check
-" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
-
-" coc-nvim
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-"
-" tagbar
-"
-" autocmd FileType java nested :TagbarOpen
-let g:tagbar_ctags_bin='/usr/local/bin/ctags'
-map <LEADER>t :TagbarToggle<CR>
-
 "
 " markdown
 "
+
+let g:markdown_fenced_languages = ['css', 'js=javascript']
 let g:mkdj_auto_start = 0
 let g:mkdp_auto_close = 1
 let g:mkdp_refresh_slow = 0
@@ -109,13 +94,6 @@ let g:mkdp_page_title = '「${name}」'
 execute 'source ~/.config/nvim/airline.vim'
 execute 'source ~/.config/nvim/coc.vim'
 execute 'source ~/.config/nvim/filetype.vim'
-
-noremap <LEADER>c  :CocList<CR>
-map <C-f> :FZF<CR>
-map ff :FZF<CR>
-
-map <LEADER>f :FZF ~/workSpace/<CR>
-let g:markdown_fenced_languages = ['css', 'js=javascript']
 
 " ==
 " == NERDTree-git
