@@ -50,6 +50,10 @@ Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 " Plug 'ncm2/ncm2-bufword'
 " Plug 'ncm2/ncm2-path'
 
+" pdf
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+" notes
+Plug 'xolox/vim-notes'
 call plug#end()
 
 
