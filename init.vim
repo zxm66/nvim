@@ -70,7 +70,7 @@ map <LEADER><LEADER> :set spell!<CR>
 
 map tt :terminal<CR>
 map <LEADER>q :bdelete %<CR>
-map <LEADER>n :NERDTreeToggle<CR>
+map <LEADER>n :NERDTreeVCS<CR>
 
 inoremap <C-q> <ESC>
 
@@ -87,6 +87,9 @@ noremap 'af :Autoformat<CR>
 
 command! VimConfig :execute 'edit ~/.config/nvim/init.vim'
 
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " coc-nvim
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
