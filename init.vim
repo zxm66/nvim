@@ -15,7 +15,7 @@ set clipboard+=unnamed
 set number
 set relativenumber
 set cursorline
-set cursorcolumn
+"set cursorcolumn
 set scrolloff=5
 
 set nobackup
@@ -70,7 +70,7 @@ map <LEADER><LEADER> :set spell!<CR>
 
 map tt :terminal<CR>
 map <LEADER>q :bdelete %<CR>
-map <LEADER>n :NERDTreeVCS<CR>
+map <LEADER>n :NERDTreeToggle<CR>
 
 inoremap <C-q> <ESC>
 

@@ -13,6 +13,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'voldikss/vim-floaterm'
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'easymotion/vim-easymotion'
 "Plug 'majutsushi/tagbar'
 
@@ -20,7 +21,6 @@ Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 " Plug 'Valloric/YouCompleteMe'
 " Plug 'puremourning/vimspector'
 
-"Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'honza/vim-snippets'
 "Plug 'tpope/vim-sensible'
 "Plug 'tpope/vim-pathogen'
@@ -55,7 +55,7 @@ Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 " pdf
 "Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 " notes
-Plug 'xolox/vim-notes'
+"Plug 'xolox/vim-notes'
 call plug#end()
 
 "
