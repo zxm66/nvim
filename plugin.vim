@@ -112,11 +112,12 @@ let g:NERDTreeIndicatorMapCustom = {
 			\ }
 
 " ===
-" === NERDTree
+" === NERDTree 
 " ===
 " let g:NERDTreeDirArrowExpandable = '👉'
 " let g:NERDTreeDirArrowCollapsible = '👇'
-
-
+" there is a question ,that the nvim become slowly
+" let NERDTreeMapCustomOpen = "l"
+" let NERDTreeMapCloseDir = "h"
 
 

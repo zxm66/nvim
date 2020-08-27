@@ -104,7 +104,7 @@ map ff :FZF<CR>
 
 map <LEADER>f :FZF ~/workSpace/<CR>
 
-
+let g:surround_insert_tail = "<++>"
 
 execute 'source ~/.config/nvim/plugin.vim'
 
