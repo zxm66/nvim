@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =0
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/Users/zhangxiaomin/workSpace'
 let g:netrw_dirhist_0='/Users/zhangxiaomin/.Trash'
 let g:netrw_dirhist_9='/Users/zhangxiaomin/sourceSpace/neovim/test/functional/fixtures/autoload/health'
 let g:netrw_dirhist_8='/Users/zhangxiaomin'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_5='/Users/zhangxiaomin/.config/nvim'
 let g:netrw_dirhist_4='/Users/zhangxiaomin/.config'
 let g:netrw_dirhist_3='/Users/zhangxiaomin/.config/coc'
 let g:netrw_dirhist_2='/Users/zhangxiaomin/.config/coc/ultisnips'
-let g:netrw_dirhist_1='/Users/zhangxiaomin/.config/coc'

@@ -1,6 +1,7 @@
 
 " <leader> = <space>
 let mapleader=" "
+set updatetime=100
 set mouse=a
 set tabstop=4
 set smarttab
@@ -85,6 +86,7 @@ noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
 noremap <LEADER>sc :source ~/.config/nvim/init.vim<CR>
 noremap 'af :Autoformat<CR>
 
+map 't :FloatermToggle<CR>
 command! VimConfig :execute 'edit ~/.config/nvim/init.vim'
 
 " coc-nvim
@@ -99,8 +101,6 @@ map <C-f> :FZF<CR>
 map ff :FZF<CR>
 
 map <LEADER>f :FZF ~/workSpace/<CR>
-
-let g:surround_insert_tail = "<++>"
 
 execute 'source ~/.config/nvim/plugin.vim'
 
