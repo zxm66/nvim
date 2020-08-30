@@ -68,7 +68,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 
 " Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> M :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['im','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')

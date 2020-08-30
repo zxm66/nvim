@@ -1,3 +1,3 @@
 ### nvim
 
-hello
+this is my vimrc , 

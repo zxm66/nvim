@@ -1,4 +1,4 @@
 
 
-packagc main
+package main
 

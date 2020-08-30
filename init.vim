@@ -71,7 +71,7 @@ map <LEADER><LEADER> :set spell!<CR>
 
 map tt :terminal<CR>
 map <LEADER>q :bdelete %<CR>
-map <LEADER>n :NERDTreeToggle<CR>
+map <LEADER>n :NERDTreeToggle .<CR>
 
 inoremap <C-q> <ESC>
 
