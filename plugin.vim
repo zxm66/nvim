@@ -9,6 +9,7 @@ Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/BufOnly.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'voldikss/vim-floaterm'
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }

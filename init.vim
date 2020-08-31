@@ -70,6 +70,7 @@ map <LEADER>s :nohlsearch<CR>
 map <LEADER><LEADER> :set spell!<CR>
 
 map tt :terminal<CR>
+map <LEADER>b :BufOnly<CR>
 map <LEADER>q :bdelete %<CR>
 map <LEADER>n :NERDTreeToggle .<CR>
 
