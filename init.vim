@@ -66,6 +66,7 @@ map lg :!git status && git add . && git commit -a -m "gc" && git pull && git pus
 
 
 map s <nop>
+map <LEADER>ac :set autochdir!<CR>
 map <LEADER>s :nohlsearch<CR>
 map <LEADER>w :set nowrap!<CR>
 map <LEADER><LEADER>s :set spell!<CR>
