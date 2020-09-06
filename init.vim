@@ -30,7 +30,7 @@ set showmode
 set wildmenu
 set smartcase
 set wrap
-set autochdir
+" set autochdir
 set background=light
 
 set hlsearch
@@ -53,7 +53,7 @@ filetype plugin indent on
 syntax on
 
 
-set fillchars=vert:$
+" set fillchars=vert:^
 set splitright
 set splitbelow
 map sj :set splitright<CR>:vsplit<CR>
@@ -67,7 +67,8 @@ map lg :!git status && git add . && git commit -a -m "gc" && git pull && git pus
 
 map s <nop>
 map <LEADER>s :nohlsearch<CR>
-map <LEADER><LEADER> :set spell!<CR>
+map <LEADER>w :set nowrap!<CR>
+map <LEADER><LEADER>s :set spell!<CR>
 
 map tt :terminal<CR>
 map <LEADER>b :BufOnly<CR>
@@ -101,7 +102,7 @@ noremap <LEADER>c  :CocList<CR>
 map <C-f> :FZF<CR>
 map ff :FZF<CR>
 
-map <LEADER>f :FZF ~/workSpace/<CR>
+map <LEADER>f :FZF<CR>
 
 execute 'source ~/.config/nvim/plugin.vim'
 
