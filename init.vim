@@ -104,6 +104,5 @@ map <C-f> :FZF<CR>
 map ff :FZF<CR>
 
 map <LEADER>f :FZF<CR>
-
 execute 'source ~/.config/nvim/plugin.vim'
-
+execute 'source ~/.config/nvim/defx.vim'

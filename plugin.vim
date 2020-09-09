@@ -18,7 +18,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'easymotion/vim-easymotion'
 "Plug 'majutsushi/tagbar'
-
+Plug 'morhetz/gruvbox'
 " Auto Complete
 " Plug 'Valloric/YouCompleteMe'
 " Plug 'puremourning/vimspector'
@@ -32,7 +32,8 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'connorholyday/vim-snazzy'
-" Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'kristijanhusak/defx-icons'
 " Git
 " Plug 'airblade/vim-gitgutter'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
