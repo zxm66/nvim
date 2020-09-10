@@ -74,8 +74,8 @@ map <LEADER><LEADER>s :set spell!<CR>
 map tt :terminal<CR>
 map <LEADER>b :BufOnly<CR>
 map <LEADER>q :bdelete %<CR>
-map <LEADER>n :NERDTreeToggle .<CR>
-
+" map <LEADER>n :NERDTreeToggle .<CR>
+map <LEADER>n :Defx -columns=icons:indent:filename:type -split=vertical -winwidth=50 -direction=topleft<CR>
 inoremap <C-q> <ESC>
 
 noremap ; :
