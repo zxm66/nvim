@@ -100,9 +100,10 @@ let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 map <LEADER>t :TagbarToggle<CR>
 
 noremap <LEADER>c  :CocList<CR>
-map <C-f> :FZF<CR>
-map ff :FZF<CR>
+map <C-f> :FZF --reverse --info=inline <CR>
+map ff :FZF --reverse --info=inline <CR>
 
-map <LEADER>f :FZF<CR>
+map <LEADER>f :FZF --reverse --info=inline <CR>
 execute 'source ~/.config/nvim/plugin.vim'
 execute 'source ~/.config/nvim/defx.vim'
+execute 'source ~/.config/nvim/fzf.vim'
