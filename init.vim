@@ -61,7 +61,7 @@ map sh :set nosplitright<CR>:vsplit<CR>
 map sk :set nosplitbelow<CR>:split<CR>
 map sl :set splitbelow<CR>:split<CR>
 highlight VertSplit guifg=#2e3330 guibg=#688060 ctermfg=236 ctermbg=65
-
+" 这行命令我想改成异步执行的
 map lg :!git status && git add . && git commit -a -m "gc" && git pull && git push <CR>
 
 
@@ -74,8 +74,8 @@ map <LEADER><LEADER>s :set spell!<CR>
 map tt :terminal<CR>
 map <LEADER>b :BufOnly<CR>
 map <LEADER>q :bdelete %<CR>
-" map <LEADER>n :NERDTreeToggle .<CR>
-map <LEADER>n :Defx -columns=icons:indent:filename:type -split=vertical -winwidth=50 -direction=topleft<CR>
+map <LEADER>n :NERDTreeToggle .<CR>
+" map <LEADER>n :Defx -columns=icons:indent:filename:type -split=vertical -winwidth=50 -direction=topleft<CR>
 inoremap <C-q> <ESC>
 
 noremap ; :

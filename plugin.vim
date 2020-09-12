@@ -5,7 +5,7 @@ call plug#begin("~/.config/nvim/plugged")
 
 " Autoformat
 Plug 'Chiel92/vim-autoformat'
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -39,8 +39,8 @@ Plug 'kristijanhusak/defx-icons'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 " markdown
 " Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
-" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
-" Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
+Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 " Plug 'vimwiki/vimwiki'
 " HTML, CSS, JavaScript, PHP, JSON, etc.
 " Plug 'elzr/vim-json'
