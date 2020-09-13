@@ -1,8 +1,6 @@
 
 
 call plug#begin("~/.config/nvim/plugged")
-
-
 " Autoformat
 Plug 'Chiel92/vim-autoformat'
 " Plug 'mhinz/vim-startify'
@@ -23,22 +21,16 @@ Plug 'morhetz/gruvbox'
 " Auto Complete
  Plug 'Valloric/YouCompleteMe'
  Plug 'puremourning/vimspector'
-
 "Plug 'honza/vim-snippets'
 "Plug 'tpope/vim-sensible'
 "Plug 'tpope/vim-pathogen'
-
-
 "Plug 'dense-analysis/ale'
-
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'connorholyday/vim-snazzy'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'kristijanhusak/defx-icons'
-" Git
 " Plug 'airblade/vim-gitgutter'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
-" markdown
 " Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
@@ -55,18 +47,11 @@ Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'roxma/nvim-yarp'
 " Plug 'ncm2/ncm2-bufword'
 " Plug 'ncm2/ncm2-path'
-
-" pdf
 "Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-" notes
 "Plug 'xolox/vim-notes'
 call plug#end()
 let g:indent_guides_guide_size            = 1  
 let g:indent_guides_start_level           = 2 
-
-"
-" markdown
-"
 
 let g:markdown_fenced_languages = ['css', 'js=javascript']
 let g:mkdj_auto_start = 0
@@ -101,8 +86,6 @@ execute 'source ~/.config/nvim/airline.vim'
 execute 'source ~/.config/nvim/coc.vim'
 execute 'source ~/.config/nvim/filetype.vim'
 
-
-
 let g:NERDTreeIndicatorMapCustom = {
 			\ "Modified"  : "✹",
 			\ "Staged"    : "✚",
@@ -115,9 +98,7 @@ let g:NERDTreeIndicatorMapCustom = {
 			\ "Unknown"   : "?"
 			\ }
 
-" ===
-" === NERDTree 
-" ===
+
 " let g:NERDTreeDirArrowExpandable = '👉'
 " let g:NERDTreeDirArrowCollapsible = '👇'
 " there is a question ,that the nvim become slowly
