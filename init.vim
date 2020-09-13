@@ -67,7 +67,7 @@ map sh :set nosplitright<CR>:vsplit<CR>
 map sk :set nosplitbelow<CR>:split<CR>
 map sl :set splitbelow<CR>:split<CR>
 highlight VertSplit guifg=#2e3330 guibg=#688060 ctermfg=236 ctermbg=65
-" 这行命令我想改成异步执行的
+
 map lg :!git status && git add . && git commit -a -m "gc" && git pull && git push <CR>
 
 
