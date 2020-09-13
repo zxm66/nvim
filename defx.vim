@@ -1,4 +1,5 @@
-	call defx#custom#column('icon', {
+	
+call defx#custom#column('icon', {
 	      \ 'directory_icon': '▸',
 	      \ 'opened_icon': '▾',
 	      \ 'root_icon': ' ',

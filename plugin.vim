@@ -6,12 +6,13 @@ call plug#begin("~/.config/nvim/plugged")
 " Autoformat
 Plug 'Chiel92/vim-autoformat'
 " Plug 'mhinz/vim-startify'
+" Plug 'glepnir/dashboard-nvim'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'voldikss/vim-floaterm'
+"Plug 'voldikss/vim-floaterm'
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 Plug 'Yggdroot/indentLine'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -20,8 +21,8 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
 " Auto Complete
-" Plug 'Valloric/YouCompleteMe'
-" Plug 'puremourning/vimspector'
+ Plug 'Valloric/YouCompleteMe'
+ Plug 'puremourning/vimspector'
 
 "Plug 'honza/vim-snippets'
 "Plug 'tpope/vim-sensible'
@@ -33,7 +34,7 @@ Plug 'morhetz/gruvbox'
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'connorholyday/vim-snazzy'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'kristijanhusak/defx-icons'
+" Plug 'kristijanhusak/defx-icons'
 " Git
 " Plug 'airblade/vim-gitgutter'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -51,7 +52,7 @@ Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 " Plug 'pangloss/vim-javascript', { 'for' :['javascript', 'vim-plug'] }
 " Plug 'mattn/emmet-vim'
 " Plug 'ncm2/ncm2'
-" Plug 'roxma/nvim-yarp'
+Plug 'roxma/nvim-yarp'
 " Plug 'ncm2/ncm2-bufword'
 " Plug 'ncm2/ncm2-path'
 
@@ -100,9 +101,7 @@ execute 'source ~/.config/nvim/airline.vim'
 execute 'source ~/.config/nvim/coc.vim'
 execute 'source ~/.config/nvim/filetype.vim'
 
-" ==
-" == NERDTree-git
-" ==
+
 
 let g:NERDTreeIndicatorMapCustom = {
 			\ "Modified"  : "✹",
