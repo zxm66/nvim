@@ -110,6 +110,14 @@ map <C-f> :FZF --reverse --info=inline <CR>
 map ff :FZF --reverse --info=inline <CR>
 
 map <LEADER>f :FZF --reverse --info=inline <CR>
+
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/bin/python2'
+
 execute 'source ~/.config/nvim/plugin.vim'
 execute 'source ~/.config/nvim/defx.vim'
 execute 'source ~/.config/nvim/fzf.vim'
+execute 'source ~/.config/nvim/airline.vim'
+execute 'source ~/.config/nvim/coc.vim'
+execute 'source ~/.config/nvim/filetype.vim'
+

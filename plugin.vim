@@ -19,8 +19,8 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
 " Auto Complete
- Plug 'Valloric/YouCompleteMe'
- Plug 'puremourning/vimspector'
+" Plug 'Valloric/YouCompleteMe'
+" Plug 'puremourning/vimspector'
 "Plug 'honza/vim-snippets'
 "Plug 'tpope/vim-sensible'
 "Plug 'tpope/vim-pathogen'
@@ -81,10 +81,6 @@ let g:mkdp_highlight_css = ''
 " use a custom port to start server or random for empty
 let g:mkdp_port = '8888'
 let g:mkdp_page_title = '「${name}」'
-
-execute 'source ~/.config/nvim/airline.vim'
-execute 'source ~/.config/nvim/coc.vim'
-execute 'source ~/.config/nvim/filetype.vim'
 
 let g:NERDTreeIndicatorMapCustom = {
 			\ "Modified"  : "✹",
