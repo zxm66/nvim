@@ -105,6 +105,8 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 map <LEADER>t :TagbarToggle<CR>
 
+    
+nnoremap <LEADER>m :UndotreeToggle<cr>
 noremap <LEADER>c  :CocList<CR>
 map <C-f> :FZF --reverse --info=inline <CR>
 map ff :FZF --reverse --info=inline <CR>
