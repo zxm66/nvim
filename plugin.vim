@@ -3,6 +3,8 @@
 call plug#begin("~/.config/nvim/plugged")
 " Autoformat
 Plug 'Chiel92/vim-autoformat'
+" debug
+Plug 'puremourning/vimspector'
 " Plug 'mhinz/vim-startify'
 " Plug 'glepnir/dashboard-nvim'
 Plug 'tpope/vim-surround'
