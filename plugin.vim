@@ -1,6 +1,7 @@
 
 
 call plug#begin("~/.config/nvim/plugged")
+Plug 'itchyny/calendar.vim' 
 " Autoformat
 Plug 'Chiel92/vim-autoformat'
 " debug
@@ -24,10 +25,10 @@ Plug 'morhetz/gruvbox'
 " Auto Complete
 " Plug 'Valloric/YouCompleteMe'
 " Plug 'puremourning/vimspector'
-"Plug 'honza/vim-snippets'
-"Plug 'tpope/vim-sensible'
-"Plug 'tpope/vim-pathogen'
-"Plug 'dense-analysis/ale'
+" Plug 'honza/vim-snippets'
+" Plug 'tpope/vim-sensible'
+" Plug 'tpope/vim-pathogen'
+" Plug 'dense-analysis/ale'
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'connorholyday/vim-snazzy'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
