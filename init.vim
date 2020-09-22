@@ -82,6 +82,7 @@ map tt :terminal<CR>
 map <LEADER>b :BufOnly<CR>
 map <LEADER>q :bdelete %<CR>
 map <LEADER>n :NERDTreeToggle .<CR>
+noremap <C-l> :CocFix <CR>
 noremap '' <Esc>/<++++><CR>:nohlsearch<CR>c6l
 " map <LEADER>n :Defx -columns=icons:indent:filename:type -split=vertical -winwidth=50 -direction=topleft<CR>
 inoremap <C-q> <ESC>
@@ -107,7 +108,10 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 map <LEADER>t :TagbarToggle<CR>
 
-    
+" debuger vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
+
+
 nnoremap <LEADER>m :UndotreeToggle<cr>
 noremap <LEADER>c  :CocList<CR>
 map <C-f> :FZF --reverse --info=inline <CR>

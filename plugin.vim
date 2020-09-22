@@ -4,8 +4,6 @@ call plug#begin("~/.config/nvim/plugged")
 Plug 'itchyny/calendar.vim' 
 " Autoformat
 Plug 'Chiel92/vim-autoformat'
-" debug
-Plug 'puremourning/vimspector'
 " Plug 'mhinz/vim-startify'
 " Plug 'glepnir/dashboard-nvim'
 Plug 'tpope/vim-surround'
@@ -24,7 +22,7 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'morhetz/gruvbox'
 " Auto Complete
 " Plug 'Valloric/YouCompleteMe'
-" Plug 'puremourning/vimspector'
+Plug 'puremourning/vimspector'
 " Plug 'honza/vim-snippets'
 " Plug 'tpope/vim-sensible'
 " Plug 'tpope/vim-pathogen'
