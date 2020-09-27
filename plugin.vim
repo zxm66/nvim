@@ -1,7 +1,7 @@
 
 
 call plug#begin("~/.config/nvim/plugged")
-Plug 'itchyny/calendar.vim' 
+" Plug 'itchyny/calendar.vim' 
 " Autoformat
 Plug 'Chiel92/vim-autoformat'
 " Plug 'mhinz/vim-startify'
@@ -13,7 +13,10 @@ Plug 'vim-scripts/BufOnly.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'mbbill/undotree'
 "Plug 'voldikss/vim-floaterm'
+
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
+Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
+
 Plug 'Yggdroot/indentLine'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
@@ -23,13 +26,13 @@ Plug 'morhetz/gruvbox'
 " Auto Complete
 " Plug 'Valloric/YouCompleteMe'
 Plug 'puremourning/vimspector'
-" Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 " Plug 'tpope/vim-sensible'
 " Plug 'tpope/vim-pathogen'
 " Plug 'dense-analysis/ale'
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'connorholyday/vim-snazzy'
-Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'kristijanhusak/defx-icons'
 " Plug 'airblade/vim-gitgutter'
 " Plug 'Xuyuanp/nerdtree-git-plugin'

@@ -1,6 +1,6 @@
 autocmd FileType c nnoremap <buffer> <LEADER>i :!gcc % && ./a.out && rm ./a.out <CR>
 autocmd FileType cpp nnoremap <buffer> <LEADER>i :!g++ % && ./a.out && rm ./a.out <CR>
-autocmd FileType python nnoremap <buffer> <LEADER>i :!python % <CR>
+autocmd FileType python nnoremap <buffer> <LEADER>i :!python3 % <CR>
 autocmd FileType sh nnoremap <buffer> <LEADER>i :!sh % <CR>
 autocmd FileType go nnoremap <buffer> <LEADER>i :!go run % <CR>
 autocmd FileType java nnoremap <buffer> <LEADER>i :!javac % && java %:r <CR>

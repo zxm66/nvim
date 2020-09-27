@@ -98,6 +98,7 @@ noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
 noremap <LEADER>sc :source ~/.config/nvim/init.vim<CR>
 noremap 'af :Autoformat<CR>
 
+map 'f :Autoformat <CR>
 map 't :FloatermToggle<CR>
 command! VimConfig :execute 'edit ~/.config/nvim/init.vim'
 
@@ -123,7 +124,7 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
 
 execute 'source ~/.config/nvim/plugin.vim'
-execute 'source ~/.config/nvim/defx.vim'
+" execute 'source ~/.config/nvim/defx.vim'
 execute 'source ~/.config/nvim/fzf.vim'
 execute 'source ~/.config/nvim/airline.vim'
 execute 'source ~/.config/nvim/coc.vim'
