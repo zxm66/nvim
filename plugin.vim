@@ -36,10 +36,11 @@ Plug 'honza/vim-snippets'
 " Plug 'kristijanhusak/defx-icons'
 " Plug 'airblade/vim-gitgutter'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+Plug 'amix/vim-zenroom2'
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
-" Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki'
 " HTML, CSS, JavaScript, PHP, JSON, etc.
 " Plug 'elzr/vim-json'
 " Plug 'othree/html5.vim'

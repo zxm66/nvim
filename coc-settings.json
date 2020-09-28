@@ -25,5 +25,6 @@
 	//		"rootPatterns": ["compile_flags.txt", "compile_commands.json"],
 	//		"filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
 	//	}
-	}
+  },
+  "clangd.path": "/Users/zhangxiaomin/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd"
 }

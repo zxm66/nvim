@@ -23,7 +23,7 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 
-let g:coc_global_extensions=['coc-json','coc-vimlsp','coc-marketplace']
+let g:coc_global_extensions=['coc-vimlsp','coc-marketplace']
 
 " Use tab for trigger completion with character ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
