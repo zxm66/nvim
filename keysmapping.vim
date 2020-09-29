@@ -78,7 +78,10 @@ map <LEADER>s :nohlsearch<CR>
 map <LEADER>w :set nowrap!<CR>
 map <LEADER><LEADER>s :set spell!<CR>
 
-map tt :terminal<CR>
+" map tt :terminal<CR>
+" map tt :CocCommand terminal.Toggle<CR>
+map tt :FloatermToggle<CR>
+
 map <LEADER>b :BufOnly<CR>
 map <LEADER>q :bdelete %<CR>
 map <LEADER>n :NERDTreeToggle .<CR>

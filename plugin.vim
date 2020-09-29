@@ -4,7 +4,7 @@ call plug#begin("~/.config/nvim/plugged")
 " Plug 'itchyny/calendar.vim' 
 " Autoformat
 Plug 'Chiel92/vim-autoformat'
-" Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
 " Plug 'glepnir/dashboard-nvim'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
@@ -12,7 +12,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'mbbill/undotree'
-"Plug 'voldikss/vim-floaterm'
+
+Plug 'liuchengxu/vim-clap'
+Plug 'voldikss/vim-floaterm'
 
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
