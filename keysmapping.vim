@@ -112,6 +112,8 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 map <LEADER>t :TagbarToggle<CR>
 
+map <LEADER>p :Clap<CR>
+
 " debuger vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
 
