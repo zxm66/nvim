@@ -69,6 +69,7 @@ highlight VertSplit guifg=#2e3330 guibg=#688060 ctermfg=236 ctermbg=65
 
 "map lg :!git status && git add . && git commit -a -m "gc" && git pull && git push <CR>
 map lg :terminal lazygit<CR>i
+noremap fl :r !figlet
 
 map s <nop>
 map <LEADER>ac :set autochdir!<CR>
