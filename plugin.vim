@@ -15,7 +15,7 @@ Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
-Plug 'puremourning/vimspector'
+"Plug 'puremourning/vimspector'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-pathogen'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
