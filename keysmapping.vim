@@ -24,6 +24,7 @@ set cursorline
 "set cursorcolumn
 set scrolloff=5
 
+
 set nobackup
 set nowritebackup
 set	noswapfile
@@ -69,6 +70,7 @@ highlight VertSplit guifg=#2e3330 guibg=#688060 ctermfg=236 ctermbg=65
 
 "map lg :!git status && git add . && git commit -a -m "gc" && git pull && git push <CR>
 map lg :terminal lazygit<CR>i
+map ra :terminal ranger<CR>i
 noremap fl :r !figlet
 
 map s <nop>
