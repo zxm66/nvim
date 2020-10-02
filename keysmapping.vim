@@ -134,3 +134,7 @@ map <LEADER>f :FZF --reverse --info=inline <CR>
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
 
+
+let g:indent_guides_guide_size            = 1  
+let g:indent_guides_start_level           = 2 
+let g:SimpylFold_docstring_preview		  = 1
