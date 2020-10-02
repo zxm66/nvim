@@ -23,7 +23,7 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 
-let g:coc_global_extensions=['coc-vimlsp','coc-marketplace']
+let g:coc_global_extensions=['coc-vimlsp','coc-marketplace','coc-java','coc-java-debug']
 
 " Use tab for trigger completion with character ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -41,7 +41,7 @@ endfunction
 
 " Use <c-space> to trigger completion.
 if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
+  inoremap <silent><expr> <c-o> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
@@ -57,8 +57,9 @@ endif
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> 'p <Plug>(coc-diagnostic-prev)
+nmap <silent> 'n <Plug>(coc-diagnostic-next)
+
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
