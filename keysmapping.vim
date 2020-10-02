@@ -69,6 +69,8 @@ map sl :set splitbelow<CR>:split<CR>
 highlight VertSplit guifg=#2e3330 guibg=#688060 ctermfg=236 ctermbg=65
 
 "map lg :!git status && git add . && git commit -a -m "gc" && git pull && git push <CR>
+
+"noremap lg :terminal lazygit<CR>i
 noremap lg :FloatermNew lazygit<CR>
 noremap ra :FloatermNew ranger<CR>
 noremap mc :FloatermNew mc<CR>
@@ -82,7 +84,6 @@ map <LEADER>w :set nowrap!<CR>
 map <LEADER><LEADER>s :set spell!<CR>
 
 " map tt :terminal<CR>
-" map tt :CocCommand terminal.Toggle<CR>
 map tt :FloatermToggle<CR>
 
 map <LEADER>b :BufOnly<CR>
