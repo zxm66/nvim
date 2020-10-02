@@ -113,6 +113,7 @@ command! VimConfig :execute 'edit ~/.config/nvim/init.vim'
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " autocmd FileType java nested :TagbarOpen
+map <LEADER>ctags :!ctags -R .<CR>
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 map <LEADER>t :TagbarToggle<CR>
 
