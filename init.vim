@@ -12,3 +12,4 @@ execute 'source ~/.config/nvim/floaterm.vim'
 execute 'source ~/.config/nvim/clap.vim'
 " execute 'source ~/.config/nvim/dashboard.vim'
 
+execute 'NERDTree'
