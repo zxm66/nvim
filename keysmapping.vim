@@ -1,4 +1,3 @@
-
 " <leader> = <space>
 let mapleader=" "
 set updatetime=100
