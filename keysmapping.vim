@@ -69,9 +69,9 @@ map sl :set splitbelow<CR>:split<CR>
 highlight VertSplit guifg=#2e3330 guibg=#688060 ctermfg=236 ctermbg=65
 
 "map lg :!git status && git add . && git commit -a -m "gc" && git pull && git push <CR>
-noremap lg :terminal lazygit<CR>i
-noremap ra :terminal ranger<CR>i
-noremap mc :terminal mc<CR>i
+noremap lg :FloatermNew lazygit<CR>
+noremap ra :FloatermNew ranger<CR>
+noremap mc :FloatermNew mc<CR>
 noremap fl :r !figlet
 
 map s <nop>
