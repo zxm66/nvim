@@ -9,6 +9,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mbbill/undotree'
 Plug 'liuchengxu/vim-clap'
 Plug 'voldikss/vim-floaterm'
+
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
@@ -25,14 +26,19 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'f
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'vimwiki/vimwiki'
 Plug 'mattn/emmet-vim'
-Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
+
+Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
+
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'tmhedberg/SimpylFold'
 
 call plug#end()
+
+
+
 let g:indent_guides_guide_size            = 1  
 let g:indent_guides_start_level           = 2 
-let g:SimpylFold_docstring_preview = 1
+let g:SimpylFold_docstring_preview		  = 1
