@@ -160,7 +160,7 @@
 	"java.project.referencedLibraries": [
 		"lib/**/*.jar"
 	],
-	"java.errors.incompleteClasspath.severity": "info",
+	"java.errors.incompleteClasspath.severity": "ignore",
 	"java.progressReports.enabled": true,
 	"java.format.onType.fixComment.enabled": true,
 	"java.maven.downloadSources": true,
