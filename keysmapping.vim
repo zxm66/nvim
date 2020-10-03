@@ -90,7 +90,7 @@ map <LEADER>b :BufOnly<CR>
 map <LEADER>q :bdelete %<CR>
 map <LEADER>n :NERDTreeToggle .<CR>
 map <LEADER>e :CocCommand explorer<CR>
-noremap <LEADER>l :CocFix <CR>
+noremap <LEADER>k :CocFix <CR>
 noremap '' <Esc>/<++++><CR>:nohlsearch<CR>c6l
 " map <LEADER>n :Defx -columns=icons:indent:filename:type -split=vertical -winwidth=50 -direction=topleft<CR>
 inoremap <C-q> <ESC>
