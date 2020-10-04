@@ -102,7 +102,8 @@ noremap J <PageDown>
 noremap H :vertical resize+10<CR>
 noremap K <PageUp>
 noremap L :vertical resize-10<CR>
-noremap cw <C-w>
+" 还原cc这个组合键
+noremap cc <C-w>
 noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
 noremap <LEADER>sc :source ~/.config/nvim/init.vim<CR>
 noremap 'af :Autoformat<CR>
@@ -111,8 +112,9 @@ map 'f :Autoformat <CR>
 map 't :FloatermToggle<CR>
 command! VimConfig :execute 'edit ~/.config/nvim/init.vim'
 " quickfix
-map co :copen<CR>
-map cc :cclose<CR>
+map co :copen 10<CR>
+" 使用<leader>q 关闭buffer
+" map cc :cclose<CR>
 
 map cd :call setqflist([],'f')<CR>
 " coc-nvim
