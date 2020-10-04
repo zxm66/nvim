@@ -38,6 +38,7 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'tmhedberg/SimpylFold'
 
 Plug 'terryma/vim-multiple-cursors'
+Plug 'skywind3000/asyncrun.vim'
 call plug#end()
 
 

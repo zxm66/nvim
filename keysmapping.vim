@@ -121,6 +121,8 @@ map <LEADER>t :TagbarToggle<CR>
 
 map <LEADER>p :Clap<CR>
 
+map <LEADER>y yaw<ESC>:AsyncRun pbpaste \| say <CR>
+
 " debuger vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
 
