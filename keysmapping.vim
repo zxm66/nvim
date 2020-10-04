@@ -1,7 +1,7 @@
 " <leader> = <space>
 let mapleader=" "
 set updatetime=100
-
+set cscopequickfix=s-,c-,d-,i-,t-,e-,a-
 set termguicolors
 hi Cursor guifg=green guibg=green
 hi Cursor2 guifg=red guibg=red
@@ -102,7 +102,7 @@ noremap J <PageDown>
 noremap H :vertical resize+10<CR>
 noremap K <PageUp>
 noremap L :vertical resize-10<CR>
-noremap cc <C-w>
+noremap cw <C-w>
 noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
 noremap <LEADER>sc :source ~/.config/nvim/init.vim<CR>
 noremap 'af :Autoformat<CR>
@@ -110,7 +110,11 @@ noremap 'af :Autoformat<CR>
 map 'f :Autoformat <CR>
 map 't :FloatermToggle<CR>
 command! VimConfig :execute 'edit ~/.config/nvim/init.vim'
+" quickfix
+map co :copen<CR>
+map cc :cclose<CR>
 
+map cd :call setqflist([],'f')<CR>
 " coc-nvim
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
