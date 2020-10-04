@@ -18,6 +18,7 @@ Plug 'morhetz/gruvbox'
 "Plug 'puremourning/vimspector'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-pathogen'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'connorholyday/vim-snazzy'

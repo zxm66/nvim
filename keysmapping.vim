@@ -141,4 +141,5 @@ let g:indent_guides_start_level           = 2
 let g:SimpylFold_docstring_preview		  = 1
 
 
-
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
