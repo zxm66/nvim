@@ -141,5 +141,13 @@ let g:indent_guides_start_level           = 2
 let g:SimpylFold_docstring_preview		  = 1
 
 
+nmap <leader><leader>t <Plug>(coc-translator-p)
+vmap <Leader><leader>t <Plug>(coc-translator-pv)
+nmap <leader><Leader>e <Plug>(coc-translator-e)
+vmap <leader><Leader>e <Plug>(coc-translator-ev)
+nmap <leader><Leader>r <Plug>(coc-translator-r)
+vmap <leader><Leader>r <Plug>(coc-translator-rv)
+
+
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)

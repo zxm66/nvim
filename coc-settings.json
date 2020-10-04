@@ -1,4 +1,15 @@
 {
+	"translator.toLang":"zh",
+	"translator.engines":[
+		"bing",
+		"google",
+		"youdao",
+		"haici"
+	],
+	"translator.enableHover": false,
+	"translator.maxsize": 5000,
+	"translator.window.maxWidth": 999,
+	"translator.window.maxHeight": 999,
 
 	"coc.preferences.hoverTarget": "preview",
 	"coc.preferences.enableFloatHighlight": true,
@@ -82,7 +93,7 @@
 	"explorer.keyMappingMode": "none",
 	"explorer.buffer.showHiddenBuffers": false,
 	"explorer.keyMappings": {
-	    "i": false, 
+		"i": false,
 		"gk": "expandablePrev",
 		"gj": "expandableNext",
 		"*": "toggleSelection",
@@ -97,10 +108,10 @@
 			"expandable?",
 			["expanded?", "collapse", "expand"],
 			"open"
-			],
+		],
 		"o": ["expanded?", "collapse", "expand"],
-	    "<cr>": ["expandable?", "cd", "open"],
-	    "e": "open",
+		"<cr>": ["expandable?", "cd", "open"],
+		"e": "open",
 		"s": "open:split",
 		"S": "open:split:plain",
 		"E": "open:vsplit",
@@ -129,14 +140,14 @@
 		"gf": "gotoSource:file",
 		"gb": "gotoSource:buffer",
 		"[[": "sourcePrev",
-		"]]": "sourceNext",
-		"[d": "diagnosticPrev",
-		"]d": "diagnosticNext",
-		"[c": "gitPrev",
-		"]c": "gitNext",
-		"<<": "gitStage",
-		">>": "gitUnstage"
-  },
+			"]]": "sourceNext",
+			"[d": "diagnosticPrev",
+				"]d": "diagnosticNext",
+				"[c": "gitPrev",
+					"]c": "gitNext",
+					"<<": "gitStage",
+					">>": "gitUnstage"
+	},
 
 	"python.autoComplete.addBrackets": true,
 	"python.jediEnabled": false,
@@ -196,6 +207,6 @@
 				}
 			}
 		}
-  },
-  "clangd.path": "/Users/zhangxiaomin/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd"
+	},
+	"clangd.path": "/Users/zhangxiaomin/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd"
 }
