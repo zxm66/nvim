@@ -72,7 +72,8 @@ highlight VertSplit guifg=#2e3330 guibg=#688060 ctermfg=236 ctermbg=65
 
 "noremap lg :terminal lazygit<CR>i
 noremap lg :FloatermNew lazygit<CR>
-noremap ra :FloatermNew ranger<CR>
+"noremap ra :FloatermNew ranger<CR>
+noremap ra :RnvimrToggle<CR>
 noremap mc :FloatermNew mc<CR>
 noremap fl :r !figlet
 
