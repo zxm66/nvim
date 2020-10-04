@@ -37,6 +37,7 @@ Plug 'ncm2/ncm2-path'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'tmhedberg/SimpylFold'
 
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 
