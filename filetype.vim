@@ -1,7 +1,7 @@
 autocmd FileType c nnoremap <buffer> <LEADER>i :!gcc % && ./a.out && rm ./a.out <CR>
 autocmd FileType cpp nnoremap <buffer> <LEADER>i :!g++ % && ./a.out && rm ./a.out <CR>
 autocmd FileType python nnoremap <buffer> <LEADER>i :AsyncRun -raw python3 % <CR>
-autocmd FileType sh nnoremap <buffer> <LEADER>i :!sh % <CR>
+autocmd FileType sh nnoremap <buffer> <LEADER>i :AsyncRun -raw sh % <CR>
 autocmd FileType go nnoremap <buffer> <LEADER>i :!go run % <CR>
 autocmd FileType java nnoremap <buffer> <LEADER>i :!javac % && java %:r <CR>
 autocmd FileType rust nnoremap <buffer> <LEADER>i :!cargo run <CR>
