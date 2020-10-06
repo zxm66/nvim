@@ -181,7 +181,8 @@
 	// "java.jdt.ls.home": null,
 	// "java.home": null,
 	"java.format.onType.enabled": true,
-
+	// 全局配置lombok
+	"java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"~/.config/coc/extensions/node_modules/coc-java-lombok/jar/lombok.jar\"",
 
 
 

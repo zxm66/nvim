@@ -89,7 +89,8 @@ map <LEADER><LEADER>s :set spell!<CR>
 
 map <LEADER>b :BufOnly<CR>
 map <LEADER>q :bdelete %<CR>
-map <LEADER>n :NERDTreeToggle .<CR>
+"map <LEADER>n :NERDTreeToggle .<CR>
+map <LEADER>n :Explore .<CR>
 map <LEADER>e :CocCommand explorer<CR>
 noremap <LEADER>k :CocFix <CR>
 noremap '' <Esc>/<++++><CR>:nohlsearch<CR>c6l
@@ -104,6 +105,7 @@ noremap K <PageUp>
 noremap L :vertical resize-10<CR>
 " 还原cc这个组合键
 noremap cc <C-w>
+noremap <LEADER>r :tabnew ~/.config/nvim/<CR>:lcd ~/.config/nvim/ <CR>
 noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
 noremap <LEADER>sc :source ~/.config/nvim/init.vim<CR>
 noremap 'af :Autoformat<CR>

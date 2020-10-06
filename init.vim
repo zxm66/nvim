@@ -5,7 +5,7 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 execute 'source ~/.config/nvim/keysmapping.vim'
 execute 'source ~/.config/nvim/plugin.vim'
-execute 'source ~/.config/nvim/nerdtree.vim'
+"execute 'source ~/.config/nvim/nerdtree.vim'
 execute 'source ~/.config/nvim/markdown.vim'
 " execute 'source ~/.config/nvim/defx.vim'
 execute 'source ~/.config/nvim/fzf.vim'
