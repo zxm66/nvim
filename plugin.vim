@@ -10,8 +10,8 @@ Plug 'mbbill/undotree'
 Plug 'liuchengxu/vim-clap'
 Plug 'voldikss/vim-floaterm'
 Plug 'kevinhwang91/rnvimr'
-Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
-Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
+"Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
+"Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'

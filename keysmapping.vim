@@ -34,6 +34,10 @@ set cmdheight=1
 
 set showmode
 set wildmenu
+set wildignore=*.o,*.obj,*.class,*.bak,*/target/,*/out/,*/.vim/,*/.git/
+
+
+
 set smartcase
 set wrap
 " set autochdir
@@ -51,6 +55,7 @@ set foldlevel=99
 let g:Foldmethod=0
 
 set nocompatible
+set path+=**
 filetype on
 filetype indent on
 filetype plugin on
@@ -113,6 +118,7 @@ noremap 'af :Autoformat<CR>
 map 'f :Autoformat <CR>
 map 't :FloatermToggle<CR>
 command! VimConfig :execute 'edit ~/.config/nvim/init.vim'
+command! MakeTags !ctags -R .
 " quickfix
 map co :copen 10<CR>
 " 使用<leader>q 关闭buffer
@@ -128,8 +134,9 @@ let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 map <LEADER>t :TagbarToggle<CR>
 
 map <LEADER>p :Clap<CR>
-
+" the \ is escape character
 map <LEADER>y yaw<ESC>:AsyncRun pbpaste \| say <CR>
+map <LEADER>h yaw<ESC>:help 
 
 " debuger vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
@@ -137,11 +144,10 @@ let g:vimspector_enable_mappings = 'HUMAN'
 
 nnoremap <LEADER>m :UndotreeToggle<cr>
 noremap <LEADER>c  :CocList<CR>
-map <C-f> :FZF --reverse --info=inline <CR>
-map ff :FZF --reverse --info=inline <CR>
-
-map <LEADER>f :FZF --reverse --info=inline <CR>
-
+"map <C-f> :FZF --reverse --info=inline <CR>
+"map ff :FZF --reverse --info=inline <CR>
+"map <LEADER>f :FZF --reverse --info=inline <CR>
+map <LEADER>f :find 
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
 
@@ -161,3 +167,4 @@ vmap <leader><Leader>r <Plug>(coc-translator-rv)
 
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
