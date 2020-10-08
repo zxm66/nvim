@@ -61,7 +61,6 @@ filetype plugin indent on
 
 syntax on
 
-
 " set fillchars=vert:^
 set splitright
 set splitbelow
@@ -79,17 +78,18 @@ noremap lg :terminal lazygit<CR>i
 "noremap ra :FloatermNew ranger<CR>
 "noremap ra :RnvimrToggle<CR>
 noremap ra :terminal ranger<CR>
-noremap mc :FloatermNew mc<CR>
+noremap fm :terminal vifm<CR>i
+"noremap mc :FloatermNew mc<CR>
 noremap fl :r !figlet
 
 map s <nop>
 map <LEADER>ac :set autochdir!<CR>
 map <LEADER>s :nohlsearch<CR>
-" 自动换行
+" auto wrap
 map <LEADER>w :set nowrap!<CR>
 map <LEADER><LEADER>s :set spell!<CR>
 
-" map tt :terminal<CR>
+map tt :terminal<CR>
 " map tt :FloatermToggle<CR>
 
 map <LEADER>b :BufOnly<CR>
@@ -116,7 +116,7 @@ noremap <LEADER>sc :source ~/.config/nvim/init.vim<CR>
 noremap 'af :Autoformat<CR>
 
 map 'f :Autoformat <CR>
-map 't :FloatermToggle<CR>
+" map 't :FloatermToggle<CR>
 command! VimConfig :execute 'edit ~/.config/nvim/init.vim'
 command! MakeTags !ctags -R .
 " quickfix
@@ -136,7 +136,7 @@ map <LEADER>t :TagbarToggle<CR>
 map <LEADER>p :Clap<CR>
 " the \ is escape character
 map <LEADER>y yaw<ESC>:AsyncRun pbpaste \| say <CR>
-map <LEADER>h yaw<ESC>:help 
+" map <LEADER>h yaw<ESC>:!pbpaste \| man<CR> 
 
 " debuger vimspector
 let g:vimspector_enable_mappings = 'HUMAN'

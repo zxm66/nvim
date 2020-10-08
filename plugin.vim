@@ -8,8 +8,8 @@ Plug 'vim-scripts/BufOnly.vim'
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mbbill/undotree'
 Plug 'liuchengxu/vim-clap'
-Plug 'voldikss/vim-floaterm'
-Plug 'kevinhwang91/rnvimr'
+"Plug 'voldikss/vim-floaterm'
+"Plug 'kevinhwang91/rnvimr'
 "Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 "Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
