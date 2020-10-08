@@ -6,7 +6,7 @@ set termguicolors
 hi Cursor guifg=green guibg=green
 hi Cursor2 guifg=red guibg=red
 set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50
-
+set title titlestring=%<%F%=%l/%L-%P\ titelen=70
 set mouse=a
 set tabstop=4
 set smarttab
@@ -35,8 +35,6 @@ set cmdheight=1
 set showmode
 set wildmenu
 set wildignore=*.o,*.obj,*.class,*.bak,*/target/,*/out/,*/.vim/,*/.git/
-
-
 
 set smartcase
 set wrap
@@ -75,10 +73,12 @@ highlight VertSplit guifg=#2e3330 guibg=#688060 ctermfg=236 ctermbg=65
 
 "map lg :!git status && git add . && git commit -a -m "gc" && git pull && git push <CR>
 
-"noremap lg :terminal lazygit<CR>i
-noremap lg :FloatermNew lazygit<CR>
+tnoremap <Esc> <C-\><C-n>
+noremap lg :terminal lazygit<CR>i
+"noremap lg :FloatermNew lazygit<CR>
 "noremap ra :FloatermNew ranger<CR>
-noremap ra :RnvimrToggle<CR>
+"noremap ra :RnvimrToggle<CR>
+noremap ra :terminal ranger<CR>
 noremap mc :FloatermNew mc<CR>
 noremap fl :r !figlet
 
