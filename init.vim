@@ -1,17 +1,117 @@
+let mapleader=" "
+" netrw
+let g:netrw_banner=0
+let g:netrw_liststyle=3
+" python
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/bin/python2'
+
+set encoding=utf-8
+set number
+set nowrap
+set smartcase
+set termguicolors
+set cursorline
+
+set smarttab
+set softtabstop=4
+set tabstop=4
+set shiftwidth=4
+
+set clipboard+=unnamedplus
+
+set autoindent
+set smartindent
+
+set nobackup
+set nowritebackup
+set noswapfile
+
+set nocompatible
+filetype plugin on
+
+set path+=**
+set wildmenu
+set wildignore=*.o,*.obj,*.class,*.bak,*/target/,*/out/,*/.vim/,*/.git/
+
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
+map ; :
+map - $
+map s <nop>
+map <LEADER>n :Explore .<CR>
+map <LEADER>f :find 
+map <LEADER>s :nohlsearch<CR>
+map <LEADER>t yaw<ESC>:!pbpaste \| say<CR>
+map <LEADER>r :tabedit ~/.config/nvim<CR>:lcd ~/.config/nvim<CR>
+map <LEADER>rc :edit ~/.config/nvim/init.vim<CR>
+map <LEADER>sc :source ~/.config/nvim/init.vim<CR>
+noremap H :vertical resize+10<CR>
+noremap J :below resize+10<CR>
+noremap <C-j> <PageDown>
+noremap K :below resize-10<CR>
+noremap <C-k> <PageUp>
+noremap L :vertical resize-10<CR>
+noremap <LEADER>- :tabprevious<CR>
+noremap <LEADER>= :tabNext<CR>
+noremap cc <C-w>
+noremap lg :terminal lazygit<CR>i
+noremap fm :terminal vifm<CR>
+noremap tt :terminal <CR>i
+tnoremap <Esc> <C-\><C-n>
+command! MakeTags :!ctags -R . <CR>
+
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs 
      \https://raw.GitHub.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-execute 'source ~/.config/nvim/keysmapping.vim'
-execute 'source ~/.config/nvim/plugin.vim'
-"execute 'source ~/.config/nvim/nerdtree.vim'
-execute 'source ~/.config/nvim/markdown.vim'
-" execute 'source ~/.config/nvim/defx.vim'
-execute 'source ~/.config/nvim/fzf.vim'
-execute 'source ~/.config/nvim/airline.vim'
-execute 'source ~/.config/nvim/coc.vim'
-execute 'source ~/.config/nvim/filetype.vim'
-execute 'source ~/.config/nvim/floaterm.vim'
-execute 'source ~/.config/nvim/clap.vim'
-" execute 'source ~/.config/nvim/dashboard.vim'
+call plug#begin("~/.config/nvim/plugged")
+	Plug 'Chiel92/vim-autoformat'
+	Plug 'tpope/vim-surround'
+	Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+	"Plug 'puremourning/vimspector'
+	Plug 'SirVer/ultisnips'
+	Plug 'honza/vim-snippets'
+	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+	Plug 'airblade/vim-gitgutter'
+	Plug 'terryma/vim-multiple-cursors'
+call plug#end()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

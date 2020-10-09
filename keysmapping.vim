@@ -27,7 +27,7 @@ set scrolloff=5
 
 set nobackup
 set nowritebackup
-set	noswapfile
+set noswapfile
 
 set showcmd
 set cmdheight=1
