@@ -52,13 +52,18 @@ noremap <C-j> <PageDown>
 noremap K :below resize-10<CR>
 noremap <C-k> <PageUp>
 noremap L :vertical resize-10<CR>
+noremap <LEADER>c :CocList<CR>
 noremap <LEADER>- :tabprevious<CR>
 noremap <LEADER>= :tabNext<CR>
+noremap <LEADER>m :call SetMakeprg()<CR>:make %<CR>
 noremap cc <C-w>
+noremap co :copen 10<CR>
 noremap lg :terminal lazygit<CR>i
 noremap fm :terminal vifm<CR>
 noremap tt :terminal <CR>i
+
 tnoremap <Esc> <C-\><C-n>
+
 command! MakeTags :!ctags -R . <CR>
 
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
@@ -79,9 +84,18 @@ call plug#begin("~/.config/nvim/plugged")
 call plug#end()
 
 
-
-
-
+function SetMakeprg()
+	if &filetype == 'c'
+		set makeprg=gcc
+	elseif &filetype =='cpp'
+		set makeprg=g++
+	elseif &filetype == 'python'
+		set makeprg=python3
+	elseif &filetype == 'vim'
+		set makeprg=source
+	endif
+endfunction
+	
 
 
 
