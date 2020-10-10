@@ -96,37 +96,4 @@ function SetMakeprg()
 		set makeprg=source
 	endif
 endfunction
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
