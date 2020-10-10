@@ -56,6 +56,7 @@ noremap <LEADER>c :CocList<CR>
 noremap <LEADER>- :tabprevious<CR>
 noremap <LEADER>= :tabNext<CR>
 noremap <LEADER>m :call SetMakeprg()<CR>:make %<CR>
+noremap <LEADER>q :bdelete % <CR>
 noremap cc <C-w>
 noremap co :copen 10<CR>
 noremap lg :terminal lazygit<CR>i
