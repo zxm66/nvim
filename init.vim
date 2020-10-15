@@ -67,6 +67,13 @@ tnoremap <Esc> <C-\><C-n>
 
 command! MakeTags :!ctags -R . <CR>
 
+nmap <leader><leader>t <Plug>(coc-translator-p)
+vmap <Leader><leader>t <Plug>(coc-translator-pv)
+nmap <leader><Leader>e <Plug>(coc-translator-e)
+vmap <leader><Leader>e <Plug>(coc-translator-ev)
+nmap <leader><Leader>r <Plug>(coc-translator-r)
+vmap <leader><Leader>r <Plug>(coc-translator-rv)
+
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs 
      \https://raw.GitHub.com/junegunn/vim-plug/master/plug.vim
