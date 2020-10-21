@@ -38,8 +38,8 @@ set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 map ; :
 map - $
-map , !
-map . %
+noremap , !
+noremap . %
 map s <nop>
 map <LEADER>n :Explore .<CR>
 map <LEADER>f :find 
