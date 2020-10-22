@@ -108,7 +108,7 @@ function SetMakeprg()
 	endif
 endfunction
 
-autocmd FileType scala nnoremap <buffer> <LEADER>i :!scalac % && scala %<CR>
+autocmd FileType scala nnoremap <buffer> <LEADER>i :!scalac % && scala %:r<CR>
 autocmd FileType c nnoremap <buffer> <LEADER>i :!gcc % && ./a.out && rm ./a.out <CR>
 autocmd FileType cpp nnoremap <buffer> <LEADER>i :!g++ % && ./a.out && rm ./a.out <CR>
 autocmd FileType python nnoremap <buffer> <LEADER>i :AsyncRun -raw python3 % <CR>
