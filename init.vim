@@ -1,4 +1,6 @@
 let mapleader=" "
+" terminal 
+let $TERM='iterm2'
 " netrw
 let g:netrw_banner=0
 let g:netrw_liststyle=3
@@ -35,6 +37,7 @@ set wildmenu
 set wildignore=*.o,*.obj,*.class,*.bak,*/target/,*/out/,*/.vim/,*/.git/
 
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set scrolloff=4
 
 map ; :
 map - $
@@ -60,11 +63,12 @@ noremap <LEADER>q :bdelete % <CR>
 noremap cc <C-w>
 noremap co :copen 10<CR>
 noremap lg :terminal lazygit<CR>i
-noremap fm :terminal vifm<CR>
+noremap fm :terminal vifm .<CR>
 noremap tt :terminal <CR>i
 
 tnoremap <Esc> <C-\><C-n>
 
+nnoremap <buffer> <LEADER>i :!./% <CR>
 command! MakeTags :!ctags -R . <CR>
 
 nmap <leader><leader>t <Plug>(coc-translator-p)
@@ -104,3 +108,21 @@ function SetMakeprg()
 	endif
 endfunction
 
+autocmd FileType scala nnoremap <buffer> <LEADER>i :!scalac % && scala %<CR>
+autocmd FileType c nnoremap <buffer> <LEADER>i :!gcc % && ./a.out && rm ./a.out <CR>
+autocmd FileType cpp nnoremap <buffer> <LEADER>i :!g++ % && ./a.out && rm ./a.out <CR>
+autocmd FileType python nnoremap <buffer> <LEADER>i :AsyncRun -raw python3 % <CR>
+autocmd FileType sh nnoremap <buffer> <LEADER>i :AsyncRun -raw sh % <CR>
+autocmd FileType go nnoremap <buffer> <LEADER>i :!go run % <CR>
+autocmd FileType java nnoremap <buffer> <LEADER>i :!javac % && java %:r <CR>
+autocmd FileType rust nnoremap <buffer> <LEADER>i :!cargo run <CR>
+autocmd FileType javascript nnoremap <buffer> <LEADER>i :!node % <CR>
+autocmd FileType vim,zsh,tmux nnoremap <buffer> <LEADER>i :source % <CR>
+autocmd BufNewFile *.java 0r ~/.config/nvim/template/java.tpl | autocmd! BufNewFile
+autocmd BufNewFile *.py 0r ~/.config/nvim/template/python.tpl | autocmd! BufNewFile
+autocmd BufNewFile *.go 0r ~/.config/nvim/template/golang.tpl | autocmd! BufNewFile
+autocmd BufNewFile *.c 0r ~/.config/nvim/template/c.tpl | autocmd! BufNewFile
+autocmd BufNewFile *.cpp 0r ~/.config/nvim/template/cpp.tpl | autocmd! BufNewFile
+autocmd BufNewFile *.rs 0r ~/.config/nvim/template/rust.tpl | autocmd! BufNewFile
+autocmd BufNewFile *.html 0r ~/.config/nvim/template/html.tpl | autocmd! BufNewFile
+autocmd BufNewFile *.js 0r ~/.config/nvim/template/javascript.tpl | autocmd! BufNewFile

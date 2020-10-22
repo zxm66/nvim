@@ -5,7 +5,7 @@ autocmd FileType sh nnoremap <buffer> <LEADER>i :AsyncRun -raw sh % <CR>
 autocmd FileType go nnoremap <buffer> <LEADER>i :!go run % <CR>
 autocmd FileType java nnoremap <buffer> <LEADER>i :!javac % && java %:r <CR>
 autocmd FileType rust nnoremap <buffer> <LEADER>i :!cargo run <CR>
-autocmd FileType js nnoremap <buffer> <LEADER>i :!node % <CR>
+autocmd FileType javascript nnoremap <buffer> <LEADER>i :!node % <CR>
 nnoremap <buffer> <LEADER>i :!./% <CR>
 autocmd FileType vim,zsh,tmux nnoremap <buffer> <LEADER>i :source % <CR>
 
@@ -18,5 +18,4 @@ autocmd BufNewFile *.cpp 0r ~/.config/nvim/template/cpp.tpl | autocmd! BufNewFil
 autocmd BufNewFile *.rs 0r ~/.config/nvim/template/rust.tpl | autocmd! BufNewFile
 autocmd BufNewFile *.html 0r ~/.config/nvim/template/html.tpl | autocmd! BufNewFile
 autocmd BufNewFile *.js 0r ~/.config/nvim/template/javascript.tpl | autocmd! BufNewFile
-autocmd BufNewFile *.sh 0r ~/.config/nvim/template/shell.tpl | autocmd! BufNewFile
 
