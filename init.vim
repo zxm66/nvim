@@ -55,9 +55,12 @@ noremap <C-j> <PageDown>
 noremap K :below resize-10<CR>
 noremap <C-k> <PageUp>
 noremap L :vertical resize-10<CR>
+noremap <LEADER><CR> :CocFix<CR>
 noremap <LEADER>c :CocList<CR>
 noremap <LEADER>- :tabprevious<CR>
 noremap <LEADER>= :tabNext<CR>
+noremap <LEADER>[ :bprevious<CR>
+noremap <LEADER>] :bNext<CR>
 noremap <LEADER>m :call SetMakeprg()<CR>:make %<CR>
 noremap <LEADER>q :bdelete % <CR>
 noremap cc <C-w>
@@ -111,8 +114,8 @@ endfunction
 autocmd FileType scala nnoremap <buffer> <LEADER>i :!scala %<CR>
 autocmd FileType c nnoremap <buffer> <LEADER>i :!gcc % && ./a.out && rm ./a.out <CR>
 autocmd FileType cpp nnoremap <buffer> <LEADER>i :!g++ % && ./a.out && rm ./a.out <CR>
-autocmd FileType python nnoremap <buffer> <LEADER>i :AsyncRun -raw python3 % <CR>
-autocmd FileType sh nnoremap <buffer> <LEADER>i :AsyncRun -raw sh % <CR>
+autocmd FileType python nnoremap <buffer> <LEADER>i :!python3 % <CR>
+autocmd FileType sh nnoremap <buffer> <LEADER>i :sh % <CR>
 autocmd FileType go nnoremap <buffer> <LEADER>i :!go run % <CR>
 autocmd FileType java nnoremap <buffer> <LEADER>i :!/Users/zhangxiaomin/Library/Java/JavaVirtualMachines/jdk-14.0.1+7/Contents/Home/bin/java % <CR>
 autocmd FileType rust nnoremap <buffer> <LEADER>i :!cargo run <CR>
