@@ -13,7 +13,9 @@ set number
 set nowrap
 set smartcase
 set termguicolors
-set cursorline
+
+autocmd InsertLeave,WinEnter * set cursorline
+autocmd InsertEnter,WinLeave * set nocursorline
 
 set smarttab
 set softtabstop=4
