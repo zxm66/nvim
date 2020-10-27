@@ -16,6 +16,8 @@ set termguicolors
 
 autocmd InsertLeave,WinEnter * set cursorline
 autocmd InsertEnter,WinLeave * set nocursorline
+set complete-=i   " disable scanning included files
+set complete-=t   " disable searching tags
 
 set smarttab
 set softtabstop=4
