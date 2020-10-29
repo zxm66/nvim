@@ -8,6 +8,8 @@ let g:netrw_liststyle=3
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
 colorscheme desert
+set helplang=cn
+set list
 set encoding=utf-8
 set number
 set nowrap
@@ -53,6 +55,17 @@ map <LEADER>t yaw<ESC>:!pbpaste \| say<CR>
 map <LEADER>r :tabedit ~/.config/nvim<CR>:lcd ~/.config/nvim<CR>
 map <LEADER>rc :edit ~/.config/nvim/init.vim<CR>
 map <LEADER>sc :source ~/.config/nvim/init.vim<CR>
+nmap N Nzz
+nmap n nzz
+nmap <tab> V>
+nmap <s-tab> V<
+vmap <tab> >gv
+vmap <s-tab> <gv
+
+
+
+
+
 noremap H :vertical resize+10<CR>
 noremap J :below resize+10<CR>
 noremap <C-j> <PageDown>
