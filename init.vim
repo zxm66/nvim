@@ -79,6 +79,7 @@ noremap <LEADER>[ :bprevious<CR>
 noremap <LEADER>] :bNext<CR>
 noremap <LEADER>m :call SetMakeprg()<CR>:make %<CR>
 noremap <LEADER>q :bdelete % <CR>
+tnoremap <LEADER>q :bdelete %!<CR>
 noremap cc <C-w>
 noremap co :copen 10<CR>
 noremap lg :terminal lazygit<CR>i
@@ -124,6 +125,12 @@ function SetMakeprg()
 		set makeprg=python3
 	elseif &filetype == 'vim'
 		set makeprg=source
+	elseif &filetype == 'java'
+		set makeprg=~/Library/Java/JavaVirtualMachines/jdk-14.0.1+7/Contents/Home/bin/java
+	elseif &filetype == 'scala'
+		set makeprg=scala
+	elseif &filetype == 'js'
+		set makeprg=node
 	endif
 endfunction
 
