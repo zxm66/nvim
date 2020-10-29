@@ -15,6 +15,7 @@ set number
 set nowrap
 set smartcase
 set termguicolors
+"set verbose=9
 
 autocmd InsertLeave,WinEnter * set cursorline
 autocmd InsertEnter,WinLeave * set nocursorline
@@ -36,6 +37,7 @@ set nowritebackup
 set noswapfile
 
 set nocompatible
+filetype on
 filetype plugin on
 
 set path+=**
@@ -61,9 +63,6 @@ nmap <tab> V>
 nmap <s-tab> V<
 vmap <tab> >gv
 vmap <s-tab> <gv
-
-
-
 
 
 noremap H :vertical resize+10<CR>
@@ -128,6 +127,17 @@ function SetMakeprg()
 	endif
 endfunction
 
+" 现在存在一个问题是第三方插件在修改这个path
+function SetPath()
+	if &filetype=='java'
+		set path=.,**,~/sourceSpace/jdk/src/**
+	elseif &filetype == 'python'
+		set path=.,**,~/Library/Python/3.7/lib/python/site-packages/**
+	endif
+endfunction
+
+
+
 autocmd FileType scala nnoremap <buffer> <LEADER>i :!scala %<CR>
 autocmd FileType c nnoremap <buffer> <LEADER>i :!gcc % && ./a.out && rm ./a.out <CR>
 autocmd FileType cpp nnoremap <buffer> <LEADER>i :!g++ % && ./a.out && rm ./a.out <CR>
@@ -138,6 +148,12 @@ autocmd FileType java nnoremap <buffer> <LEADER>i :!/Users/zhangxiaomin/Library/
 autocmd FileType rust nnoremap <buffer> <LEADER>i :!cargo run <CR>
 autocmd FileType javascript nnoremap <buffer> <LEADER>i :!node % <CR>
 autocmd FileType vim,zsh,tmux nnoremap <buffer> <LEADER>i :source % <CR>
+"autocmd FileType java set path+=~/sourceSpace/jdk/src/**
+"autocmd FileType python set path+=~/Library/Python/3.7/lib/python/site-packages/**
+autocmd FileType * call SetPath()
+
+
+
 autocmd BufNewFile *.java 0r ~/.config/nvim/template/java.tpl | autocmd! BufNewFile
 autocmd BufNewFile *.py 0r ~/.config/nvim/template/python.tpl | autocmd! BufNewFile
 autocmd BufNewFile *.go 0r ~/.config/nvim/template/golang.tpl | autocmd! BufNewFile
@@ -146,9 +162,5 @@ autocmd BufNewFile *.cpp 0r ~/.config/nvim/template/cpp.tpl | autocmd! BufNewFil
 autocmd BufNewFile *.rs 0r ~/.config/nvim/template/rust.tpl | autocmd! BufNewFile
 autocmd BufNewFile *.html 0r ~/.config/nvim/template/html.tpl | autocmd! BufNewFile
 autocmd BufNewFile *.js 0r ~/.config/nvim/template/javascript.tpl | autocmd! BufNewFile
-
-
-
-
 
 
