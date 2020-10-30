@@ -1,5 +1,5 @@
 let mapleader=" "
-" terminal 
+" terminal
 let $TERM='iterm2'
 " netrw
 let g:netrw_banner=0
@@ -7,13 +7,14 @@ let g:netrw_liststyle=3
 " python
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
-colorscheme desert
+"colorscheme desert
 set helplang=cn
 set list
 set encoding=utf-8
 set number
 set nowrap
 set smartcase
+set showcmd
 set termguicolors
 "set verbose=9
 
@@ -63,7 +64,7 @@ nmap <tab> V>
 nmap <s-tab> V<
 vmap <tab> >gv
 vmap <s-tab> <gv
-
+vmap <LEADER>/ <C-v>0I//<ESC>
 
 noremap H :vertical resize+10<CR>
 noremap J :below resize+10<CR>
@@ -79,12 +80,11 @@ noremap <LEADER>[ :bprevious<CR>
 noremap <LEADER>] :bNext<CR>
 noremap <LEADER>m :call SetMakeprg()<CR>:make %<CR>
 noremap <LEADER>q :bdelete % <CR>
-tnoremap <LEADER>q :bdelete %!<CR>
 noremap cc <C-w>
 noremap co :copen 10<CR>
-noremap lg :terminal lazygit<CR>i
-noremap fm :terminal vifm .<CR>
-noremap tt :terminal <CR>i
+noremap lg <C-w>v<Esc>:terminal lazygit<CR>
+noremap fm <C-w>v<Esc>:terminal vifm .<CR>
+noremap tt <C-w>v<Esc>:terminal <CR>i
 
 tnoremap <Esc> <C-\><C-n>
 
@@ -115,7 +115,7 @@ call plug#begin("~/.config/nvim/plugged")
 	Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
-
+" 最好是quickfix这个东西可以有索引，然后直接跳转到对应的位置上就好了。
 function SetMakeprg()
 	if &filetype == 'c'
 		set makeprg=gcc
@@ -143,8 +143,6 @@ function SetPath()
 	endif
 endfunction
 
-
-
 autocmd FileType scala nnoremap <buffer> <LEADER>i :!scala %<CR>
 autocmd FileType c nnoremap <buffer> <LEADER>i :!gcc % && ./a.out && rm ./a.out <CR>
 autocmd FileType cpp nnoremap <buffer> <LEADER>i :!g++ % && ./a.out && rm ./a.out <CR>
@@ -155,11 +153,10 @@ autocmd FileType java nnoremap <buffer> <LEADER>i :!/Users/zhangxiaomin/Library/
 autocmd FileType rust nnoremap <buffer> <LEADER>i :!cargo run <CR>
 autocmd FileType javascript nnoremap <buffer> <LEADER>i :!node % <CR>
 autocmd FileType vim,zsh,tmux nnoremap <buffer> <LEADER>i :source % <CR>
+autocmd FileType html nnoremap <buffer> <leader>i :!/Applications/Firefox.app/Contents/MacOS/firefox-bin %:p<CR>
 "autocmd FileType java set path+=~/sourceSpace/jdk/src/**
 "autocmd FileType python set path+=~/Library/Python/3.7/lib/python/site-packages/**
 autocmd FileType * call SetPath()
-
-
 
 autocmd BufNewFile *.java 0r ~/.config/nvim/template/java.tpl | autocmd! BufNewFile
 autocmd BufNewFile *.py 0r ~/.config/nvim/template/python.tpl | autocmd! BufNewFile
