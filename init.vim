@@ -7,7 +7,6 @@ let g:netrw_liststyle=3
 " python
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
-let g:vimspector_enable_mappings='HUMAN'
 "colorscheme desert
 set helplang=cn
 set list
@@ -40,7 +39,10 @@ set noswapfile
 
 set nocompatible
 filetype on
+filetype indent on
 filetype plugin on
+filetype plugin indent on
+
 
 set path+=**
 set wildmenu
@@ -110,12 +112,9 @@ call plug#begin("~/.config/nvim/plugged")
 Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-Plug 'puremourning/vimspector'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'airblade/vim-gitgutter'
-Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 " 最好是quickfix这个东西可以有索引，然后直接跳转到对应的位置上就好了。

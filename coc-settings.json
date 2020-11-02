@@ -1,5 +1,59 @@
 {
 
+
+	"list.source.vimcommands.defaultOptions": [],
+	"list.height": 10,
+	"list.indicator": ">",
+	"list.signOffset": 900,
+	"list.limitLines": 30000,
+	"list.normalMappings": {},
+	"list.insertMappings": {},
+	"lists.disabledLists": [],
+	"list.selectedSignText": "*",
+	"list.maxPreviewHeight": 12,
+	"list.source.grep.args": [],
+	"list.previewSplitRight": false,
+	"list.source.files.args": [],
+	"list.extendedSearchMode": true,
+	"list.source.grep.command": "ag",
+	"list.source.tags.command": "ctags -R .",
+	"list.source.files.command": "edit",
+	"list.source.mru.maxLength": 1000,
+	"list.source.mru.defaultArgs": [],
+	"list.source.grep.useLiteral": true,
+	"list.source.grep.maxColumns": 300,
+	"list.interactiveDebounceTime": 100,
+	"list.source.symbols.excludes": [],
+	"list.source.maps.defaultArgs": [],
+	"list.source.tags.defaultArgs": [],
+	"list.source.grep.defaultArgs": [],
+	"list.source.gfiles.defaultOptions": [],
+
+
+
+
+
+	"vimlsp.debug": true,
+	"vimlsp.indexes.count": 1,
+	"vimlsp.filetypes": [
+		"vim"
+	],
+	"vimlsp.indexes.gap": 100,
+	"vimlsp.trace.server": "messages",
+	"vimlsp.indexes.runtimepath": true,
+	"vimlsp.diagnostic.enable": true,
+	"vimlsp.suggest.fromVimruntime": true,
+	"vimlsp.suggest.fromRuntimepath": false,
+	"vimlsp.indexes.projectRootPatterns": [
+		".git",
+		"autoload",
+		"plugin"
+	],
+
+
+
+
+
 	"javascript.showUnused": true,
 	"javascript.suggest.names": true,
 	"javascript.suggest.paths": true,
@@ -166,13 +220,13 @@
 		"gf": "gotoSource:file",
 		"gb": "gotoSource:buffer",
 		"[[": "sourcePrev",
-		"]]": "sourceNext",
-		"[d": "diagnosticPrev",
-		"]d": "diagnosticNext",
-		"[c": "gitPrev",
-		"]c": "gitNext",
-		"<<": "gitStage",
-		">>": "gitUnstage"
+			"]]": "sourceNext",
+			"[d": "diagnosticPrev",
+				"]d": "diagnosticNext",
+				"[c": "gitPrev",
+					"]c": "gitNext",
+					"<<": "gitStage",
+					">>": "gitUnstage"
 	},
 
 	"python.analysis.logLevel": "Information",
@@ -227,7 +281,8 @@
 		"org.mockito.Answers.*"
 	],
 	"java.maven.updateSnapshots": false,
-	"java.debug.vimspector.profile": "Java Attach",
+	"java.debug.vimspector.profile": null,
+	"java.debug.vimspector.substitution.adapterPort": "5000",
 	"java.configuration.runtimes": [],
 	"java.codeGeneration.toString.template": "${object.className} [${member.name()}=${member.value}, ${otherMembers}]",
 	"java.codeGeneration.useBlocks": false,
@@ -264,7 +319,7 @@
 	"java.format.onType.enabled": true,
 	// 全局配置lombok
 	"java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"~/.config/coc/extensions/node_modules/coc-java-lombok/jar/lombok.jar\"",
-	
+
 
 	"metals.enable": true,
 	"metals.javaHome": "",
