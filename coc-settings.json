@@ -226,6 +226,7 @@
 		"org.mockito.ArgumentMatchers.*",
 		"org.mockito.Answers.*"
 	],
+	"java.maven.updateSnapshots": false,
 	"java.debug.vimspector.profile": "Java Attach",
 	"java.configuration.runtimes": [],
 	"java.codeGeneration.toString.template": "${object.className} [${member.name()}=${member.value}, ${otherMembers}]",
@@ -264,6 +265,59 @@
 	// 全局配置lombok
 	"java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"~/.config/coc/extensions/node_modules/coc-java-lombok/jar/lombok.jar\"",
 	
+
+	"metals.enable": true,
+	"metals.javaHome": "",
+	"metals.sbtScript": "",
+	"metals.millScript": "",
+	"metals.mavenScript": "",
+	"metals.gradleScript": "",
+	"metals.pantsTargets": "",
+	"metals.bloopVersion": "",
+	"metals.serverVersion": "0.9.4",
+	"metals.serverProperties": [],
+	"metals.excludedPackages": [],
+	"metals.statusBarEnabled": false,
+	"metals.scalafmtConfigPath": "",
+	"metals.customRepositories": [],
+	"metals.treeviews.alignment": "left",
+	"metals.treeviews.toggleNode": "<CR>",
+	"metals.ammoniteJvmProperties": [],
+	"metals.treeviews.initialWidth": 40,
+	"metals.treeviews.initialViews": [
+		{
+			"name": "metalsCompile",
+			"size": 10,
+			"expanded": []
+		},
+		{
+			"name": "metalsPackages",
+			"size": 40,
+			"expanded": [
+				[
+					"projects:"
+				]
+			]
+		},
+		{
+			"name": "metalsBuild",
+			"size": 15,
+			"expanded": []
+		}
+	],
+	"metals.treeviews.gotoLastChild": "J",
+	"metals.bloopSbtAlreadyInstalled": true,
+	"metals.superMethodLensesEnabled": true,
+	"metals.treeviews.gotoParentNode": "p",
+	"metals.treeviews.gotoFirstChild": "K",
+	"metals.treeviews.executeCommand": "r",
+	"metals.treeviews.gotoNextSibling": "<C-j>",
+	"metals.treeviews.gotoPrevSibling": "<C-k>",
+	"metals.treeviews.forceChildrenReload": "f",
+	"metals.enableStripMarginOnTypeFormatting": true,
+	"metals.treeviews.executeCommandAndOpenTab": "t",
+	"metals.treeviews.executeCommandAndOpenSplit": "s",
+	"metals.treeviews.executeCommandAndOpenVSplit": "v",
 
 
 
