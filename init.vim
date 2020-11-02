@@ -136,10 +136,22 @@ function SetMakeprg()
 	endif
 endfunction
 
-" 现在存在一个问题是第三方插件在修改这个path
+function SignDefine()
+	if &filetype == 'c' || &filetype == 'h'
+	elseif &filetype =='cpp'
+	elseif &filetype == 'python'
+	elseif &filetype == 'vim'
+	elseif &filetype == 'java'
+	elseif &filetype == 'scala'
+	elseif &filetype == 'js'
+	endif
+endfunction
+
+" 根据不同的文件类型，控制当前的path。直接重置path，禁止第三方插件对path的修改。
 function SetPath()
 	if &filetype=='java'
 		set path=.,**,~/sourceSpace/jdk/src/**
+		set path+=~/Library/Java/JavaVirtualMachines/jdk8u252-b09/Contents/Home/include/**
 	elseif &filetype == 'python'
 		set path=.,**,~/Library/Python/3.7/lib/python/site-packages/**
 	endif
@@ -156,9 +168,9 @@ autocmd FileType rust nnoremap <buffer> <LEADER>i :!cargo run <CR>
 autocmd FileType javascript nnoremap <buffer> <LEADER>i :!node % <CR>
 autocmd FileType vim,zsh,tmux nnoremap <buffer> <LEADER>i :source % <CR>
 autocmd FileType html nnoremap <buffer> <leader>i :!/Applications/Firefox.app/Contents/MacOS/firefox-bin %:p<CR>
-"autocmd FileType java set path+=~/sourceSpace/jdk/src/**
-"autocmd FileType python set path+=~/Library/Python/3.7/lib/python/site-packages/**
 autocmd FileType * call SetPath()
+autocmd FileType * call SignDefine()
+
 
 autocmd BufNewFile *.java 0r ~/.config/nvim/template/java.tpl | autocmd! BufNewFile
 autocmd BufNewFile *.py 0r ~/.config/nvim/template/python.tpl | autocmd! BufNewFile
