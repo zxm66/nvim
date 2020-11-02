@@ -7,6 +7,7 @@ let g:netrw_liststyle=3
 " python
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
+let g:vimspector_enable_mappings='HUMAN'
 "colorscheme desert
 set helplang=cn
 set list
@@ -52,8 +53,8 @@ map ; :
 map - $
 map s <nop>
 map <LEADER>n :Explore .<CR>
-map <LEADER>f :find 
-map <LEADER>d :!mkdir -p 
+map <LEADER>f :find
+map <LEADER>d :!mkdir -p
 map <LEADER>e :edit %:p:h/
 map <LEADER>s :nohlsearch<CR>
 map <LEADER>t yaw<ESC>:!pbpaste \| say<CR>
@@ -101,20 +102,20 @@ nmap <leader><Leader>r <Plug>(coc-translator-r)
 vmap <leader><Leader>r <Plug>(coc-translator-rv)
 
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs 
-     \https://raw.GitHub.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+				\https://raw.GitHub.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin("~/.config/nvim/plugged")
-	Plug 'Chiel92/vim-autoformat'
-	Plug 'tpope/vim-surround'
-	Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-	"Plug 'puremourning/vimspector'
-	Plug 'SirVer/ultisnips'
-	Plug 'honza/vim-snippets'
-	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-	Plug 'airblade/vim-gitgutter'
-	Plug 'terryma/vim-multiple-cursors'
+Plug 'Chiel92/vim-autoformat'
+Plug 'tpope/vim-surround'
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'puremourning/vimspector'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'airblade/vim-gitgutter'
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 " 最好是quickfix这个东西可以有索引，然后直接跳转到对应的位置上就好了。
@@ -170,7 +171,7 @@ autocmd FileType vim,zsh,tmux nnoremap <buffer> <LEADER>i :source % <CR>
 autocmd FileType html nnoremap <buffer> <leader>i :!/Applications/Firefox.app/Contents/MacOS/firefox-bin %:p<CR>
 autocmd FileType * call SetPath()
 autocmd FileType * call SignDefine()
-
+autocmd BufWrite * execute('Autoformat')
 
 autocmd BufNewFile *.java 0r ~/.config/nvim/template/java.tpl | autocmd! BufNewFile
 autocmd BufNewFile *.py 0r ~/.config/nvim/template/python.tpl | autocmd! BufNewFile
