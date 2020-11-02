@@ -53,6 +53,8 @@ map - $
 map s <nop>
 map <LEADER>n :Explore .<CR>
 map <LEADER>f :find 
+map <LEADER>d :!mkdir -p 
+map <LEADER>e :edit %:p:h/
 map <LEADER>s :nohlsearch<CR>
 map <LEADER>t yaw<ESC>:!pbpaste \| say<CR>
 map <LEADER>r :tabedit ~/.config/nvim<CR>:lcd ~/.config/nvim<CR>
