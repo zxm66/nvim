@@ -1,4 +1,27 @@
 {
+
+	"javascript.showUnused": true,
+	"javascript.suggest.names": true,
+	"javascript.suggest.paths": true,
+	"javascript.format.enabled": true,
+	"javascript.validate.enable": true,
+	"javascript.suggest.enabled": true,
+	"javascript.format.semicolons": "ignore",
+	"javascript.suggest.autoImports": true,
+	"javascript.preferences.quoteStyle": "auto",
+	"javascript.referencesCodeLens.enable": true,
+	"javascript.suggestionActions.enabled": true,
+	"javascript.suggest.completeFunctionCalls": true,
+	"javascript.updateImportsOnFileMove.enable": true,
+	"javascript.implementationsCodeLens.enable": true,
+	"javascript.preferences.useAliasesForRenames": true,
+	"javascript.preferences.importModuleSpecifier": "auto",
+	"javascript.format.insertSpaceAfterConstructor": false,
+	"javascript.format.insertSpaceAfterTypeAssertion": false,
+
+
+
+
 	"translator.toLang":"zh",
 	"translator.engines":[
 		"bing",
@@ -140,15 +163,24 @@
 		"gf": "gotoSource:file",
 		"gb": "gotoSource:buffer",
 		"[[": "sourcePrev",
-			"]]": "sourceNext",
-			"[d": "diagnosticPrev",
-				"]d": "diagnosticNext",
-				"[c": "gitPrev",
-					"]c": "gitNext",
-					"<<": "gitStage",
-					">>": "gitUnstage"
+		"]]": "sourceNext",
+		"[d": "diagnosticPrev",
+		"]d": "diagnosticNext",
+		"[c": "gitPrev",
+		"]c": "gitNext",
+		"<<": "gitStage",
+		">>": "gitUnstage"
 	},
 
+	"python.analysis.logLevel": "Information",
+	"python.envFile": "${workspaceFolder}/.env",
+	"python.linting.enabled": true,
+	"python.venvFolders": [
+		"envs",
+		".pyenv",
+		".direnv"
+	],
+	"python.analysis.information": [],
 	"python.autoComplete.addBrackets": true,
 	"python.jediEnabled": false,
 	"python.formatting.provider": "yapf",
@@ -183,7 +215,38 @@
 	"java.format.onType.enabled": true,
 	// 全局配置lombok
 	"java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"~/.config/coc/extensions/node_modules/coc-java-lombok/jar/lombok.jar\"",
+	
+	"coc.source.around.enable": true,
+	"coc.source.file.shortcut": "F",
+	"coc.source.file.enable": true,
+	"coc.source.file.triggerCharacters": [
+		"/"
+	],
 
+
+	"clangd.enabled": true,
+	"clangd.checkUpdates": false,
+	"clangd.semanticHighlighting": true,
+	"clangd.disableSnippetCompletion": false,
+	"clangd.showDBChangedNotification": true,
+	"clangd.path": "/Users/zhangxiaomin/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd",
+
+	"snippets.autoTrigger": true,
+	"snippets.trace": "verbose",
+	"snippets.extends": {},
+	"snippets.priority": 90,
+	"snippets.shortcut": "S",
+	"snippets.snipmate.enable": true,
+	"snippets.enableStatusItem": true,
+	"snippets.snipmate.author": "zhangxiaomin",
+	"snippets.ultisnips.enable": true,
+	"snippets.triggerCharacters": [],
+	"snippets.loadFromExtensions": true,
+	"snippets.editSnippetsCommand": "",
+	"snippets.ultisnips.usePythonx": true,
+	"snippets.textmateSnippetsRoots": [],
+	"snippets.ultisnips.pythonVersion": 3,
+	"snippets.userSnippetsDirectory": "",
 
 
 	"languageserver": {
@@ -208,6 +271,5 @@
 				}
 			}
 		}
-	},
-	"clangd.path": "/Users/zhangxiaomin/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd"
+	}
 }
