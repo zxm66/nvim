@@ -18,6 +18,9 @@
 	"javascript.preferences.importModuleSpecifier": "auto",
 	"javascript.format.insertSpaceAfterConstructor": false,
 	"javascript.format.insertSpaceAfterTypeAssertion": false,
+	"javascript.format.insertSpaceAfterCommaDelimiter": true,
+	"javascript.preferences.importModuleSpecifierEnding": "auto",
+	"javascript.format.placeOpenBraceOnNewLineForFunctions": false,
 
 
 
@@ -190,6 +193,51 @@
 	],
 
 
+	"java.import.callback": "",
+	"java.autobuild.enabled": true,
+	"java.completion.enabled": true,
+	"java.format.settings.url": null,
+	"java.templates.typeComment": [],
+	"java.selectionRange.enabled": true,
+	"java.format.settings.profile": null,
+	"java.project.resourceFilters": [
+		"node_modules",
+		".git"
+	],
+	"java.configuration.maven.userSettings": null,
+	"java.saveActions.organizeImports": false,
+	"java.templates.fileHeader": [],
+	"java.completion.overwrite": true,
+	"java.sources.organizeImports.starThreshold": 99,
+	"java.completion.filteredTypes": [
+		"java.awt.*",
+		"com.sun.*"
+	],
+	"java.contentProvider.preferred": null,
+	"java.configuration.updateBuildConfiguration": "automatic",
+	"java.completion.favoriteStaticMembers": [
+		"org.junit.Assert.*",
+		"org.junit.Assume.*",
+		"org.junit.jupiter.api.Assertions.*",
+		"org.junit.jupiter.api.Assumptions.*",
+		"org.junit.jupiter.api.DynamicContainer.*",
+		"org.junit.jupiter.api.DynamicTest.*",
+		"org.mockito.Mockito.*",
+		"org.mockito.ArgumentMatchers.*",
+		"org.mockito.Answers.*"
+	],
+	"java.debug.vimspector.profile": "Java Attach",
+	"java.configuration.runtimes": [],
+	"java.codeGeneration.toString.template": "${object.className} [${member.name()}=${member.value}, ${otherMembers}]",
+	"java.codeGeneration.useBlocks": false,
+	"java.codeGeneration.toString.limitElements": 0,
+	"java.codeGeneration.hashCodeEquals.useInstanceof": false,
+	"java.codeGeneration.toString.skipNullValues": false,
+	"java.codeGeneration.toString.codeStyle": "STRING_FORMAT",
+	"java.codeGeneration.generateComments": true,
+	"java.codeGeneration.toString.listArrayContents": true,
+	"java.codeGeneration.hashCodeEquals.useJava7Objects": false,
+	"java.referencesCodeLens.enabled": false,
 	"java.format.enabled": true,
 	"java.enabled": true,
 	"java.import.exclusions": [
@@ -216,6 +264,9 @@
 	// 全局配置lombok
 	"java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"~/.config/coc/extensions/node_modules/coc-java-lombok/jar/lombok.jar\"",
 	
+
+
+
 	"coc.source.around.enable": true,
 	"coc.source.file.shortcut": "F",
 	"coc.source.file.enable": true,
@@ -225,10 +276,14 @@
 
 
 	"clangd.enabled": true,
-	"clangd.checkUpdates": false,
+	"clangd.checkUpdates": true,
 	"clangd.semanticHighlighting": true,
 	"clangd.disableSnippetCompletion": false,
 	"clangd.showDBChangedNotification": true,
+	"clangd.fallbackFlags": [],
+	"clangd.arguments": [],
+	"clangd.disableDiagnostics": false,
+	"clangd.compilationDatabasePath": "",
 	"clangd.path": "/Users/zhangxiaomin/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd",
 
 	"snippets.autoTrigger": true,
