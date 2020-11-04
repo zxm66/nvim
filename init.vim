@@ -9,7 +9,7 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
 "colorscheme desert
 set helplang=cn
-set list
+" set list
 set encoding=utf-8
 set number
 set nowrap
@@ -55,8 +55,9 @@ map ; :
 map - $
 map s <nop>
 map <LEADER>n :Explore .<CR>
-map <LEADER>f :find
-map <LEADER>d :!mkdir -p
+" 使用autoformat会自动将空格删除掉。所以使用<SPACE>
+map <LEADER>f :find<SPACE>
+map <LEADER>d :!mkdir -p<SPACE>
 map <LEADER>e :edit %:p:h/
 map <LEADER>s :nohlsearch<CR>
 map <LEADER>t yaw<ESC>:!pbpaste \| say<CR>
@@ -171,6 +172,7 @@ autocmd FileType html nnoremap <buffer> <leader>i :!/Applications/Firefox.app/Co
 autocmd FileType * call SetPath()
 autocmd FileType * call SignDefine()
 autocmd BufWrite * execute('Autoformat')
+autocmd TermOpen * set nonumber
 
 autocmd BufNewFile *.java 0r ~/.config/nvim/template/java.tpl | autocmd! BufNewFile
 autocmd BufNewFile *.py 0r ~/.config/nvim/template/python.tpl | autocmd! BufNewFile
@@ -181,4 +183,14 @@ autocmd BufNewFile *.rs 0r ~/.config/nvim/template/rust.tpl | autocmd! BufNewFil
 autocmd BufNewFile *.html 0r ~/.config/nvim/template/html.tpl | autocmd! BufNewFile
 autocmd BufNewFile *.js 0r ~/.config/nvim/template/javascript.tpl | autocmd! BufNewFile
 
+augroup java_class
+	autocmd!
+	autocmd BufEnter *.class !javap -v %
+	autocmd BufEnter *.class bdelete
+augroup end
+augroup image
+	autocmd!
+	autocmd BufEnter *.jpg !imgcat  %
+	autocmd BufEnter *.jpg bdelete
+augroup end
 
