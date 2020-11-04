@@ -185,12 +185,15 @@ autocmd BufNewFile *.js 0r ~/.config/nvim/template/javascript.tpl | autocmd! Buf
 
 augroup java_class
 	autocmd!
-	autocmd BufEnter *.class !javap -v %
+	autocmd BufEnter *.class !javap -v % | less
 	autocmd BufEnter *.class bdelete
 augroup end
+" vim的term终端应该不是item2，然后是不能显示图片,还有是这个less没有起作用。
 augroup image
 	autocmd!
 	autocmd BufEnter *.jpg !imgcat  %
 	autocmd BufEnter *.jpg bdelete
 augroup end
+
+
 
