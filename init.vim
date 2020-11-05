@@ -16,6 +16,8 @@ set nowrap
 set smartcase
 set showcmd
 set termguicolors
+set fillchars=stl:\ ,stlnc:\ ,vert:│,fold:·,diff:-
+set formatexpr=mylang#Format()
 "set verbose=9
 
 autocmd InsertLeave,WinEnter * set cursorline
@@ -64,6 +66,7 @@ map <LEADER>t yaw<ESC>:!pbpaste \| say<CR>
 map <LEADER>r :tabedit ~/.config/nvim<CR>:lcd ~/.config/nvim<CR>
 map <LEADER>rc :edit ~/.config/nvim/init.vim<CR>
 map <LEADER>sc :source ~/.config/nvim/init.vim<CR>
+nmap bd :%bdelete<CR>
 nmap N Nzz
 nmap n nzz
 nmap <tab> V>
