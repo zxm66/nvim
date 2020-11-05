@@ -193,6 +193,7 @@ augroup java_class
 	autocmd BufEnter *.class bdelete
 augroup end
 " vim的term终端应该不是item2，然后是不能显示图片,还有是这个less没有起作用。
+" 可以使用vim吊起预览的命令不一定使用imgcat打印在终端。
 augroup image
 	autocmd!
 	autocmd BufEnter *.jpg !imgcat  %
