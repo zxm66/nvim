@@ -15,6 +15,7 @@ set number
 set nowrap
 set smartcase
 set showcmd
+set cmdheight=1
 set termguicolors
 set fillchars=stl:\ ,stlnc:\ ,vert:│,fold:·,diff:-
 set formatexpr=mylang#Format()
