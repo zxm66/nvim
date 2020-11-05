@@ -95,7 +95,7 @@ noremap co :copen 10<CR>
 noremap lg <C-w>v<Esc>:terminal lazygit<CR>
 noremap fm <C-w>v<Esc>:terminal vifm .<CR>
 noremap tt <C-w>v<Esc>:terminal <CR>i
-
+" 现在需要解决的一个问题是vim嵌套，termnal的vim不能保存输入。或者是进不了normal模式
 tnoremap <Esc> <C-\><C-n>
 
 nnoremap <buffer> <LEADER>i :!./% <CR>
