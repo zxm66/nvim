@@ -1,5 +1,33 @@
 {
 
+	"coc.preferences.maxFileSize": "10MB",
+	"coc.preferences.formatOnType": true,
+	"coc.preferences.jumpCommand": "edit",
+	"coc.preferences.rootPatterns": [
+		".git",
+		".hg",
+		".projections.json"
+	],
+	"coc.preferences.promptInput": true,
+	"coc.preferences.colorSupport": true,
+	"coc.preferences.watchmanPath": null,
+	"coc.preferences.floatQuickpick": true,
+	"coc.preferences.previewAutoClose": true,
+	"coc.preferences.previewMaxHeight": 12,
+	"coc.preferences.highlightTimeout": 500,
+	"coc.preferences.promptWorkspaceEdit": true,
+	"coc.preferences.listOfWorkspaceEdit": "location",
+	"coc.preferences.formatOnInsertLeave": false,
+	"coc.preferences.bracketEnterImprove": true,
+	"coc.preferences.formatOnSaveFiletypes": [],
+	"coc.preferences.formatOnTypeFiletypes": [],
+	"coc.preferences.useQuickfixForLocations": false,
+	"coc.preferences.currentFunctionSymbolAutoUpdate": false,
+	"coc.preferences.snippets.enable": true,
+
+
+
+
 
 	"list.source.vimcommands.defaultOptions": [],
 	"list.height": 10,

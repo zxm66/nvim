@@ -14,3 +14,12 @@
 2020.11.04 13:41:45 INFO  started: Metals version 0.9.4 in workspace '/Users/zhangxiaomin/.config/nvim' .
 2020.11.04 13:41:46 INFO  time: initialize in 0.61s
 2020.11.04 13:41:50 WARN  no build tool detected in workspace '/Users/zhangxiaomin/.config/nvim'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.11.06 12:41:57 INFO  started: Metals version 0.9.4 in workspace '/Users/zhangxiaomin/.config/nvim' .
+2020.11.06 12:41:58 INFO  time: initialize in 0.65s
+2020.11.06 12:41:58 WARN  no build tool detected in workspace '/Users/zhangxiaomin/.config/nvim'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.11.06 12:42:54 INFO  started: Metals version 0.9.4 in workspace '/Users/zhangxiaomin/.config/nvim' .
+2020.11.06 12:42:55 INFO  time: initialize in 0.5s
+2020.11.06 12:42:55 WARN  no build tool detected in workspace '/Users/zhangxiaomin/.config/nvim'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.11.06 12:50:31 INFO  started: Metals version 0.9.4 in workspace '/Users/zhangxiaomin/.config/nvim' .
+2020.11.06 12:50:31 INFO  time: initialize in 0.59s
+2020.11.06 12:50:32 WARN  no build tool detected in workspace '/Users/zhangxiaomin/.config/nvim'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
