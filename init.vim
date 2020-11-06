@@ -34,6 +34,11 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+hi Pmenu ctermfg=black ctermbg=gray  guibg=#444444
+hi PmenuSel ctermfg=7 ctermbg=4 guibg=#555555 guifg=#ffffff
+hi PmenuSbar ctermfg=8 ctermbg=5 guibg=#666666 guifg=#AAAAAA
+hi PmenuThumb ctermfg=9 ctermbg=6  guibg=#777777 guifg=#BBBBBB
+
 set clipboard+=unnamedplus
 
 set autoindent
