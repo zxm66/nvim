@@ -61,6 +61,7 @@ set wildmode=list:full
 set wildignore=*.o,*.obj,*.class,*.bak,*/target/,*/out/,*/.vim/,*/.git/
 
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set ttyfast
 set scrolloff=4
 set scrolljump=0
 set scrollback=4
