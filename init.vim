@@ -132,6 +132,7 @@ endif
 call plug#begin("~/.config/nvim/plugged")
 Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-surround'
+Plug 'gcmt/wildfire.vim'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
