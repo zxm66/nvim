@@ -138,6 +138,7 @@ Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
 call plug#end()
 
 " 最好是quickfix这个东西可以有索引，然后直接跳转到对应的位置上就好了。
@@ -244,11 +245,12 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 
-let g:coc_global_extensions=['coc-vimlsp','coc-marketplace','coc-java','coc-java-debug']
+let g:coc_global_extensions=['coc-cfn-lint','coc-clangd','coc-db','coc-emmet','coc-explorer','coc-git','coc-go','coc-highlight','coc-html','coc-java','coc-java-debug','coc-java-lombok','coc-jedi','coc-json','coc-lists','coc-marketplace','coc-markmap','coc-metals','coc-pairs','coc-pyright','coc-python','coc-snippets','coc-terminal','coc-todolist','coc-translator','coc-tsserver','coc-twitch-highlight','coc-vimlsp','coc-xml','coc-yank']
 
 " Use tab for trigger completion with character ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
+" verbose 冗长的，记录日志用的吧。这是猜测的。
 inoremap <silent><expr> <TAB>
             \ pumvisible() ? "\<C-n>" :
             \ <SID>check_back_space() ? "\<TAB>" :
@@ -276,6 +278,7 @@ endif
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+" silent 不增加信息历史。
 nmap <silent> 'p <Plug>(coc-diagnostic-prev)
 nmap <silent> 'n <Plug>(coc-diagnostic-next)
 
@@ -317,7 +320,7 @@ let g:airline_left_sep = '»'
 let g:airline_right_sep = '«'
 "let g:airline_right_sep = '◀'
 let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.linenr = '☰ '
 "let g:airline_symbols.linenr = '␊'
 "let g:airline_symbols.linenr = '␤'
 "let g:airline_symbols.linenr = '¶'
@@ -367,3 +370,6 @@ let airline#extensions#ale#show_line_numbers = 1
 let airline#extensions#ale#open_lnum_symbol = '(L'
 let airline#extensions#ale#close_lnum_symbol = ')'
 
+let g:airline#extensions#tmuxline#enabled = 0
+let airline#extensions#tmuxline#color_template = 'normal'
+let airline#extensions#tmuxline#snapshot_file =  "~/.tmux-statusline-colors.conf"
