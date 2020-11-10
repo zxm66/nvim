@@ -260,11 +260,9 @@ function! s:check_back_space() abort
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
+" Use <c-space> to trigger completion.使用C-r重新触发自动补全。
 if has('nvim')
-    inoremap <silent><expr> <c-o> coc#refresh()
-else
-    inoremap <silent><expr> <c-@> coc#refresh()
+    inoremap <silent><expr> <C-r> coc#refresh()
 endif
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
