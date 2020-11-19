@@ -248,6 +248,7 @@ let g:coc_snippet_next = '<tab>'
 
 let g:coc_global_extensions=['coc-cfn-lint','coc-clangd','coc-db','coc-emmet','coc-explorer','coc-git','coc-go','coc-highlight','coc-html','coc-java','coc-java-debug','coc-java-lombok','coc-jedi','coc-json','coc-lists','coc-marketplace','coc-markmap','coc-metals','coc-pairs','coc-pyright','coc-python','coc-snippets','coc-terminal','coc-todolist','coc-translator','coc-tsserver','coc-twitch-highlight','coc-vimlsp','coc-xml','coc-yank']
 
+" 现在需要处理的一件事情，是将命令行的窗口，做个置顶的操作，最下边是有点看着不舒服
 " Use tab for trigger completion with character ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -374,3 +375,53 @@ let airline#extensions#ale#close_lnum_symbol = ')'
 let g:airline#extensions#tmuxline#enabled = 0
 let airline#extensions#tmuxline#color_template = 'normal'
 let airline#extensions#tmuxline#snapshot_file =  "~/.tmux-statusline-colors.conf"
+
+if g:idea_vimrc == 1
+    " options
+    nnoremap cow :action EditorToggleUseSoftWraps<cr>
+    nnoremap col :action EditorToggleShowWhitespaces<cr>
+    " actions
+    nnoremap <space>q :action CloseContent<cr>
+    nnoremap <space>Q :action ReopenClosedTab<cr>
+    nnoremap <space>\ :action VimFilePrevious<cr>
+    nnoremap <space>e :action SearchEverywhere<cr>
+    nnoremap <space>E :action Switcher<cr>
+    nnoremap <space>t :action FileStructurePopup<cr>
+    nnoremap <space>T :action GotoSymbol<cr>
+    nnoremap <space>a :action GotoAction<cr>
+    nnoremap <space>b :action ToggleLineBreakpoint<cr>
+    " code navigation
+    nnoremap <space>] :action GotoImplementation<cr>
+    nnoremap <space>[ :action GotoSuperMethod<cr>
+    nnoremap <space>u :action FindUsages<cr>
+    nnoremap <space>gt :action GotoTest<cr>
+    nnoremap <space>k :action HighlightUsagesInFile<cr>
+    nnoremap \r :action RunClass<cr>
+    nnoremap \R :action Run<cr>
+    nnoremap \d :action DebugClass<cr>
+    nnoremap \D :action Debug<cr>
+    nnoremap \c :action CheckStyleCurrentFileAction<cr>
+    " code refactoring
+    nnoremap <space>rr :action RenameElement<cr>
+    " unimpaired mappings
+    nnoremap [<space> O<esc>j
+    nnoremap ]<space> o<esc>k
+    nnoremap [q :action PreviousOccurence<cr>
+    nnoremap ]q :action NextOccurence<cr>
+    nnoremap [m :action MethodUp<cr>
+    nnoremap ]m :action MethodDown<cr>
+    nnoremap [c :action VcsShowPrevChangeMarker<cr>
+    nnoremap ]c :action VcsShowNextChangeMarker<cr>
+    " built-in navigation to navigated items works better
+    nnoremap <c-o> :action Back<cr>
+    nnoremap <c-i> :action Forward<cr>
+    " but preserve ideavim defaults
+    nnoremap g<c-o> <c-o>
+    nnoremap g<c-i> <c-i>
+    " built in search looks better
+    nnoremap / :action Find<cr>
+    " but preserve ideavim search
+    nnoremap g/ /
+endif
+
+let g:idea_vimrc = 0
