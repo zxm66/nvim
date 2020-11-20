@@ -381,31 +381,31 @@ if g:idea_vimrc == 1
     nnoremap cow :action EditorToggleUseSoftWraps<cr>
     nnoremap col :action EditorToggleShowWhitespaces<cr>
     " actions
-    nnoremap <space>q :action CloseContent<cr>
-    nnoremap <space>Q :action ReopenClosedTab<cr>
-    nnoremap <space>\ :action VimFilePrevious<cr>
-    nnoremap <space>e :action SearchEverywhere<cr>
-    nnoremap <space>E :action Switcher<cr>
-    nnoremap <space>t :action FileStructurePopup<cr>
-    nnoremap <space>T :action GotoSymbol<cr>
-    nnoremap <space>a :action GotoAction<cr>
-    nnoremap <space>b :action ToggleLineBreakpoint<cr>
+    nnoremap <LEADER>q :action CloseContent<cr>
+    nnoremap <LEADER>Q :action ReopenClosedTab<cr>
+    nnoremap <LEADER>\ :action VimFilePrevious<cr>
+    nnoremap <LEADER>e :action SearchEverywhere<cr>
+    nnoremap <LEADER>E :action Switcher<cr>
+    nnoremap <LEADER>t :action FileStructurePopup<cr>
+    nnoremap <LEADER>T :action GotoSymbol<cr>
+    nnoremap <LEADER>a :action GotoAction<cr>
+    nnoremap <LEADER>b :action ToggleLineBreakpoint<cr>
     " code navigation
-    nnoremap <space>] :action GotoImplementation<cr>
-    nnoremap <space>[ :action GotoSuperMethod<cr>
-    nnoremap <space>u :action FindUsages<cr>
-    nnoremap <space>gt :action GotoTest<cr>
-    nnoremap <space>k :action HighlightUsagesInFile<cr>
+    nnoremap <LEADER>] :action GotoImplementation<cr>
+    nnoremap <LEADER>[ :action GotoSuperMethod<cr>
+    nnoremap <LEADER>u :action FindUsages<cr>
+    nnoremap <LEADER>gt :action GotoTest<cr>
+    nnoremap <LEADER>k :action HighlightUsagesInFile<cr>
     nnoremap \r :action RunClass<cr>
     nnoremap \R :action Run<cr>
     nnoremap \d :action DebugClass<cr>
     nnoremap \D :action Debug<cr>
     nnoremap \c :action CheckStyleCurrentFileAction<cr>
     " code refactoring
-    nnoremap <space>rr :action RenameElement<cr>
+    nnoremap <LEADER>rr :action RenameElement<cr>
     " unimpaired mappings
-    nnoremap [<space> O<esc>j
-    nnoremap ]<space> o<esc>k
+    nnoremap [<LEADER> O<esc>j
+    nnoremap ]<LEADER> o<esc>k
     nnoremap [q :action PreviousOccurence<cr>
     nnoremap ]q :action NextOccurence<cr>
     nnoremap [m :action MethodUp<cr>
