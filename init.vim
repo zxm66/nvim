@@ -9,6 +9,7 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
 "colorscheme desert
 set helplang=cn
+set mouse=nv
 " set list
 set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50
 set title titlestring=%<%F%=%l/%L-%P\ titelen=70
@@ -16,6 +17,7 @@ set encoding=utf-8
 set number
 set nowrap
 set smartcase
+set ignorecase
 set showcmd
 set cmdheight=1
 set termguicolors
@@ -377,6 +379,7 @@ let airline#extensions#tmuxline#color_template = 'normal'
 let airline#extensions#tmuxline#snapshot_file =  "~/.tmux-statusline-colors.conf"
 
 if exists('g:idea_vimrc')
+    nnoremap <LEADER>sc :source  ~/.ideavimrc<cr>
     " options
     nnoremap cow :action EditorToggleUseSoftWraps<cr>
     nnoremap col :action EditorToggleShowWhitespaces<cr>
@@ -425,8 +428,6 @@ if exists('g:idea_vimrc')
     nnoremap / :action Find<cr>
     " but preserve ideavim search
     nnoremap g/ /
-
-    "    --- Actions ---
     "    $Copy                                              <M-C>
     "    $Cut                                               <M-X> <S-Del>
     "    $Delete                                            <Del> <BS> <M-BS>
@@ -436,16 +437,6 @@ if exists('g:idea_vimrc')
     "    $SearchWeb
     "    $SelectAll                                         <M-A>
     "    $Undo                                              <M-Z>
-    "    <anonymous-group-0>
-    "    <anonymous-group-1>
-    "    <anonymous-group-2>
-    "    <anonymous-group-3>
-    "    <anonymous-group-4>
-    "    <anonymous-group-5>
-    "    <anonymous-group-6>
-    "    <anonymous-group-7>
-    "    <anonymous-group-8>
-    "    <anonymous-group-9>
     "    About
     "    AceAction                                          <C-;>
     "    AceDeclarationAction
@@ -455,6 +446,9 @@ if exists('g:idea_vimrc')
     "    AceWordBackwardsAction
     "    AceWordForwardAction
     "    Actions.ActionsPlugin.GenerateToString
+    "
+    "
+    "
     "    ActivateAntToolWindow
     "    ActivateBuildToolWindow
     "    ActivateCommitToolWindow                           <M-0>
@@ -466,6 +460,7 @@ if exists('g:idea_vimrc')
     "    ActivateNavBar
     "    ActivateProblemsViewToolWindow                     <M-6>
     "    ActivateProjectToolWindow                          <M-1>
+    nnoremap <LEADER>n  :action ActivateProjectToolWindow<cr>
     "    ActivatePullRequestsToolWindow
     "    ActivateRunToolWindow                              <M-4>
     "    ActivateServicesToolWindow                         <M-8>
@@ -474,6 +469,8 @@ if exists('g:idea_vimrc')
     "    ActivateTODOToolWindow
     "    ActivateVersionControlToolWindow                   <M-9>
     "    ActiveToolwindowGroup
+    "
+    "
     "    AddAllToFavorites
     "    AddAntBuildFile
     "    AddFrameworkSupport
@@ -532,15 +529,7 @@ if exists('g:idea_vimrc')
     "    CallHierarchy                                      <A-C-H>
     "    CallHierarchy.BaseOnThisMethod                     <A-C-H>
     "    CallHierarchyPopupMenu
-    "    Cargo.AttachCargoProject
-    "    Cargo.DetachCargoProject                           <Del> <BS> <M-BS>
-    "    Cargo.RefreshCargoProject
-    "    Cargo.RunCargoCommand
-    "    Cargo.RunExternalLinter
-    "    Cargo.RustfmtCargoProject
-    "    Cargo.RustfmtFile
-    "    Cargo.ShowSettings
-    "    Cargo.ToggleExternalLinterOnTheFlyAction
+
     "    ChangeCodeStyleScheme
     "    ChangeColorScheme
     "    ChangeFileEncodingAction
@@ -780,13 +769,7 @@ if exists('g:idea_vimrc')
     "    DecrementWindowHeight                              <M-S-Up>
     "    DecrementWindowWidth                               <M-S-Left>
     "    DelegateMethods
-    "    DevKit.ApplyTheme
-    "    DevKit.EditThemeEditorColorScheme
-    "    DevKit.NewMessageBundle
-    "    DevKit.NewTheme
-    "    DevKit.OpenThemeReferenceDocs
-    "    DevKit.RollbackTheme
-    "    DevKit.ThemeEditorToolbar
+
     "    DevkitNewActions
     "    Diff.AppendLeftSide
     "    Diff.AppendRightSide
@@ -1208,89 +1191,6 @@ if exists('g:idea_vimrc')
     "    GenerateTestMethod
     "    GenerateXmlTag
     "    Generify
-    "    Git.Add                                            <M-A-A>
-    "    Git.Branches
-    "    Git.BranchOperationGroup
-    "    Git.BrowseRepoAtRevision
-    "    Git.Checkout.Branch
-    "    Git.CheckoutGroup
-    "    Git.CheckoutRevision
-    "    Git.CherryPick.Abort
-    "    Git.Clone
-    "    Git.Commit.And.Push.Executor                       <M-A-K>
-    "    Git.CompareWithBranch
-    "    Git.Configure.Remotes
-    "    Git.ContextMenu
-    "    Git.CreateNewBranch
-    "    Git.CreateNewTag
-    "    Git.Drop.Commits
-    "    Git.Fetch
-    "    Git.FileHistory.ContextMenu
-    "    Git.Fixup.To.Commit
-    "    Git.Ignore.File
-    "    Git.Init
-    "    Git.Interactive.Rebase
-    "    Git.Log
-    "    Git.Log.ContextMenu
-    "    Git.Log.ContextMenu.CheckoutBrowse
-    "    Git.Log.DeepCompare
-    "    Git.Log.Hide.Branches
-    "    Git.Log.Toolbar
-    "    Git.LogContextMenu
-    "    Git.Menu
-    "    Git.Merge
-    "    Git.Merge.Abort
-    "    Git.Ongoing.Rebase.Actions
-    "    Git.OpenExcludeFile
-    "    Git.Pull
-    "    Git.Rebase
-    "    Git.Rebase.Abort
-    "    Git.Rebase.Continue
-    "    Git.Rebase.Skip
-    "    Git.Rename.Local.Branch                            <F2> <S-F6>
-    "    Git.RepositoryContextMenu
-    "    Git.Reset
-    "    Git.Reset.In.Log
-    "    Git.ResolveConflicts
-    "    Git.Revert.Abort
-    "    Git.Revert.In.Log
-    "    Git.Reword.Commit                                  <F2> <S-F6>
-    "    Git.SelectInGitLog
-    "    Git.Squash.Commits
-    "    Git.Squash.Into.Commit
-    "    Git.Stage.Add                                      <M-A-A>
-    "    Git.Stage.Refresh                                  <M-R>
-    "    Git.Stage.Reset                                    <M-A-Z>
-    "    Git.Stage.Revert                                   <M-A-Z>
-    "    Git.Stage.Toolbar
-    "    Git.Stage.Tree.Menu
-    "    Git.Stash
-    "    Git.Tag
-    "    Git.Uncommit
-    "    Git.Unstash
-    "    GitFileActions
-    "    Github.Accounts.AddAccount
-    "    Github.Accounts.AddGHAccount
-    "    Github.Accounts.AddGHAccountWithToken
-    "    Github.Accounts.AddGHEAccount
-    "    Github.Create.Gist
-    "    Github.Create.Pull.Request
-    "    Github.Open.In.Browser
-    "    Github.PullRequest.Branch.Create
-    "    Github.PullRequest.Changes.Reload                  <M-R>
-    "    Github.PullRequest.Comments.Reload                 <M-R>
-    "    Github.PullRequest.Details.Popup
-    "    Github.PullRequest.Details.Reload                  <M-R>
-    "    Github.PullRequest.List.Reload                     <M-R>
-    "    Github.PullRequest.Show
-    "    Github.PullRequest.Timeline.Popup
-    "    Github.PullRequest.Timeline.Show
-    "    Github.PullRequest.Timeline.Update                 <M-R>
-    "    Github.PullRequest.ToolWindow.List.Popup
-    "    Github.Rebase
-    "    Github.Share
-    "    Github.View.Pull.Request
-    "    GitRepositoryActions
     "    GotoAction                                         <M-S-A>
     "    GotoBookmark0                                      <C-0>
     "    GotoBookmark1                                      <C-1>
@@ -1322,43 +1222,23 @@ if exists('g:idea_vimrc')
     "    GotoNextError                                      <F2>
     "    GotoNextIncompletePropertyAction                   <F2>
     "    GotoPrevElementUnderCaretUsage                     <A-C-Up>
-    "    GotoPreviousBookmark
+    nnoremap <LEADER>-   :action GotoPreviousBookmark<cr>
     "    GotoPreviousError                                  <S-F2>
     "    GotoRelated                                        <M-C-Up>
     "    GotoSuperMethod                                    <M-U>
     "    GotoSymbol                                         <M-A-O>
-    "    GoToTab1
-    "    GoToTab2
-    "    GoToTab3
-    "    GoToTab4
-    "    GoToTab5
-    "    GoToTab6
-    "    GoToTab7
-    "    GoToTab8
-    "    GoToTab9
+    nnoremap <LEADER>1 :action   GoToTab1<cr>
+    nnoremap <LEADER>2 :action   GoToTab2<cr>
+    nnoremap <LEADER>3 :action   GoToTab3<cr>
+    nnoremap <LEADER>4 :action   GoToTab4<cr>
+    nnoremap <LEADER>5 :action   GoToTab5<cr>
+    nnoremap <LEADER>6 :action   GoToTab6<cr>
+    nnoremap <LEADER>7 :action   GoToTab7<cr>
+    nnoremap <LEADER>8 :action   GoToTab8<cr>
+    nnoremap <LEADER>9 :action   GoToTab9<cr>
     "    GoToTargetEx
     "    GotoTest                                           <M-S-T>
-    "    GotoTypeDeclaration                                <M-S-B> <C-S-B> button=1 clickCount=1 modifiers=320
-    "    Gradle.AddGradleDslDependencyAction
-    "    Gradle.ExecuteTask
-    "    Gradle.GenerateGroup
-    "    Gradle.ImportExternalProject
-    "    Gradle.OpenProjectCompositeConfiguration
-    "    Gradle.RefreshDependencies
-    "    Gradle.ShowDaemons
-    "    Gradle.ToggleOfflineAction
-    "    Gradle.View.ActionsToolbar.LeftPanel
-    "    Gradle.View.ActionsToolbar.RightPanel
-    "    Gradle.View.BaseProjectMenu
-    "    Gradle.View.ProjectMenu
-    "    Groovy.CheckResources
-    "    Groovy.CheckResources.Make
-    "    Groovy.CheckResources.Rebuild
-    "    Groovy.Console
-    "    Groovy.NewClass
-    "    Groovy.NewScript
-    "    Groovy.Shell
-    "    Groovy.Shell.Execute                               <M-CR>
+    "    GotoTypeDeclaration                                <M-CR>
     "    GroovyGenerateGroup1
     "    GuiDesigner.AddComponent
     "    GuiDesigner.AddGroup
@@ -1404,7 +1284,8 @@ if exists('g:idea_vimrc')
     "    HelpDiagnosticTools
     "    HelpMenu
     "    HelpTopics
-    "    HideActiveWindow                                   <S-Esc>
+    "
+    nnoremap <LEADER>b    :action HideActiveWindow<cr>
     "    HideAllWindows                                     <M-S-F12>
     "    HideCoverage
     "    HideSideWindows
@@ -1417,7 +1298,8 @@ if exists('g:idea_vimrc')
     "    I18nize
     "    idea.java.decompiler.action.group
     "    IdeaVim.ReloadVimRc.group
-    nnoremap <LEADER>sc   :action IdeaVim.ReloadVimRc.reload<cr>
+    "  还是使用shift-esc比较好用
+    " nnoremap <LEADER>sc   <ESC>:action IdeaVim.ReloadVimRc.reload<cr>
     "    IdeScriptingConsole
     "    Images.ChangeBackground
     "    Images.ConvertSvgToPng
@@ -1493,35 +1375,7 @@ if exists('g:idea_vimrc')
     "    JumpToLastChange                                   <M-S-BS>
     "    JumpToLastWindow                                   <F12>
     "    JumpToNextChange
-    "    Kotlin.ClearScratch
-    "    Kotlin.Gradle.ShowDslLogs
-    "    Kotlin.NewFile
-    "    Kotlin.NewScript
-    "    Kotlin.NewWorksheet
-    "    Kotlin.RunScratch                                  <M-A-W>
-    "    Kotlin.StopScratch
-    "    Kotlin.XDebugger.Actions
-    "    Kotlin.XDebugger.CoroutinesDump
-    "    Kotlin.XDebugger.ToggleKotlinVariableView
-    "    KotlinCodeMigration
-    "    KotlinCodeMigrationToggle
-    "    KotlinConfigureUpdates
-    "    KotlinConsoleREPL
-    "    KotlinGenerateDataMethod
-    "    KotlinGenerateEqualsAndHashCode
-    "    KotlinGenerateGroup
-    "    KotlinGenerateMavenCompileExecutionAction
-    "    KotlinGenerateMavenPluginAction
-    "    KotlinGenerateMavenTestCompileExecutionAction
-    "    KotlinGenerateSecondaryConstructor
-    "    KotlinGenerateSetUpMethod
-    "    KotlinGenerateTearDownMethod
-    "    KotlinGenerateTestMethod
-    "    KotlinGenerateToString
-    "    KotlinMavenGenerate
-    "    KotlinShellExecute                                 <M-CR>
-    "    KotlinThrowException
-    "    KotlinToolsGroup
+
     "    LangCodeInsightActions
     "    LanguageSpecificFoldingGroup
     "    LightEditModePopup
@@ -1580,59 +1434,8 @@ if exists('g:idea_vimrc')
     "    MarkNotificationsAsRead
     "    MarkRootGroup
     "    MarkSourceRootGroup
-    "    Maven.AddFileAsMavenProject
-    "    Maven.AddManagedFiles
-    "    Maven.AfterCompile
-    "    Maven.AfterRebuild
-    "    Maven.AlwaysShowArtifactId
-    "    Maven.AssignShortcut
-    "    Maven.BaseProjectMenu
-    "    Maven.BeforeCompile
-    "    Maven.BeforeRebuild
-    "    Maven.BeforeRun
-    "    Maven.BuildMenu
-    "    Maven.CollapseAll                                  <M-m> <M-->
-    "    Maven.CreateRunConfiguration
-    "    Maven.DependencyMenu
-    "    Maven.DownloadAllDocs
-    "    Maven.DownloadAllGroup
-    "    Maven.DownloadAllGroupPopup
-    "    Maven.DownloadAllSources
-    "    Maven.DownloadAllSourcesAndDocs
-    "    Maven.DownloadSelectedDocs
-    "    Maven.DownloadSelectedSources
-    "    Maven.DownloadSelectedSourcesAndDocs
-    "    Maven.EditRunConfiguration
-    "    Maven.ExecuteGoal
-    "    Maven.ExpandAll                                    <M-k> <M-=>
-    "    Maven.GenerateGroup
-    "    Maven.GlobalProjectMenu
-    "    Maven.GroupProjects
-    "    Maven.IgnoreProjects
-    "    Maven.NavigatorActionsToolbar
-    "    Maven.NavigatorProjectMenu
-    "    Maven.OpenProfilesXml
-    "    Maven.OpenSettingsXml
-    "    Maven.RefactoringGroup
-    "    Maven.Reimport
-    "    Maven.ReimportProject
-    "    Maven.RemoveManagedFiles
-    "    Maven.RemoveRunConfiguration
-    "    Maven.RunBuild
-    "    Maven.RunConfigurationMenu
-    "    Maven.ShowBasicPhasesOnly
-    "    Maven.ShowEffectivePom
-    "    Maven.ShowIgnored
-    "    Maven.ShowSettings
-    "    Maven.ShowSettingsGroup
-    "    Maven.ShowVersions
-    "    Maven.TasksGroup
-    "    Maven.ToggleLookNested
-    "    Maven.ToggleOffline
-    "    Maven.ToggleProfile
-    "    Maven.ToggleSkipTests
-    "    Maven.UpdateFolders
-    "    Maven.UpdateFoldersForProject
+    "
+
     "    MaximizeActiveDialog
     "    MaximizeToolWindow                                 <M-S-Þ>
     "    MemberPushDown
@@ -1733,7 +1536,7 @@ if exists('g:idea_vimrc')
     "    NextParameter                                      <Tab>
     "    NextProjectWindow                                  <M-A-À>
     "    NextSplitter                                       <A-Tab>
-    "    NextTab                                            <M-S-]> <C-Right>
+    nnoremap <LEADER>-    :action NextTab<cr>
     "    NextTemplateParameter                              <Tab>
     "    NextTemplateVariable                               <Tab> <CR>
     "    NextWindow                                         <M-À>
@@ -1754,29 +1557,7 @@ if exists('g:idea_vimrc')
     "    OpenProjectGroup
     "    OpenProjectWindows
     "    OptimizeImports                                    <A-C-O>
-    "    org.intellij.plugins.junitgen.action.JUnitGeneratorEditorMenu
-    "    org.intellij.plugins.junitgen.action.JUnitGeneratorMenu
-    "    org.intellij.plugins.markdown.ui.actions.editorLayout.CyclicSplitLayoutChangeAction <M-P>
-    "    org.intellij.plugins.markdown.ui.actions.editorLayout.EditorAndPreviewLayoutChangeAction
-    "    org.intellij.plugins.markdown.ui.actions.editorLayout.EditorOnlyLayoutChangeAction
-    "    org.intellij.plugins.markdown.ui.actions.editorLayout.PreviewOnlyLayoutChangeAction
-    "    org.intellij.plugins.markdown.ui.actions.scrolling.AutoScrollAction
-    "    org.intellij.plugins.markdown.ui.actions.styling.HeaderDownAction
-    "    org.intellij.plugins.markdown.ui.actions.styling.HeaderUpAction
-    "    org.intellij.plugins.markdown.ui.actions.styling.MarkdownIntroduceLinkReferenceAction
-    "    org.intellij.plugins.markdown.ui.actions.styling.ToggleBoldAction
-    "    org.intellij.plugins.markdown.ui.actions.styling.ToggleCodeSpanAction
-    "    org.intellij.plugins.markdown.ui.actions.styling.ToggleItalicAction
-    "    org.intellij.plugins.markdown.ui.actions.styling.ToggleStrikethroughAction
-    "    org.jetbrains.plugins.groovy.actions.generate.accessors.GroovyGenerateGetterAction
-    "    org.jetbrains.plugins.groovy.actions.generate.accessors.GroovyGenerateGetterSetterAction
-    "    org.jetbrains.plugins.groovy.actions.generate.accessors.GroovyGenerateSetterAction
-    "    org.jetbrains.plugins.groovy.actions.generate.constructors.GroovyGenerateConstructorAction
-    "    org.jetbrains.plugins.groovy.actions.generate.equals.GroovyGenerateEqualsAction
-    "    org.jetbrains.plugins.groovy.actions.generate.missing.GroovyGenerateMethodMissingAction
-    "    org.jetbrains.plugins.groovy.actions.generate.missing.GroovyGeneratePropertyMissingAction
-    "    org.jetbrains.plugins.groovy.actions.generate.tostring.GroovyGenerateToStringAction
-    "    org.mockito.plugin.action.GenMockitoCodeAction     <M-S-M>
+
     "    Other.KeymapGroup
     "    OtherMenu
     "    OverrideMethods                                    <C-O>
@@ -1811,7 +1592,7 @@ if exists('g:idea_vimrc')
     "    PreviousEditorTab                                  <C-S-Left>
     "    PreviousOccurence                                  <M-A-Up>
     "    PreviousProjectWindow                              <M-A-S-À>
-    "    PreviousTab                                        <M-S-[> <C-Left>
+    nnoremap <LEADER>=   :action PreviousTab<cr>
     "    PreviousTemplateVariable                           <S-Tab>
     "    PreviousWindow                                     <M-S-À>
     "    PrevParameter                                      <S-Tab>
@@ -2015,49 +1796,9 @@ if exists('g:idea_vimrc')
     "    SaveDocument
     "    SaveFileAsTemplate
     "    SaveProjectAsTemplate
-    "    Scala.CleanWorksheet
-    "    Scala.ConfigureTypeHints
-    "    Scala.CopyWorksheet
-    "    Scala.CreateLightWorksheetAction                   <M-A-S-X>
-    "    Scala.CreateScalaDocStub                           <M-A-Q>
-    "    Scala.DecompileToJava
-    "    Scala.Desugar                                      <M-A-D>
-    "    Scala.EnableErrors                                 <M-A-S-E>
-    "    Scala.ExpandImplicits
-    "    Scala.ExtractTrait
-    "    Scala.GenerateCompanionObject
-    "    Scala.GenerateEquals
-    "    Scala.GenerateProperty
-    "    Scala.GenerateScaladoc
-    "    Scala.GenerateToString
-    "    Scala.MakeExplicit                                 <A-CR>
-    "    Scala.NewClass
-    "    Scala.NewPackageObject
-    "    Scala.NewScalaWorksheet
-    "    Scala.RenameJavaToScala                            <M-S-G>
-    "    Scala.RunConsole                                   <M-S-D>
-    "    Scala.RunWorksheet                                 <M-A-W>
-    "    Scala.Sbt.CommandMenu
-    "    Scala.Sbt.Help
-    "    Scala.Sbt.InspectSetting
-    "    Scala.Sbt.InspectTask
-    "    Scala.Sbt.RunCommand
-    "    Scala.Sbt.RunTask
-    "    Scala.Sbt.SettingMenu
-    "    Scala.Sbt.ShowSetting
-    "    Scala.Sbt.ShowTask
-    "    Scala.Sbt.TaskMenu
-    "    Scala.SendSelectionToConsole                       <C-S-X>
-    "    Scala.ShowDiscoveredTests
-    "    Scala.ShowImplicitArguments                        <M-S-P>
-    "    Scala.ShowImplicitConversions                      <C-Q>
-    "    Scala.ShowImplicits                                <A-C-S-=> <A-C-S-k>
-    "    Scala.ToggleMethodChainInlayHints
-    "    Scala.TypeInfo                                     <C-S-P>
-    "    ScalaConsole.Clean                                 <M-L>
-    "    ScalaConsole.Execute                               <CR> <M-CR>
-    "    ScalaConsole.NewLine                               <S-CR>
-    "    ScalaGenerateGroup
+    "
+    "
+
     "    ScopeView.EditScopes
     "    ScopeViewPopupMenu
     "    Scratch.ChangeLanguage
@@ -2087,6 +1828,7 @@ if exists('g:idea_vimrc')
     "    SelectNextOccurrence                               <C-G>
     "    SelectVirtualTemplateElement                       <Tab>
     "    SendEOF                                            <M-D>
+    "
     "    SendFeedback
     "    SendToFavoritesGroup
     "    Servers.Deploy
@@ -2525,34 +2267,7 @@ if exists('g:idea_vimrc')
     "    VimPluginToggle
     "    VimShortcutKeyAction
     "    WeighingNewGroup
-    "    WelcomeScreen.ChangeProjectIcon
-    "    WelcomeScreen.Configure
-    "    WelcomeScreen.Configure.CollectZippedLogs
-    "    WelcomeScreen.Configure.DesktopEntry
-    "    WelcomeScreen.Configure.Export
-    "    WelcomeScreen.Configure.Import
-    "    WelcomeScreen.Configure.ProjectStructure
-    "    WelcomeScreen.Configure.Properties
-    "    WelcomeScreen.Configure.RestoreDefault
-    "    WelcomeScreen.Configure.VMOptions
-    "    WelcomeScreen.CopyProjectPath                      <M-S-C>
-    "    WelcomeScreen.CreateNewProject
-    "    WelcomeScreen.DevelopPlugins
-    "    WelcomeScreen.Documentation
-    "    WelcomeScreen.Documentation.IDEA
-    "    WelcomeScreen.EditGroup
-    "    WelcomeScreen.MoveToGroup
-    "    WelcomeScreen.NewGroup
-    "    WelcomeScreen.OpenProject
-    "    WelcomeScreen.OpenSelected
-    "    WelcomeScreen.Plugins
-    "    WelcomeScreen.QuickStart
-    "    WelcomeScreen.QuickStart.IDEA
-    "    WelcomeScreen.QuickStart.Platform
-    "    WelcomeScreen.RemoveSelected
-    "    WelcomeScreen.Settings
-    "    WelcomeScreen.Update
-    "    WelcomeScreenRecentProjectActionGroup
+
     "    WhatsNewAction
     "    WindowMenu
     "    WindowMode
