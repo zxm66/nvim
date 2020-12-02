@@ -387,13 +387,9 @@ let airline#extensions#tmuxline#snapshot_file =  "~/.tmux-statusline-colors.conf
 if exists('g:idea_vimrc')
     set cmdheight=2
     nnoremap <LEADER>sc :source  ~/.ideavimrc<cr>
-    " options
     nnoremap cow :action EditorToggleUseSoftWraps<cr>
     nnoremap col :action EditorToggleShowWhitespaces<cr>
-    " actions
-    " 右键菜单
     nnoremap <LEADER>l :action ShowPopupMenu<cr>
-    " 关闭当前文件
     nnoremap <LEADER>q :action CloseContent<cr>
     nnoremap <LEADER>Q :action ReopenClosedTab<cr>
     nnoremap <LEADER>\ :action VimFilePrevious<cr>
@@ -403,7 +399,6 @@ if exists('g:idea_vimrc')
     nnoremap <LEADER>T :action GotoSymbol<cr>
     nnoremap <LEADER>a :action GotoAction<cr>
     nnoremap <LEADER>b :action ToggleLineBreakpoint<cr>
-    " code navigation
     nnoremap <LEADER>] :action GotoImplementation<cr>
     nnoremap <LEADER>[ :action GotoSuperMethod<cr>
     nnoremap <LEADER>u :action FindUsages<cr>
@@ -414,9 +409,7 @@ if exists('g:idea_vimrc')
     nnoremap \d :action DebugClass<cr>
     nnoremap \D :action Debug<cr>
     nnoremap \c :action CheckStyleCurrentFileAction<cr>
-    " code refactoring
     nnoremap <LEADER>rr :action RenameElement<cr>
-    " unimpaired mappings
     nnoremap [<LEADER> O<esc>j
     nnoremap ]<LEADER> o<esc>k
     nnoremap [q :action PreviousOccurence<cr>
@@ -425,32 +418,16 @@ if exists('g:idea_vimrc')
     nnoremap ]m :action MethodDown<cr>
     nnoremap [c :action VcsShowPrevChangeMarker<cr>
     nnoremap ]c :action VcsShowNextChangeMarker<cr>
-    " built-in navigation to navigated items works better
     nnoremap <c-o> :action Back<cr>
     nnoremap <c-i> :action Forward<cr>
-    " but preserve ideavim defaults
     nnoremap g<c-o> <c-o>
     nnoremap g<c-i> <c-i>
-    " built in search looks better
     nnoremap / :action Find<cr>
-    " but preserve ideavim search
     nnoremap g/ /
-    "    Activateinternal-profilerToolWindow
     noremap <LEADER>m   :action ActivateMavenToolWindow<cr>
-    "    ActivateNavBar
-    "    ActivateProblemsViewToolWindow                     <M-6>
-    "    ActivateProjectToolWindow                          <M-1>
     nnoremap <LEADER>n  :action ActivateProjectToolWindow<cr>
-    "    ActivatePullRequestsToolWindow
-    "    ActivateRunToolWindow                              <M-4>
-    "    ActivateServicesToolWindow                         <M-8>
-    "    ActivateStructureToolWindow                        <M-7>
     noremap tt   :action ActivateTerminalToolWindow<cr>
     nnoremap <LEADER>-   :action GotoPreviousBookmark<cr>
-    "    GotoPreviousError                                  <S-F2>
-    "    GotoRelated                                        <M-C-Up>
-    "    GotoSuperMethod                                    <M-U>
-    "    GotoSymbol                                         <M-A-O>
     nnoremap <LEADER>1 :action   GoToTab1<cr>
     nnoremap <LEADER>2 :action   GoToTab2<cr>
     nnoremap <LEADER>3 :action   GoToTab3<cr>
@@ -461,23 +438,10 @@ if exists('g:idea_vimrc')
     nnoremap <LEADER>8 :action   GoToTab8<cr>
     nnoremap <LEADER>9 :action   GoToTab9<cr>
     nnoremap <LEADER>b    :action HideActiveWindow<cr>
-    "    HideAllWindows                                     <M-S-F12>
-    "    HideCoverage
-    "    HideSideWindows
-    "    idea.java.decompiler.action.group
-    "    IdeaVim.ReloadVimRc.group
     nnoremap <LEADER>sc   <ESC>:action IdeaVim.ReloadVimRc.reload<cr>
-    "    NextProjectWindow                                  <M-A-À>
-    "    NextSplitter                                       <A-Tab>
     nnoremap <LEADER>-    :action NextTab<cr>
-    "    PreviousOccurence                                  <M-A-Up>
-    "    PreviousProjectWindow                              <M-A-S-À>
     nnoremap <LEADER>=   :action PreviousTab<cr>
-
-    "    Refactorings.QuickListPopupAction                  <C-T>
     nnoremap <LEADER>r    :action ReformatCode<cr>
-    "    Terminal.NextSplitter                              <A-Tab>
-    "    Terminal.OpenInTerminal
     nnoremap <LEADER>f   :action ToggleFullScreen<cr>
     nnoremap <LEADER>z   :action ToggleZenMode<cr>
     nnoremap <LEADER>z    :action ZoomCurrentWindow<cr>
