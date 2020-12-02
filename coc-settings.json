@@ -389,7 +389,7 @@
                 "metals.gradleScript": "",
                 "metals.pantsTargets": "",
                 "metals.bloopVersion": "",
-                "metals.serverVersion": "0.9.6",
+                "metals.serverVersion": "0.9.7",
                 "metals.serverProperties": [],
                 "metals.excludedPackages": [],
                 "metals.statusBarEnabled": false,

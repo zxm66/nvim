@@ -110,6 +110,7 @@ noremap <LEADER>[ :bprevious<CR>
 noremap <LEADER>] :bNext<CR>
 noremap <LEADER>m :call SetMakeprg()<CR>:make %<CR>
 noremap <LEADER>q :bdelete % <CR>
+noremap af :Autoformat<CR>
 noremap cc <C-w>
 noremap co :copen 10<CR>
 noremap lg <C-w>v<Esc>:terminal lazygit<CR>
@@ -135,8 +136,8 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 call plug#begin("~/.config/nvim/plugged")
 Plug 'Chiel92/vim-autoformat'
-Plug 'tpope/vim-surround'
-Plug 'gcmt/wildfire.vim'
+"Plug 'tpope/vim-surround'
+"Plug 'gcmt/wildfire.vim'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -145,8 +146,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'voldikss/vim-floaterm'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+"Plug 'godlygeek/tabular'
+"Plug 'plasticboy/vim-markdown'
 call plug#end()
 
 " 最好是quickfix这个东西可以有索引，然后直接跳转到对应的位置上就好了。
@@ -202,7 +203,7 @@ autocmd FileType vim,zsh,tmux nnoremap <buffer> <LEADER>i :source % <CR>
 autocmd FileType html nnoremap <buffer> <leader>i :!/Applications/Firefox.app/Contents/MacOS/firefox-bin %:p<CR>
 autocmd FileType * call SetPath()
 autocmd FileType * call SignDefine()
-autocmd BufWrite * execute('Autoformat')
+" autocmd BufWrite * execute('Autoformat')
 autocmd TermOpen * set nonumber
 
 autocmd BufNewFile *.java 0r ~/.config/nvim/template/java.tpl | autocmd! BufNewFile
