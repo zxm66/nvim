@@ -64,6 +64,7 @@ set wildmode=list:full
 set wildignore=*.o,*.obj,*.class,*.bak,*/target/,*/out/,*/.vim/,*/.git/
 
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+" set statusline=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
 set ttyfast
 set scrolloff=4
 set scrolljump=0
@@ -74,12 +75,12 @@ set shortmess+=c
 set showbreak=>\
 
 map ; :
-" map - $
+map - $
 " map s <nop>
 nnoremap <silent> <expr>s col(".")==1?"$":"0"
 vnoremap <silent> <expr>s col(".")==1?"$h":"0"
 map <LEADER>n :Explore .<CR>
-map nn :CocCommand explorer <CR>
+map <LEADER>b :CocCommand explorer <CR>
 " 使用autoformat会自动将空格删除掉。所以使用<SPACE>
 map <LEADER>f :find<SPACE>
 map <LEADER>d :!mkdir -p<SPACE>
@@ -115,10 +116,17 @@ noremap <LEADER>q :bdelete % <CR>
 noremap af :Autoformat<CR>
 noremap cc <C-w>
 noremap co :copen 10<CR>
-noremap lg <C-w>v<Esc>:terminal lazygit<CR>
-noremap fm <C-w>v<Esc>:terminal vifm .<CR>
-noremap tt <C-w>v<Esc>:terminal <CR>i
-" 现在需要解决的一个问题是vim嵌套，termnal的vim不能保存输入。或者是进不了normal模式
+let g:floaterm = 1
+if exists('g:floaterm')
+    noremap tt :FloatermToggle <CR>
+    noremap lg :FloatermToggle lazygit<CR>
+else
+    noremap lg <C-w>v<Esc>:terminal lazygit<CR>
+    noremap fm <C-w>v<Esc>:terminal vifm .<CR>
+    noremap tm :CocCommand terminal.Toggle<CR>
+    noremap tt <C-w>v<Esc>:terminal <CR>i
+endif
+
 tnoremap <Esc> <C-\><C-n>
 
 nnoremap <buffer> <LEADER>i :!./% <CR>
@@ -452,7 +460,6 @@ function! LightlineGitBlame() abort
   return winwidth(0) > 120 ? blame : ''
 endfunction
 
-set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
 
 " navigate chunks of current buffer
 nmap [g <Plug>(coc-git-prevchunk)
@@ -469,7 +476,8 @@ omap ig <Plug>(coc-git-chunk-inner)
 xmap ig <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
-
+nnoremap <silent> <space>g  :<C-u>CocList --normal gstatus<CR>
+autocmd CursorHold * :CocCommand git.refresh
 
 if exists('g:idea_vimrc')
     set cmdheight=2
@@ -513,7 +521,7 @@ if exists('g:idea_vimrc')
     nnoremap g/ /
     noremap <LEADER>m   :action ActivateMavenToolWindow<cr>
     nnoremap <LEADER>n  :action ActivateProjectToolWindow<cr>
-    noremap tt   :action ActivateTerminalToolWindow<cr>
+    nnoremap tt   :action ActivateTerminalToolWindow<cr>
     nnoremap <LEADER>-   :action GotoPreviousBookmark<cr>
     nnoremap <LEADER>1 :action   GoToTab1<cr>
     nnoremap <LEADER>2 :action   GoToTab2<cr>
