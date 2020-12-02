@@ -119,7 +119,7 @@ noremap co :copen 10<CR>
 let g:floaterm = 1
 if exists('g:floaterm')
     noremap tt :FloatermToggle <CR>
-    noremap lg :FloatermToggle lazygit<CR>
+    noremap lg :terminal lazygit floaterm<CR>a
 else
     noremap lg <C-w>v<Esc>:terminal lazygit<CR>
     noremap fm <C-w>v<Esc>:terminal vifm .<CR>
@@ -127,7 +127,7 @@ else
     noremap tt <C-w>v<Esc>:terminal <CR>i
 endif
 
-tnoremap <Esc> <C-\><C-n>
+tnoremap <S-Esc> <C-\><C-n>
 
 nnoremap <buffer> <LEADER>i :!./% <CR>
 command! MakeTags :!ctags -R . <CR>
@@ -478,6 +478,36 @@ omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
 nnoremap <silent> <space>g  :<C-u>CocList --normal gstatus<CR>
 autocmd CursorHold * :CocCommand git.refresh
+" floating terminal
+
+let g:floaterm_width = 0.8       
+let g:floaterm_height = 0.8
+
+""" Configuration 
+let g:floaterm_keymap_new    = '<F7>'
+let g:floaterm_keymap_prev   = '<F8>'
+let g:floaterm_keymap_next   = '<F9>'
+let g:floaterm_keymap_toggle = '<F10>'
+
+nnoremap   <silent>   <F7>    :FloatermNew<CR>
+tnoremap   <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>
+nnoremap   <silent>   <F8>    :FloatermPrev<CR>
+tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
+nnoremap   <silent>   <F9>    :FloatermNext<CR>
+tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
+nnoremap   <silent>   <F12>   :FloatermToggle<CR>
+tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
+
+" hi Floaterm guibg=black
+" hi FloatermBorder guibg=gray guifg=blue
+
+function s:floatermSettings()
+    setlocal number
+    " more settings
+endfunction
+
+autocmd FileType floaterm call s:floatermSettings()
+
 
 if exists('g:idea_vimrc')
     set cmdheight=2
