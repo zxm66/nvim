@@ -79,7 +79,7 @@ map ; :
 nnoremap <silent> <expr>s col(".")==1?"$":"0"
 vnoremap <silent> <expr>s col(".")==1?"$h":"0"
 map <LEADER>n :Explore .<CR>
-map nn :CocCommand explorer . <CR>
+map nn :CocCommand explorer <CR>
 " 使用autoformat会自动将空格删除掉。所以使用<SPACE>
 map <LEADER>f :find<SPACE>
 map <LEADER>d :!mkdir -p<SPACE>
@@ -385,6 +385,48 @@ let airline#extensions#ale#close_lnum_symbol = ')'
 let g:airline#extensions#tmuxline#enabled = 0
 let airline#extensions#tmuxline#color_template = 'normal'
 let airline#extensions#tmuxline#snapshot_file =  "~/.tmux-statusline-colors.conf"
+" CocCommand explorer
+let g:coc_explorer_global_presets = {
+\   '.vim': {
+\     'root-uri': '~/.vim',
+\   },
+\   'tab': {
+\     'position': 'tab',
+\     'quit-on-open': v:true,
+\   },
+\   'floating': {
+\     'position': 'floating',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingTop': {
+\     'position': 'floating',
+\     'floating-position': 'center-top',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingLeftside': {
+\     'position': 'floating',
+\     'floating-position': 'left-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingRightside': {
+\     'position': 'floating',
+\     'floating-position': 'right-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'simplify': {
+\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+\   }
+\ }
+
+" Use preset argument to open it
+nmap <space>ed :CocCommand explorer --preset .vim<CR>
+nmap <space>ef :CocCommand explorer --preset floating<CR>
+
+" List all presets
+nmap <space>el :CocList explPresets<CR>
+
 
 if exists('g:idea_vimrc')
     set cmdheight=2
