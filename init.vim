@@ -1,6 +1,7 @@
 let mapleader=" "
 " terminal
 let $TERM='iterm2'
+autocmd VimEnter * Tmuxline
 " netrw
 let g:netrw_banner=0
 let g:netrw_liststyle=3
@@ -75,9 +76,10 @@ set showbreak=>\
 map ; :
 " map - $
 " map s <nop>
-noremap <expr>s col(".")==1?"$":"0"
-vnoremap <expr>s col(".")==1?"$h":"0"
+nnoremap <silent> <expr>s col(".")==1?"$":"0"
+vnoremap <silent> <expr>s col(".")==1?"$h":"0"
 map <LEADER>n :Explore .<CR>
+map nn :CocCommand explorer . <CR>
 " 使用autoformat会自动将空格删除掉。所以使用<SPACE>
 map <LEADER>f :find<SPACE>
 map <LEADER>d :!mkdir -p<SPACE>
