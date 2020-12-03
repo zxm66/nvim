@@ -274,9 +274,10 @@
                 "diagnostic.refreshAfterSave": false,
                 "diagnostic.checkCurrentLine": true,
                 "diagnostic.virtualTextPrefix": " ❯❯❯ ",
-                "diagnostic.virtualText": true,
+                "diagnostic.virtualText":false,
                 "codeLens.enable": true,
                 "list.previewHighlightGroup": "Statement",
+
                 "snippets.ultisnips.directories": [
                     "UltiSnips"
                 ],
@@ -325,7 +326,7 @@
                 "explorer.file.column.clip.copy": "",
                 "explorer.file.column.clip.cut": "",
                 "explorer.file.column.indent.chars": "  ",
-                "explorer.file.column.indent.indentLine": 4,
+                "explorer.file.column.indent.indentLine": true,
 
                 "explorer.activeMode": true,
                 "explorer.git.command": "git",

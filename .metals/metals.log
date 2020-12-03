@@ -65,3 +65,7 @@
 2020.12.03 13:35:49 INFO  time: initialize in 0.66s
 2020.12.03 13:35:50 WARN  Build server is not auto-connectable.
 2020.12.03 13:35:50 WARN  no build tool detected in workspace '/Users/zhangxiaomin/.config/nvim'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+十二月 03, 2020 1:55:11 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTraceNotification
+十二月 03, 2020 1:57:04 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTraceNotification
