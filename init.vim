@@ -107,6 +107,9 @@ noremap <C-k> <PageUp>
 noremap L :vertical resize-10<CR>
 noremap <LEADER><CR> :CocFix<CR>
 noremap <LEADER>c :CocList<CR>
+noremap <LEADER>cc :CocList colors<CR>
+noremap <LEADER>cg :CocList grep<CR>
+noremap <LEADER>cb :CocList buffers<CR>
 noremap <LEADER>- :tabprevious<CR>
 noremap <LEADER>= :tabNext<CR>
 noremap <LEADER>[ :bprevious<CR>
