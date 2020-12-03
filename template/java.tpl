@@ -3,9 +3,7 @@
  * @email 1396729865@qq.com
  */
 
-public class
-ClassName
-{
+public class ClassName{
 
 }
 
