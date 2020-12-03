@@ -217,17 +217,50 @@
                 "list.previousKeymap": "<C-k>",
 
                 "explorer.width": 38,
-                "explorer.quitOnOpen": true,
+                "explorer.quitOnOpen": false,
                 "explorer.sources": [
                     {
                         "name": "buffer",
-                        "expand": false
+                        "expand": true
                     },
                     {
                         "name": "file",
                         "expand": true
                     }
                 ],
+                "explorer.autoCollapseOptions": [
+                    "recursive"
+                ],
+                "explorer.autoExpandMaxDepth": 20,
+                "explorer.autoExpandOptions": [
+                    "compact",
+                    "uncompact"
+                ],
+                
+                "explorer.bookmark.child.labelingTemplate": "[filename][fullpath][position][line][annotation]",
+                "explorer.bookmark.child.template": "[selection | 1] [filename] [position] - [annotation]",
+                "explorer.bookmark.root.template": "[icon] [title] [hidden & 1]",
+                "explorer.buffer.child.labelingTemplate": "[name][bufname][fullpath][modified][readonly][diagnosticError][diagnosticWarning][git]",
+                "explorer.buffer.child.template": "[git | 2] [selection | 1] [bufnr] [name][modified][readonly] [fullpath]",
+                "explorer.buffer.root.template": "[icon] [title] [hidden & 1]",
+                "explorer.buffer.tabOnly": true,
+                "explorer.openAction.for.directory": "cd",
+                "explorer.contentWidth": 0,
+                "explorer.contentWidthType": "vim-width",
+                "explorer.datetime.format": "yy/MM/dd HH:mm:ss",
+                "explorer.debug": false,
+                "explorer.diagnostic.displayMax": 99,
+                "explorer.diagnostic.enableSubscriptNumber": false,
+                "explorer.enableFloatinput": true,
+                "explorer.file.autoReveal": true,
+                "explorer.file.child.labelingTemplate": "[fullpath][link][diagnosticError][diagnosticWarning][git][size][timeAccessed][timeModified][timeCreated][readonly][modified]",
+                "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5][size]",
+                "explorer.file.column.clip.copy": "",
+                "explorer.file.column.clip.cut": "",
+                "explorer.file.column.indent.chars": "  ",
+                "explorer.file.column.indent.indentLine": 4,
+
+                "explorer.activeMode": true,
                 "explorer.git.command": "git",
                 "explorer.icon.enableNerdfont": true,
                 "explorer.keyMappingMode": "none",

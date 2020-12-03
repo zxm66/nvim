@@ -116,10 +116,12 @@ noremap <LEADER>q :bdelete % <CR>
 noremap af :Autoformat<CR>
 noremap cc <C-w>
 noremap co :copen 10<CR>
+" 使用同一个快捷键，做不同的效果。
 let g:floaterm = 1
 if exists('g:floaterm')
     noremap tt :FloatermToggle <CR>
     noremap lg :terminal lazygit floaterm<CR>a
+    " noremap fm <C-w>v<Esc>:terminal vifm | FloatermToggle<CR>
 else
     noremap lg <C-w>v<Esc>:terminal lazygit<CR>
     noremap fm <C-w>v<Esc>:terminal vifm .<CR>
@@ -128,7 +130,7 @@ else
 endif
 
 tnoremap <S-Esc> <C-\><C-n>
-
+tnoremap <LEADER>q <C-\><C-n>a<CR>exit<CR><CR>
 nnoremap <buffer> <LEADER>i :!./% <CR>
 command! MakeTags :!ctags -R . <CR>
 
@@ -160,7 +162,6 @@ Plug 'voldikss/vim-floaterm'
 "Plug 'plasticboy/vim-markdown'
 call plug#end()
 
-" 最好是quickfix这个东西可以有索引，然后直接跳转到对应的位置上就好了。
 function SetMakeprg()
     if &filetype == 'c'
         set makeprg=gcc
