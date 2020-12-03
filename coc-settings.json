@@ -19,7 +19,7 @@
     "coc.preferences.listOfWorkspaceEdit": "location",
     "coc.preferences.formatOnInsertLeave": false,
     "coc.preferences.bracketEnterImprove": true,
-    "coc.preferences.formatOnSaveFiletypes": [],
+    "coc.preferences.formatOnSaveFiletypes": ["markdown","java"],
     "coc.preferences.formatOnTypeFiletypes": [],
     "coc.preferences.useQuickfixForLocations": false,
     "coc.preferences.currentFunctionSymbolAutoUpdate": false,
@@ -196,7 +196,7 @@
 
     "suggest.detailMaxLength": 60,
     "suggest.noselect": true,
-    "suggest.enablePreselect": false,
+    "suggest.enablePreselect": true,
     "suggest.triggerAfterInsertEnter": true,
     "suggest.autoTrigger": "always",
     "suggest.timeout": 500,
