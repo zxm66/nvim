@@ -238,6 +238,36 @@ augroup image
     autocmd BufEnter *.jpg !imgcat  %
     autocmd BufEnter *.jpg bdelete
 augroup end
+augroup uncompress
+    autocmd!
+    autocmd BufEnter *.gz %!gunzip
+augroup end
+
+augroup gzip
+  autocmd!
+  autocmd BufReadPre,FileReadPre	*.gz set bin
+  autocmd BufReadPost,FileReadPost	*.gz '[,']!gunzip
+  autocmd BufReadPost,FileReadPost	*.gz set nobin
+  autocmd BufReadPost,FileReadPost	*.gz execute ":doautocmd BufReadPost " . expand("%:r")
+  autocmd BufWritePost,FileWritePost	*.gz !mv <afile> <afile>:r
+  autocmd BufWritePost,FileWritePost	*.gz !gzip <afile>:r
+
+  autocmd FileAppendPre		*.gz !gunzip <afile>
+  autocmd FileAppendPre		*.gz !mv <afile>:r <afile>
+  autocmd FileAppendPost		*.gz !mv <afile> <afile>:r
+  autocmd FileAppendPost		*.gz !gzip <afile>:r
+augroup END
+
+autocmd BufWritePre,FileWritePre *.html   ks|call LastMod()|'s
+fun LastMod()
+  if line("$") > 20
+    let l = 20
+  else
+    let l = line("$")
+  endif
+  exe "1," . l . "g/Last modified: /s/Last modified: .*/Last modified: " .
+  \ strftime("%Y %b %d")
+endfun
 
 
 imap <C-l> <Plug>(coc-snippets-expand)
