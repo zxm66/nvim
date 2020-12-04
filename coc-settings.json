@@ -1,4 +1,9 @@
 {
+    "leetcode.trace.server": "messages",
+    "leetcode.enabled": true,
+    "leetcode.language": "java",
+    
+
 
     "coc.preferences.maxFileSize": "10MB",
     "coc.preferences.formatOnType": true,
@@ -315,11 +320,11 @@
                 "explorer.openAction.for.directory": "cd",
                 "explorer.contentWidth": 0,
                 "explorer.contentWidthType": "vim-width",
-                "explorer.datetime.format": "yy/MM/dd HH:mm:ss",
+                "explorer.datetime.format": "yyyy/MM/dd HH:mm:ss",
                 "explorer.debug": false,
                 "explorer.diagnostic.displayMax": 99,
                 "explorer.diagnostic.enableSubscriptNumber": false,
-                "explorer.enableFloatinput": true,
+                "explorer.enableFloatinput": false,
                 "explorer.file.autoReveal": true,
                 "explorer.file.child.labelingTemplate": "[fullpath][link][diagnosticError][diagnosticWarning][git][size][timeAccessed][timeModified][timeCreated][readonly][modified]",
                 "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5][size]",
@@ -328,11 +333,11 @@
                 "explorer.file.column.indent.chars": "  ",
                 "explorer.file.column.indent.indentLine": true,
 
-                "explorer.activeMode": true,
+                "explorer.activeMode": false,
                 "explorer.git.command": "git",
                 "explorer.icon.enableNerdfont": true,
                 "explorer.keyMappingMode": "none",
-                "explorer.buffer.showHiddenBuffers": false,
+                "explorer.buffer.showHiddenBuffers": true,
                 "explorer.keyMappings": {
                     "i": false,
                     "gk": "expandablePrev",
@@ -411,7 +416,7 @@
                 "java.import.callback": "",
                 "java.autobuild.enabled": true,
                 "java.completion.enabled": true,
-                "java.format.settings.url": null,
+                "java.format.settings.url": "/Users/zhangxiaomin/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml",
                 "java.templates.typeComment": [],
                 "java.selectionRange.enabled": true,
                 "java.format.settings.profile": null,

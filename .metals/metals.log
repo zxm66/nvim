@@ -69,3 +69,15 @@
 信息: Unsupported notification method: $/setTraceNotification
 十二月 03, 2020 1:57:04 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 信息: Unsupported notification method: $/setTraceNotification
+十二月 03, 2020 2:09:05 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTraceNotification
+十二月 03, 2020 2:09:51 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTraceNotification
+十二月 03, 2020 2:11:01 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTraceNotification
+十二月 03, 2020 2:12:04 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTraceNotification
+2020.12.03 14:43:27 INFO  Started: Metals version 0.9.7 in workspace '/Users/zhangxiaomin/.config/nvim' .
+2020.12.03 14:43:27 INFO  time: initialize in 0.64s
+2020.12.03 14:43:28 WARN  Build server is not auto-connectable.
+2020.12.03 14:43:28 WARN  no build tool detected in workspace '/Users/zhangxiaomin/.config/nvim'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 

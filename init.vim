@@ -110,6 +110,8 @@ noremap <LEADER>c :CocList<CR>
 noremap <LEADER>cc :CocList colors<CR>
 noremap <LEADER>cg :CocList grep<CR>
 noremap <LEADER>cb :CocList buffers<CR>
+noremap <LEADER>cm :CocList marketplace<CR>
+noremap <LEADER>cl :CocList LeetcodeProblems<CR>
 noremap <LEADER>- :tabprevious<CR>
 noremap <LEADER>= :tabNext<CR>
 noremap <LEADER>[ :bprevious<CR>
@@ -238,8 +240,8 @@ augroup end
 " 可以使用vim吊起预览的命令不一定使用imgcat打印在终端。
 augroup image
     autocmd!
-    autocmd BufEnter *.jpg !imgcat  %
-    autocmd BufEnter *.jpg bdelete
+    autocmd BufEnter *.jpg,*.png,*.pdf !/Applications/Firefox.app/Contents/MacOS/firefox-bin %:p
+    autocmd BufEnter *.jpg,*.png,*.pdf bdelete!
 augroup end
 augroup uncompress
     autocmd!
@@ -271,7 +273,6 @@ fun LastMod()
   exe "1," . l . "g/Last modified: /s/Last modified: .*/Last modified: " .
   \ strftime("%Y %b %d")
 endfun
-
 
 imap <C-l> <Plug>(coc-snippets-expand)
 
