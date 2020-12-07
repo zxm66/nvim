@@ -1,6 +1,6 @@
 let mapleader=" "
 " terminal
-let $TERM='iterm2'
+"let $TERM='iterm2'
 autocmd VimEnter * Tmuxline
 " netrw
 let g:netrw_banner=0
@@ -165,7 +165,7 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'voldikss/vim-floaterm'
 "Plug 'godlygeek/tabular'
 "Plug 'plasticboy/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
+"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
 call plug#end()
 
 function SetMakeprg()
@@ -300,8 +300,37 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 
-let g:coc_global_extensions=['coc-cfn-lint','coc-clangd','coc-db','coc-emmet','coc-explorer','coc-git','coc-go','coc-highlight','coc-html','coc-java','coc-java-debug','coc-java-lombok','coc-jedi','coc-json','coc-lists','coc-marketplace','coc-markmap','coc-metals','coc-pairs','coc-pyright','coc-python','coc-snippets','coc-terminal','coc-todolist','coc-translator','coc-tsserver','coc-twitch-highlight','coc-vimlsp','coc-xml','coc-yank']
+let g:coc_global_extensions=['coc-cfn-lint',
+            \'coc-clangd',
+            \'coc-db',
+            \'coc-emmet',
+            \'coc-explorer',
+            \'coc-git',
+            \'coc-go',
+            \'coc-highlight',
+            \'coc-html',
+            \'coc-jedi',
+            \'coc-json',
+            \'coc-lists',
+            \'coc-marketplace',
+            \'coc-markmap',
+            \'coc-metals',
+            \'coc-pairs',
+            \'coc-pyright',
+            \'coc-python',
+            \'coc-snippets',
+            \'coc-terminal',
+            \'coc-todolist',
+            \'coc-translator',
+            \'coc-tsserver',
+            \'coc-twitch-highlight',
+            \'coc-vimlsp',
+            \'coc-xml',
+            \'coc-yank']
 
+"            \'coc-java',
+"            \'coc-java-debug',
+"            \'coc-java-lombok',
 " Use tab for trigger completion with character ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
