@@ -1,10 +1,32 @@
 let mapleader=" "
 " terminal
 "let $TERM='iterm2'
-autocmd VimEnter * Tmuxline
+"autocmd VimEnter * Tmuxline
 " netrw
 let g:netrw_banner=0
+let g:netrw_preview=1
 let g:netrw_liststyle=3
+let g:netrw_browse_split=2
+let g:netrw_winsize=30
+hi netrwCompress term=NONE cterm=NONE gui=NONE ctermfg=10 guifg=green  ctermbg=0 guibg=black
+hi netrwData	  term=NONE cterm=NONE gui=NONE ctermfg=9 guifg=blue ctermbg=0 guibg=black
+hi netrwHdr	  term=NONE cterm=NONE,italic gui=NONE guifg=SeaGreen1
+hi netrwLex	  term=NONE cterm=NONE,italic gui=NONE guifg=SeaGreen1
+hi netrwYacc	  term=NONE cterm=NONE,italic gui=NONE guifg=SeaGreen1
+hi netrwLib	  term=NONE cterm=NONE gui=NONE ctermfg=14 guifg=yellow
+hi netrwObj	  term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
+hi netrwTilde	  term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
+hi netrwTmp	  term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
+hi netrwTags	  term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
+hi netrwDoc	  term=NONE cterm=NONE gui=NONE ctermfg=220 ctermbg=27 guifg=yellow2 guibg=Blue3
+hi netrwSymLink  term=NONE cterm=NONE gui=NONE ctermfg=220 ctermbg=27 guifg=grey60
+
+" Augroup VimStartup: 判断打开的文件是有一个空文件的话。
+augroup VimStartup
+    au!
+    au VimEnter * if expand("%") == "" | e . | endif
+augroup END
+
 " python
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
@@ -93,10 +115,10 @@ map <LEADER>sc :source ~/.config/nvim/init.vim<CR>
 nmap bd :%bdelete<CR>
 nmap N Nzz
 nmap n nzz
-nmap <tab> V>
-nmap <s-tab> V<
-vmap <tab> >gv
-vmap <s-tab> <gv
+"nmap <tab> V>
+"nmap <s-tab> V<
+"vmap <tab> >gv
+"vmap <s-tab> <gv
 vmap <LEADER>/ <C-v>0I//<ESC>
 
 noremap H :vertical resize+10<CR>
@@ -250,29 +272,29 @@ augroup uncompress
 augroup end
 
 augroup gzip
-  autocmd!
-  autocmd BufReadPre,FileReadPre	*.gz set bin
-  autocmd BufReadPost,FileReadPost	*.gz '[,']!gunzip
-  autocmd BufReadPost,FileReadPost	*.gz set nobin
-  autocmd BufReadPost,FileReadPost	*.gz execute ":doautocmd BufReadPost " . expand("%:r")
-  autocmd BufWritePost,FileWritePost	*.gz !mv <afile> <afile>:r
-  autocmd BufWritePost,FileWritePost	*.gz !gzip <afile>:r
+    autocmd!
+    autocmd BufReadPre,FileReadPre    *.gz set bin
+    autocmd BufReadPost,FileReadPost  *.gz '[,']!gunzip
+    autocmd BufReadPost,FileReadPost  *.gz set nobin
+    autocmd BufReadPost,FileReadPost  *.gz execute ":doautocmd BufReadPost " . expand("%:r")
+    autocmd BufWritePost,FileWritePost    *.gz !mv <afile> <afile>:r
+    autocmd BufWritePost,FileWritePost    *.gz !gzip <afile>:r
 
-  autocmd FileAppendPre		*.gz !gunzip <afile>
-  autocmd FileAppendPre		*.gz !mv <afile>:r <afile>
-  autocmd FileAppendPost		*.gz !mv <afile> <afile>:r
-  autocmd FileAppendPost		*.gz !gzip <afile>:r
+    autocmd FileAppendPre     *.gz !gunzip <afile>
+    autocmd FileAppendPre     *.gz !mv <afile>:r <afile>
+    autocmd FileAppendPost        *.gz !mv <afile> <afile>:r
+    autocmd FileAppendPost        *.gz !gzip <afile>:r
 augroup END
 
 autocmd BufWritePre,FileWritePre *.html   ks|call LastMod()|'s
 fun LastMod()
-  if line("$") > 20
-    let l = 20
-  else
-    let l = line("$")
-  endif
-  exe "1," . l . "g/Last modified: /s/Last modified: .*/Last modified: " .
-  \ strftime("%Y %b %d")
+    if line("$") > 20
+        let l = 20
+    else
+        let l = line("$")
+    endif
+    exe "1," . l . "g/Last modified: /s/Last modified: .*/Last modified: " .
+                \ strftime("%Y %b %d")
 endfun
 
 imap <C-l> <Plug>(coc-snippets-expand)
@@ -367,9 +389,9 @@ nmap <silent> 'n <Plug>(coc-diagnostic-next)
 command! -nargs=+ -complete=custom,s:GrepArgs Rg exe 'CocList grep '.<q-args>
 
 function! s:GrepArgs(...)
-  let list = ['-S', '-smartcase', '-i', '-ignorecase', '-w', '-word',
-        \ '-e', '-regex', '-u', '-skip-vcs-ignores', '-t', '-extension']
-  return join(list, "\n")
+    let list = ['-S', '-smartcase', '-i', '-ignorecase', '-w', '-word',
+                \ '-e', '-regex', '-u', '-skip-vcs-ignores', '-t', '-extension']
+    return join(list, "\n")
 endfunction
 
 " Keymapping for grep word under cursor with interactive mode
@@ -379,18 +401,18 @@ vnoremap <leader>g :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 nnoremap <leader>g :<C-u>set operatorfunc=<SID>GrepFromSelected<CR>g@
 
 function! s:GrepFromSelected(type)
-  let saved_unnamed_register = @@
-  if a:type ==# 'v'
-    normal! `<v`>y
-  elseif a:type ==# 'char'
-    normal! `[v`]y
-  else
-    return
-  endif
-  let word = substitute(@@, '\n$', '', 'g')
-  let word = escape(word, '| ')
-  let @@ = saved_unnamed_register
-  execute 'CocList grep '.word
+    let saved_unnamed_register = @@
+    if a:type ==# 'v'
+        normal! `<v`>y
+    elseif a:type ==# 'char'
+        normal! `[v`]y
+    else
+        return
+    endif
+    let word = substitute(@@, '\n$', '', 'g')
+    let word = escape(word, '| ')
+    let @@ = saved_unnamed_register
+    execute 'CocList grep '.word
 endfunction
 
 nnoremap <silent> <space>w  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
@@ -435,17 +457,17 @@ let g:mkdp_browser = ''
 let g:mkdp_echo_preview_url = 0
 let g:mkdp_browserfunc = ''
 let g:mkdp_preview_options = {
-			\ 'mkit': {},
-			\ 'katex': {},
-			\ 'uml': {},
-			\ 'maid': {},
-			\ 'disable_sync_scroll': 0,
-			\ 'sync_scroll_type': 'middle',
-			\ 'hide_yaml_meta': 1,
-			\ 'sequence_diagrams': {},
-			\ 'flowchart_diagrams': {},
-			\ 'content_editable': v:false
-			\ }
+            \ 'mkit': {},
+            \ 'katex': {},
+            \ 'uml': {},
+            \ 'maid': {},
+            \ 'disable_sync_scroll': 0,
+            \ 'sync_scroll_type': 'middle',
+            \ 'hide_yaml_meta': 1,
+            \ 'sequence_diagrams': {},
+            \ 'flowchart_diagrams': {},
+            \ 'content_editable': v:false
+            \ }
 let g:mkdp_markdown_css = ''
 let g:mkdp_highlight_css = ''
 
@@ -520,38 +542,38 @@ let airline#extensions#tmuxline#color_template = 'normal'
 let airline#extensions#tmuxline#snapshot_file =  "~/.tmux-statusline-colors.conf"
 " CocCommand explorer
 let g:coc_explorer_global_presets = {
-\   '.vim': {
-\     'root-uri': '~/.vim',
-\   },
-\   'tab': {
-\     'position': 'tab',
-\     'quit-on-open': v:true,
-\   },
-\   'floating': {
-\     'position': 'floating',
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingTop': {
-\     'position': 'floating',
-\     'floating-position': 'center-top',
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingLeftside': {
-\     'position': 'floating',
-\     'floating-position': 'left-center',
-\     'floating-width': 50,
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingRightside': {
-\     'position': 'floating',
-\     'floating-position': 'right-center',
-\     'floating-width': 50,
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'simplify': {
-\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
-\   }
-\ }
+            \   '.vim': {
+            \     'root-uri': '~/.vim',
+            \   },
+            \   'tab': {
+            \     'position': 'tab',
+            \     'quit-on-open': v:true,
+            \   },
+            \   'floating': {
+            \     'position': 'floating',
+            \     'open-action-strategy': 'sourceWindow',
+            \   },
+            \   'floatingTop': {
+            \     'position': 'floating',
+            \     'floating-position': 'center-top',
+            \     'open-action-strategy': 'sourceWindow',
+            \   },
+            \   'floatingLeftside': {
+            \     'position': 'floating',
+            \     'floating-position': 'left-center',
+            \     'floating-width': 50,
+            \     'open-action-strategy': 'sourceWindow',
+            \   },
+            \   'floatingRightside': {
+            \     'position': 'floating',
+            \     'floating-position': 'right-center',
+            \     'floating-width': 50,
+            \     'open-action-strategy': 'sourceWindow',
+            \   },
+            \   'simplify': {
+            \     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+            \   }
+            \ }
 
 " Use preset argument to open it
 nmap <space>ed :CocCommand explorer --preset .vim<CR>
@@ -564,25 +586,25 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " lightline
 let g:lightline = {
-  \ 'active': {
-  \   'left': [
-  \     [ 'mode', 'paste' ],
-  \     [ 'ctrlpmark', 'git', 'diagnostic', 'cocstatus', 'filename', 'method' ]
-  \   ],
-  \   'right':[
-  \     [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ],
-  \     [ 'blame' ]
-  \   ],
-  \ },
-  \ 'component_function': {
-  \   'blame': 'LightlineGitBlame',
-  \ }
-\ }
+            \ 'active': {
+            \   'left': [
+            \     [ 'mode', 'paste' ],
+            \     [ 'ctrlpmark', 'git', 'diagnostic', 'cocstatus', 'filename', 'method' ]
+            \   ],
+            \   'right':[
+            \     [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ],
+            \     [ 'blame' ]
+            \   ],
+            \ },
+            \ 'component_function': {
+            \   'blame': 'LightlineGitBlame',
+            \ }
+            \ }
 
 function! LightlineGitBlame() abort
-  let blame = get(b:, 'coc_git_blame', '')
-  " return blame
-  return winwidth(0) > 120 ? blame : ''
+    let blame = get(b:, 'coc_git_blame', '')
+    " return blame
+    return winwidth(0) > 120 ? blame : ''
 endfunction
 
 
@@ -605,10 +627,10 @@ nnoremap <silent> <space>g  :<C-u>CocList --normal gstatus<CR>
 autocmd CursorHold * :CocCommand git.refresh
 " floating terminal
 
-let g:floaterm_width = 0.8       
+let g:floaterm_width = 0.8
 let g:floaterm_height = 0.8
 
-""" Configuration 
+""" Configuration
 let g:floaterm_keymap_new    = '<F7>'
 let g:floaterm_keymap_prev   = '<F8>'
 let g:floaterm_keymap_next   = '<F9>'
@@ -674,8 +696,9 @@ if exists('g:idea_vimrc')
     nnoremap g<c-i> <c-i>
     nnoremap / :action Find<cr>
     nnoremap g/ /
-    noremap <LEADER>m   :action ActivateMavenToolWindow<cr>
-    nnoremap <LEADER>n  :action ActivateProjectToolWindow<cr>
+    nnoremap <LEADER>m   :action ActivateMavenToolWindow<cr>
+    " nnoremap <LEADER>n  :action ActivateProjectToolWindow<cr>
+    nnoremap <LEADER>n <M-1>
     nnoremap tt   :action ActivateTerminalToolWindow<cr>
     nnoremap <LEADER>-   :action GotoPreviousBookmark<cr>
     nnoremap <LEADER>1 :action   GoToTab1<cr>
