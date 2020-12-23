@@ -1,4 +1,6 @@
 let mapleader=" "
+
+let g:tabular_loaded = 1
 " terminal
 "let $TERM='iterm2'
 "autocmd VimEnter * Tmuxline
@@ -6,19 +8,20 @@ let mapleader=" "
 let g:netrw_banner=0
 let g:netrw_preview=1
 let g:netrw_liststyle=3
-let g:netrw_browse_split=2
-let g:netrw_winsize=30
+let g:netrw_browse_split=4
+" 新打开窗口的宽度
+let g:netrw_winsize=70
 hi netrwCompress term=NONE cterm=NONE gui=NONE ctermfg=10 guifg=green  ctermbg=0 guibg=black
-hi netrwData	  term=NONE cterm=NONE gui=NONE ctermfg=9 guifg=blue ctermbg=0 guibg=black
-hi netrwHdr	  term=NONE cterm=NONE,italic gui=NONE guifg=SeaGreen1
-hi netrwLex	  term=NONE cterm=NONE,italic gui=NONE guifg=SeaGreen1
-hi netrwYacc	  term=NONE cterm=NONE,italic gui=NONE guifg=SeaGreen1
-hi netrwLib	  term=NONE cterm=NONE gui=NONE ctermfg=14 guifg=yellow
-hi netrwObj	  term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
-hi netrwTilde	  term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
-hi netrwTmp	  term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
-hi netrwTags	  term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
-hi netrwDoc	  term=NONE cterm=NONE gui=NONE ctermfg=220 ctermbg=27 guifg=yellow2 guibg=Blue3
+hi netrwData      term=NONE cterm=NONE gui=NONE ctermfg=9 guifg=blue ctermbg=0 guibg=black
+hi netrwHdr   term=NONE cterm=NONE,italic gui=NONE guifg=SeaGreen1
+hi netrwLex   term=NONE cterm=NONE,italic gui=NONE guifg=SeaGreen1
+hi netrwYacc      term=NONE cterm=NONE,italic gui=NONE guifg=SeaGreen1
+hi netrwLib   term=NONE cterm=NONE gui=NONE ctermfg=14 guifg=yellow
+hi netrwObj   term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
+hi netrwTilde     term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
+hi netrwTmp   term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
+hi netrwTags      term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
+hi netrwDoc   term=NONE cterm=NONE gui=NONE ctermfg=220 ctermbg=27 guifg=yellow2 guibg=Blue3
 hi netrwSymLink  term=NONE cterm=NONE gui=NONE ctermfg=220 ctermbg=27 guifg=grey60
 
 " Augroup VimStartup: 判断打开的文件是有一个空文件的话。
@@ -185,9 +188,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'voldikss/vim-floaterm'
-"Plug 'godlygeek/tabular'
-"Plug 'plasticboy/vim-markdown'
-"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
+Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 function SetMakeprg()
@@ -207,6 +212,14 @@ function SetMakeprg()
         set makeprg=node
     endif
 endfunction
+
+function Markdown()
+    if &filetype=='markdown'
+        nnoremap bs :!pbpaste \| bash \| tee /dev/tty \| pbcopy<CR>
+    endif
+endfunction
+
+
 
 function SignDefine()
     if &filetype == 'c' || &filetype == 'h'
@@ -242,8 +255,9 @@ autocmd FileType vim,zsh,tmux nnoremap <buffer> <LEADER>i :source % <CR>
 autocmd FileType html nnoremap <buffer> <leader>i :!/Applications/Firefox.app/Contents/MacOS/firefox-bin %:p<CR>
 autocmd FileType * call SetPath()
 autocmd FileType * call SignDefine()
-" autocmd BufWrite * execute('Autoformat')
+autocmd BufWrite * execute('Autoformat')
 autocmd TermOpen * set nonumber
+autocmd FileType markdown call Markdown()
 
 autocmd BufNewFile *.java 0r ~/.config/nvim/template/java.tpl | autocmd! BufNewFile
 autocmd BufNewFile *.py 0r ~/.config/nvim/template/python.tpl | autocmd! BufNewFile
