@@ -251,6 +251,7 @@ autocmd FileType go nnoremap <buffer> <LEADER>i :!go run % <CR>
 autocmd FileType java nnoremap <buffer> <LEADER>i :!/Users/zhangxiaomin/Library/Java/JavaVirtualMachines/jdk-14.0.1+7/Contents/Home/bin/java % <CR>
 autocmd FileType rust nnoremap <buffer> <LEADER>i :!cargo run <CR>
 autocmd FileType javascript nnoremap <buffer> <LEADER>i :!node % <CR>
+autocmd FileType markdown nnoremap <buffer> <LEADER>i :!Typora %<CR>
 autocmd FileType vim,zsh,tmux nnoremap <buffer> <LEADER>i :source % <CR>
 autocmd FileType html nnoremap <buffer> <leader>i :!/Applications/Firefox.app/Contents/MacOS/firefox-bin %:p<CR>
 autocmd FileType * call SetPath()
@@ -668,13 +669,13 @@ endfunction
 
 autocmd FileType floaterm call s:floatermSettings()
 
-function! typora#launch()
+function Typora()
     " Launch Typora
     call system("open -a Typora \"" . expand("%") . "\"")
     setlocal autoread
 endfunction
 
-command! Typora call typora#launch()
+command! Typora call Typora()
 
 if exists('g:idea_vimrc')
     set cmdheight=2
