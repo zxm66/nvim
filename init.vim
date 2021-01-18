@@ -191,7 +191,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+"Plug 'plasticboy/vim-markdown'
 Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
@@ -246,7 +246,7 @@ autocmd FileType scala nnoremap <buffer> <LEADER>i :!scala %<CR>
 autocmd FileType c nnoremap <buffer> <LEADER>i :!gcc % && ./a.out && rm ./a.out <CR>
 autocmd FileType cpp nnoremap <buffer> <LEADER>i :!g++ % && ./a.out && rm ./a.out <CR>
 autocmd FileType python nnoremap <buffer> <LEADER>i :!python3 % <CR>
-autocmd FileType sh nnoremap <buffer> <LEADER>i :sh % <CR>
+autocmd FileType sh nnoremap <buffer> <LEADER>i :!sh % <CR>
 autocmd FileType go nnoremap <buffer> <LEADER>i :!go run % <CR>
 autocmd FileType java nnoremap <buffer> <LEADER>i :!/Users/zhangxiaomin/Library/Java/JavaVirtualMachines/jdk-14.0.1+7/Contents/Home/bin/java % <CR>
 autocmd FileType rust nnoremap <buffer> <LEADER>i :!cargo run <CR>
@@ -362,11 +362,10 @@ let g:coc_global_extensions=['coc-cfn-lint',
             \'coc-twitch-highlight',
             \'coc-vimlsp',
             \'coc-xml',
-            \'coc-yank']
-
-"            \'coc-java',
-"            \'coc-java-debug',
-"            \'coc-java-lombok',
+            \'coc-yank',
+            \'coc-java',
+            \'coc-java-debug',
+            \'coc-java-lombok']
 " Use tab for trigger completion with character ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -669,6 +668,13 @@ endfunction
 
 autocmd FileType floaterm call s:floatermSettings()
 
+function! typora#launch()
+    " Launch Typora
+    call system("open -a Typora \"" . expand("%") . "\"")
+    setlocal autoread
+endfunction
+
+command! Typora call typora#launch()
 
 if exists('g:idea_vimrc')
     set cmdheight=2
