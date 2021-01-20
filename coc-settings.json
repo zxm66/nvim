@@ -2,7 +2,7 @@
     "leetcode.trace.server": "messages",
     "leetcode.enabled": true,
     "leetcode.language": "java",
-    
+
 
 
     "coc.preferences.maxFileSize": "10MB",
@@ -16,7 +16,7 @@
     "coc.preferences.promptInput": true,
     "coc.preferences.colorSupport": true,
     "coc.preferences.watchmanPath": null,
-    "coc.preferences.floatQuickpick": true,
+    "coc.preferences.floatQuickpick": false,
     "coc.preferences.previewAutoClose": true,
     "coc.preferences.previewMaxHeight": 12,
     "coc.preferences.highlightTimeout": 500,
@@ -309,7 +309,7 @@
                     "compact",
                     "uncompact"
                 ],
-                
+
                 "explorer.bookmark.child.labelingTemplate": "[filename][fullpath][position][line][annotation]",
                 "explorer.bookmark.child.template": "[selection | 1] [filename] [position] - [annotation]",
                 "explorer.bookmark.root.template": "[icon] [title] [hidden & 1]",
@@ -495,7 +495,7 @@
                 "metals.gradleScript": "",
                 "metals.pantsTargets": "",
                 "metals.bloopVersion": "",
-                "metals.serverVersion": "0.9.8",
+                "metals.serverVersion": "0.9.10",
                 "metals.serverProperties": [],
                 "metals.excludedPackages": [],
                 "metals.statusBarEnabled": false,

@@ -164,8 +164,8 @@ tnoremap <LEADER>q <C-\><C-n>a<CR>exit<CR><CR>
 nnoremap <buffer> <LEADER>i :!./% <CR>
 command! MakeTags :!ctags -R . <CR>
 
-nmap <leader><leader>t <Plug>(coc-translator-p)
-vmap <Leader><leader>t <Plug>(coc-translator-pv)
+"nmap <leader><leader>t <Plug>(coc-translator-p)
+"vmap <Leader><leader>t <Plug>(coc-translator-pv)
 nmap <leader><Leader>e <Plug>(coc-translator-e)
 vmap <leader><Leader>e <Plug>(coc-translator-ev)
 nmap <leader><Leader>r <Plug>(coc-translator-r)
@@ -178,7 +178,7 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 call plug#begin("~/.config/nvim/plugged")
 Plug 'Chiel92/vim-autoformat'
-"Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 "Plug 'gcmt/wildfire.vim'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'SirVer/ultisnips'
@@ -312,60 +312,6 @@ fun LastMod()
                 \ strftime("%Y %b %d")
 endfun
 
-imap <C-l> <Plug>(coc-snippets-expand)
-
-vmap <C-j> <Plug>(coc-snippets-select)
-
-let g:coc_snippet_next = '<C-j>'
-
-let g:coc_snippet_prev = '<C-k>'
-
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-
-inoremap <silent><expr> <TAB>
-            \ pumvisible() ? coc#_select_confirm() :
-            \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ coc#refresh()
-
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-
-let g:coc_snippet_next = '<tab>'
-
-let g:coc_global_extensions=['coc-cfn-lint',
-            \'coc-clangd',
-            \'coc-db',
-            \'coc-emmet',
-            \'coc-explorer',
-            \'coc-git',
-            \'coc-go',
-            \'coc-highlight',
-            \'coc-jedi',
-            \'coc-json',
-            \'coc-lists',
-            \'coc-marketplace',
-            \'coc-markmap',
-            \'coc-metals',
-            \'coc-pairs',
-            \'coc-pyright',
-            \'coc-python',
-            \'coc-snippets',
-            \'coc-terminal',
-            \'coc-todolist',
-            \'coc-translator',
-            \'coc-tsserver',
-            \'coc-twitch-highlight',
-            \'coc-vimlsp',
-            \'coc-xml',
-            \'coc-yank',
-            \'coc-java',
-            \'coc-java-debug',
-            \'coc-java-lombok']
 " Use tab for trigger completion with character ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -427,35 +373,6 @@ function! s:GrepFromSelected(type)
     let @@ = saved_unnamed_register
     execute 'CocList grep '.word
 endfunction
-
-nnoremap <silent> <space>w  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
-
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window
-nnoremap <silent> M :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-    if (index(['im','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    else
-        call CocAction('doHover')
-    endif
-endfunction
-
-
-augroup mygroup
-    autocmd!
-    " Setup formatexpr specified filetype(s).
-    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-    " Update signature help on jump placeholder.
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
 
 
 
@@ -553,49 +470,6 @@ let airline#extensions#ale#close_lnum_symbol = ')'
 let g:airline#extensions#tmuxline#enabled = 0
 let airline#extensions#tmuxline#color_template = 'normal'
 let airline#extensions#tmuxline#snapshot_file =  "~/.tmux-statusline-colors.conf"
-" CocCommand explorer
-let g:coc_explorer_global_presets = {
-            \   '.vim': {
-            \     'root-uri': '~/.vim',
-            \   },
-            \   'tab': {
-            \     'position': 'tab',
-            \     'quit-on-open': v:true,
-            \   },
-            \   'floating': {
-            \     'position': 'floating',
-            \     'open-action-strategy': 'sourceWindow',
-            \   },
-            \   'floatingTop': {
-            \     'position': 'floating',
-            \     'floating-position': 'center-top',
-            \     'open-action-strategy': 'sourceWindow',
-            \   },
-            \   'floatingLeftside': {
-            \     'position': 'floating',
-            \     'floating-position': 'left-center',
-            \     'floating-width': 50,
-            \     'open-action-strategy': 'sourceWindow',
-            \   },
-            \   'floatingRightside': {
-            \     'position': 'floating',
-            \     'floating-position': 'right-center',
-            \     'floating-width': 50,
-            \     'open-action-strategy': 'sourceWindow',
-            \   },
-            \   'simplify': {
-            \     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
-            \   }
-            \ }
-
-" Use preset argument to open it
-nmap <space>ed :CocCommand explorer --preset .vim<CR>
-nmap <space>ef :CocCommand explorer --preset floating<CR>
-
-" List all presets
-nmap <space>el :CocList explPresets<CR>
-
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " lightline
 let g:lightline = {
@@ -675,6 +549,141 @@ function Typora()
 endfunction
 
 command! Typora call Typora()
+
+
+if exists('g:coc_nvim')
+
+
+    nnoremap <silent> <space>w  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
+
+
+    " GoTo code navigation.
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> gy <Plug>(coc-type-definition)
+    nmap <silent> gi <Plug>(coc-implementation)
+    nmap <silent> gr <Plug>(coc-references)
+
+    " Use K to show documentation in preview window
+    nnoremap <silent> M :call <SID>show_documentation()<CR>
+    function! s:show_documentation()
+        if (index(['im','help'], &filetype) >= 0)
+            execute 'h '.expand('<cword>')
+        else
+            call CocAction('doHover')
+        endif
+    endfunction
+
+
+    augroup mygroup
+        autocmd!
+        " Setup formatexpr specified filetype(s).
+        autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+        " Update signature help on jump placeholder.
+        autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    augroup end
+
+    autocmd CursorHold * silent call CocActionAsync('highlight')
+
+    imap <C-l> <Plug>(coc-snippets-expand)
+
+    vmap <C-j> <Plug>(coc-snippets-select)
+
+    let g:coc_snippet_next = '<C-j>'
+
+    let g:coc_snippet_prev = '<C-k>'
+
+    imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+
+    inoremap <silent><expr> <TAB>
+                \ pumvisible() ? coc#_select_confirm() :
+                \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+                \ <SID>check_back_space() ? "\<TAB>" :
+                \ coc#refresh()
+
+    function! s:check_back_space() abort
+        let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
+
+
+    let g:coc_snippet_next = '<tab>'
+
+    let g:coc_global_extensions=[
+                \'coc-cfn-lint',
+                \'coc-clangd',
+                \'coc-db',
+                \'coc-emmet',
+                \'coc-explorer',
+                \'coc-git',
+                \'coc-go',
+                \'coc-highlight',
+                \'coc-jedi',
+                \'coc-json',
+                \'coc-html',
+                \'coc-lists',
+                \'coc-marketplace',
+                \'coc-markmap',
+                \'coc-metals',
+                \'coc-pairs',
+                \'coc-pyright',
+                \'coc-python',
+                \'coc-snippets',
+                \'coc-terminal',
+                \'coc-todolist',
+                \'coc-translator',
+                \'coc-tsserver',
+                \'coc-twitch-highlight',
+                \'coc-vimlsp',
+                \'coc-xml',
+                \'coc-yank',
+                \'coc-java',
+                \'coc-java-debug',
+                \'coc-java-lombok'
+                \]
+    " CocCommand explorer
+    let g:coc_explorer_global_presets = {
+                \   '.vim': {
+                \     'root-uri': '~/.vim',
+                \   },
+                \   'tab': {
+                \     'position': 'tab',
+                \     'quit-on-open': v:true,
+                \   },
+                \   'floating': {
+                \     'position': 'floating',
+                \     'open-action-strategy': 'sourceWindow',
+                \   },
+                \   'floatingTop': {
+                \     'position': 'floating',
+                \     'floating-position': 'center-top',
+                \     'open-action-strategy': 'sourceWindow',
+                \   },
+                \   'floatingLeftside': {
+                \     'position': 'floating',
+                \     'floating-position': 'left-center',
+                \     'floating-width': 50,
+                \     'open-action-strategy': 'sourceWindow',
+                \   },
+                \   'floatingRightside': {
+                \     'position': 'floating',
+                \     'floating-position': 'right-center',
+                \     'floating-width': 50,
+                \     'open-action-strategy': 'sourceWindow',
+                \   },
+                \   'simplify': {
+                \     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+                \   }
+                \ }
+
+    " Use preset argument to open it
+    nmap <space>ed :CocCommand explorer --preset .vim<CR>
+    nmap <space>ef :CocCommand explorer --preset floating<CR>
+
+    " List all presets
+    nmap <space>el :CocList explPresets<CR>
+
+endif
 
 if exists('g:idea_vimrc')
     set cmdheight=2
