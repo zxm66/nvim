@@ -173,6 +173,7 @@ call plug#begin("~/.config/nvim/plugged")
 Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips'
+Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-pathogen'
 Plug 'airblade/vim-gitgutter'
