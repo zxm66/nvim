@@ -46,7 +46,7 @@ set smartcase
 set ignorecase
 set showcmd
 set cmdheight=1
-set termguicolors
+"set termguicolors
 set fillchars=stl:\ ,stlnc:\ ,vert:│,fold:·,diff:-
 set formatexpr=mylang#Format()
 "set verbose=9
@@ -147,7 +147,7 @@ noremap af :Autoformat<CR>
 noremap cc <C-w>
 noremap co :copen 10<CR>
 " 使用同一个快捷键，做不同的效果。
-let g:floaterm = 1
+"let g:floaterm = 1
 if exists('g:floaterm')
     noremap tt :FloatermToggle <CR>
     noremap lg :terminal lazygit floaterm<CR>a
@@ -160,16 +160,9 @@ else
 endif
 
 tnoremap <S-Esc> <C-\><C-n>
-tnoremap <LEADER>q <C-\><C-n>a<CR>exit<CR><CR>
+tnoremap <LEADER>q <C-\><C-n>a<CR>exit<CR><ESC>i
 nnoremap <buffer> <LEADER>i :!./% <CR>
 command! MakeTags :!ctags -R . <CR>
-
-"nmap <leader><leader>t <Plug>(coc-translator-p)
-"vmap <Leader><leader>t <Plug>(coc-translator-pv)
-nmap <leader><Leader>e <Plug>(coc-translator-e)
-vmap <leader><Leader>e <Plug>(coc-translator-ev)
-nmap <leader><Leader>r <Plug>(coc-translator-r)
-vmap <leader><Leader>r <Plug>(coc-translator-rv)
 
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
     silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -179,10 +172,9 @@ endif
 call plug#begin("~/.config/nvim/plugged")
 Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-surround'
-"Plug 'gcmt/wildfire.vim'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'tpope/vim-pathogen'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -190,10 +182,180 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
-Plug 'godlygeek/tabular'
-"Plug 'plasticboy/vim-markdown'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'voldikss/vim-translator'
 call plug#end()
+
+" gitgutter
+if exists('g:vim_gitgutter')
+
+
+    let g:gitgutter_max_signs = 500  " default value (Vim < 8.1.0614, Neovim < 0.4.0)
+    let g:gitgutter_max_signs = -1   " default value (otherwise)
+
+    nmap ]h <Plug>(GitGutterNextHunk)
+    nmap [h <Plug>(GitGutterPrevHunk)
+
+    let g:gitgutter_show_msg_on_hunk_jumping = 1
+
+    command! Gqf GitGutterQuickFix | copen
+
+    nmap ghs <Plug>(GitGutterStageHunk)
+    nmap ghu <Plug>(GitGutterUndoHunk)
+
+    nmap ghp <Plug>(GitGutterPreviewHunk)
+
+    omap ih <Plug>(GitGutterTextObjectInnerPending)
+    omap ah <Plug>(GitGutterTextObjectOuterPending)
+    xmap ih <Plug>(GitGutterTextObjectInnerVisual)
+    xmap ah <Plug>(GitGutterTextObjectOuterVisual)
+
+    set foldtext=gitgutter#fold#foldtext()
+
+    " Your vimrc
+    function! GitStatus()
+        let [a,m,r] = GitGutterGetHunkSummary()
+        return printf('+%d ~%d -%d', a, m, r)
+    endfunction
+    set statusline+=%{GitStatus()}
+
+    " vim-gitgutter used to do this by default:
+    highlight! link SignColumn LineNr
+
+    " or you could do this:
+    highlight SignColumn guibg=whatever ctermbg=gray
+
+    " Vim 7.4.2201
+    set signcolumn=yes
+
+    let g:gitgutter_sign_allow_clobber = 1
+    let g:gitgutter_set_sign_backgrounds = 1
+    highlight GitGutterAdd    guifg=#009900 ctermfg=2
+    highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+    highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+
+
+    let g:gitgutter_sign_added = 'xx'
+    let g:gitgutter_sign_modified = 'yy'
+    let g:gitgutter_sign_removed = 'zz'
+    let g:gitgutter_sign_removed_first_line = '^^'
+    let g:gitgutter_sign_removed_above_and_below = '{'
+    let g:gitgutter_sign_modified_removed = 'ww'
+
+    highlight link GitGutterChangeLine DiffText
+
+    highlight link GitGutterChangeLineNr Underlined
+    let g:gitgutter_diff_relative_to = 'working_tree'
+    let g:gitgutter_diff_base = '<commit SHA>'
+    let g:gitgutter_git_args = '--git-dir-""'
+    let g:gitgutter_diff_args = '-w'
+    let g:gitgutter_grep = 'grep'
+    " let g:gitgutter_async = 0
+    function! CleanUp(...)
+        if a:0  " opfunc
+            let [first, last] = [line("'["), line("']")]
+        else
+            let [first, last] = [line("'<"), line("'>")]
+        endif
+        for lnum in range(first, last)
+            let line = getline(lnum)
+
+            " clean up the text, e.g.:
+            let line = substitute(line, '\s\+$', '', '')
+
+            call setline(lnum, line)
+        endfor
+    endfunction
+
+    nmap <silent> <Leader>x :set opfunc=CleanUp<CR>g@
+
+    function! GlobalChangedLines(ex_cmd)
+        for hunk in GitGutterGetHunks()
+            for lnum in range(hunk[2], hunk[2]+hunk[3]-1)
+                let cursor = getcurpos()
+                silent! execute lnum.a:ex_cmd
+                call setpos('.', cursor)
+            endfor
+        endfor
+    endfunction
+
+    command -nargs=1 Glines call GlobalChangedLines(<q-args>)
+
+
+    function! GitGutterNextHunkCycle()
+        let line = line('.')
+        silent! GitGutterNextHunk
+        if line('.') == line
+            1
+            GitGutterNextHunk
+        endif
+    endfunction
+
+    function! NextHunkAllBuffers()
+        let line = line('.')
+        GitGutterNextHunk
+        if line('.') != line
+            return
+        endif
+
+        let bufnr = bufnr('')
+        while 1
+            bnext
+            if bufnr('') == bufnr
+                return
+            endif
+            if !empty(GitGutterGetHunks())
+                1
+                GitGutterNextHunk
+                return
+            endif
+        endwhile
+    endfunction
+
+    function! PrevHunkAllBuffers()
+        let line = line('.')
+        GitGutterPrevHunk
+        if line('.') != line
+            return
+        endif
+
+        let bufnr = bufnr('')
+        while 1
+            bprevious
+            if bufnr('') == bufnr
+                return
+            endif
+            if !empty(GitGutterGetHunks())
+                normal! G
+                GitGutterPrevHunk
+                return
+            endif
+        endwhile
+    endfunction
+
+    nmap <silent> ]c :call NextHunkAllBuffers()<CR>
+    nmap <silent> [c :call PrevHunkAllBuffers()<CR>
+
+
+endif
+
+""" Configuration example
+" Echo translation in the cmdline
+nmap <silent> <Leader>t <Plug>Translate
+vmap <silent> <Leader>t <Plug>TranslateV
+" Display translation in a window
+nmap <silent> <Leader>w <Plug>TranslateW
+vmap <silent> <Leader>w <Plug>TranslateWV
+" Replace the text with translation
+nmap <silent> <Leader>r <Plug>TranslateR
+vmap <silent> <Leader>r <Plug>TranslateRV
+" Translate the text in clipboard
+nmap <silent> <Leader>x <Plug>TranslateX
+
+nnoremap <silent><expr> <M-f> translator#window#float#has_scroll() ?
+            \ translator#window#float#scroll(1) : "\<M-f>"
+nnoremap <silent><expr> <M-b> translator#window#float#has_scroll() ?
+            \ translator#window#float#scroll(0) : "\<M-f>"
 
 function SetMakeprg()
     if &filetype == 'c'
@@ -227,6 +389,9 @@ function SignDefine()
     elseif &filetype == 'python'
     elseif &filetype == 'vim'
     elseif &filetype == 'java'
+        nnoremap im /import<CR>N$a<CR>import<space>;<left>
+        nnoremap // 0i//<ESC>:Autoformat<CR>
+        vnoremap // 0I//<ESC>:Autoformat<CR>
     elseif &filetype == 'scala'
     elseif &filetype == 'js'
     endif
@@ -311,26 +476,6 @@ fun LastMod()
     exe "1," . l . "g/Last modified: /s/Last modified: .*/Last modified: " .
                 \ strftime("%Y %b %d")
 endfun
-
-" Use tab for trigger completion with character ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.使用C-r重新触发自动补全。
-if has('nvim')
-    inoremap <silent><expr> <C-r> coc#refresh()
-endif
-
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
 " <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
@@ -495,23 +640,6 @@ function! LightlineGitBlame() abort
 endfunction
 
 
-" navigate chunks of current buffer
-nmap [g <Plug>(coc-git-prevchunk)
-nmap ]g <Plug>(coc-git-nextchunk)
-" navigate conflicts of current buffer
-nmap [c <Plug>(coc-git-prevconflict)
-nmap ]c <Plug>(coc-git-nextconflict)
-" show chunk diff at current position
-nmap gs <Plug>(coc-git-chunkinfo)
-" show commit contains current position
-nmap gc <Plug>(coc-git-commit)
-" create text object for git chunks
-omap ig <Plug>(coc-git-chunk-inner)
-xmap ig <Plug>(coc-git-chunk-inner)
-omap ag <Plug>(coc-git-chunk-outer)
-xmap ag <Plug>(coc-git-chunk-outer)
-nnoremap <silent> <space>g  :<C-u>CocList --normal gstatus<CR>
-autocmd CursorHold * :CocCommand git.refresh
 " floating terminal
 
 let g:floaterm_width = 0.8
@@ -553,6 +681,32 @@ command! Typora call Typora()
 
 if exists('g:coc_nvim')
 
+
+    " Use tab for trigger completion with character ahead and navigate.
+    " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+    " other plugin before putting this into your config.
+    inoremap <silent><expr> <TAB>
+                \ pumvisible() ? "\<C-n>" :
+                \ <SID>check_back_space() ? "\<TAB>" :
+                \ coc#refresh()
+    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+    function! s:check_back_space() abort
+        let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
+
+    " Use <c-space> to trigger completion.使用C-r重新触发自动补全。
+    if has('nvim')
+        inoremap <silent><expr> <C-r> coc#refresh()
+    endif
+
+    "nmap <leader><leader>t <Plug>(coc-translator-p)
+    "vmap <Leader><leader>t <Plug>(coc-translator-pv)
+    nmap <leader><Leader>e <Plug>(coc-translator-e)
+    vmap <leader><Leader>e <Plug>(coc-translator-ev)
+    nmap <leader><Leader>r <Plug>(coc-translator-r)
+    vmap <leader><Leader>r <Plug>(coc-translator-rv)
 
     nnoremap <silent> <space>w  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
 
@@ -682,6 +836,25 @@ if exists('g:coc_nvim')
 
     " List all presets
     nmap <space>el :CocList explPresets<CR>
+
+    " navigate chunks of current buffer
+    nmap [g <Plug>(coc-git-prevchunk)
+    nmap ]g <Plug>(coc-git-nextchunk)
+    " navigate conflicts of current buffer
+    nmap [c <Plug>(coc-git-prevconflict)
+    nmap ]c <Plug>(coc-git-nextconflict)
+    " show chunk diff at current position
+    nmap gs <Plug>(coc-git-chunkinfo)
+    " show commit contains current position
+    nmap gc <Plug>(coc-git-commit)
+    " create text object for git chunks
+    omap ig <Plug>(coc-git-chunk-inner)
+    xmap ig <Plug>(coc-git-chunk-inner)
+    omap ag <Plug>(coc-git-chunk-outer)
+    xmap ag <Plug>(coc-git-chunk-outer)
+    nnoremap <silent> <space>g  :<C-u>CocList --normal gstatus<CR>
+    autocmd CursorHold * :CocCommand git.refresh
+
 
 endif
 
