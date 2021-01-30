@@ -12,16 +12,16 @@ let g:netrw_browse_split=4
 " 新打开窗口的宽度
 let g:netrw_winsize=70
 hi netrwCompress term=NONE cterm=NONE gui=NONE ctermfg=10 guifg=green  ctermbg=0 guibg=black
-hi netrwData      term=NONE cterm=NONE gui=NONE ctermfg=9 guifg=blue ctermbg=0 guibg=black
-hi netrwHdr   term=NONE cterm=NONE,italic gui=NONE guifg=SeaGreen1
-hi netrwLex   term=NONE cterm=NONE,italic gui=NONE guifg=SeaGreen1
-hi netrwYacc      term=NONE cterm=NONE,italic gui=NONE guifg=SeaGreen1
-hi netrwLib   term=NONE cterm=NONE gui=NONE ctermfg=14 guifg=yellow
-hi netrwObj   term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
-hi netrwTilde     term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
-hi netrwTmp   term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
-hi netrwTags      term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
-hi netrwDoc   term=NONE cterm=NONE gui=NONE ctermfg=220 ctermbg=27 guifg=yellow2 guibg=Blue3
+hi netrwData term=NONE cterm=NONE gui=NONE ctermfg=9 guifg=blue ctermbg=0 guibg=black
+hi netrwHdr term=NONE cterm=NONE,italic gui=NONE guifg=SeaGreen1
+hi netrwLex term=NONE cterm=NONE,italic gui=NONE guifg=SeaGreen1
+hi netrwYacc term=NONE cterm=NONE,italic gui=NONE guifg=SeaGreen1
+hi netrwLib term=NONE cterm=NONE gui=NONE ctermfg=14 guifg=yellow
+hi netrwObj term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
+hi netrwTilde term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
+hi netrwTmp term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
+hi netrwTags term=NONE cterm=NONE gui=NONE ctermfg=12 guifg=red
+hi netrwDoc term=NONE cterm=NONE gui=NONE ctermfg=220 ctermbg=27 guifg=yellow2 guibg=Blue3
 hi netrwSymLink  term=NONE cterm=NONE gui=NONE ctermfg=220 ctermbg=27 guifg=grey60
 
 " Augroup VimStartup: 判断打开的文件是有一个空文件的话。
@@ -162,7 +162,6 @@ endif
 tnoremap <S-Esc> <C-\><C-n>
 tnoremap <LEADER>q <C-\><C-n>a<CR>exit<CR><ESC>i
 nnoremap <buffer> <LEADER>i :!./% <CR>
-command! MakeTags :!ctags -R . <CR>
 
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
     silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -423,6 +422,8 @@ function SignDefine()
     elseif &filetype == 'python'
     elseif &filetype == 'vim'
     elseif &filetype == 'java'
+
+        command! MakeTags :!ctags -R . <CR>
         nnoremap im /import<CR>N$a<CR>import<space>;<left>
         nnoremap // 0i//<ESC>:Autoformat<CR>
         vnoremap // 0I//<ESC>:Autoformat<CR>
@@ -615,6 +616,7 @@ let g:airline#extensions#tabline#show_splits = 1
 let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:snipMate = { 'snippet_version' : 1 }
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#show_tab_count = 2
@@ -892,9 +894,32 @@ if exists('g:coc_nvim')
 
 endif
 
+
 if exists('g:idea_vimrc')
-    set cmdheight=2
+    nnoremap ; :action RunAnything<cr>
+    " 这个设置是没有生效的。
+    " set cmdheight=2
+    " normal模式使用english
+    set keep-english-in-normal
+    " 进入insert模式恢复输入法
+    set keep-english-in-normal-and-restore-in-insert
+    " goto file
+    noremap gf <ESC>:action GotoFile<CR>
+    noremap <leader>` <ESC>:action SelectInProjectView<CR>
+    "nnoremap <C-l> :action Tree-selectChild<cr>
+    "nnoremap <C-j> :action Tree-selectNext<cr>
+    "nnoremap <C-h> :action Tree-selectParent<cr>
+    "nnoremap <C-k> :action Tree-selectPrevious<cr>
+    "凡是不能使用hjkl这四个键位的，都可以用ctrl
+    nnoremap <C-l> <Right>
+    nnoremap <C-j> <Down>
+    nnoremap <C-h> <Left>
+    nnoremap <C-k> <Up>
+    nnoremap <C-O> <ESC>:action Back<CR>
+    nnoremap <C-I> <ESC>:action Forward<CR>
+
     nnoremap <LEADER>sc :source  ~/.ideavimrc<cr>
+    nnoremap <LEADER>nb :action ActivateNavBar<CR>
     nnoremap cow :action EditorToggleUseSoftWraps<cr>
     nnoremap col :action EditorToggleShowWhitespaces<cr>
     nnoremap <LEADER>l :action ShowPopupMenu<cr>
@@ -903,12 +928,14 @@ if exists('g:idea_vimrc')
     nnoremap <LEADER>\ :action VimFilePrevious<cr>
     nnoremap <LEADER>e :action SearchEverywhere<cr>
     nnoremap <LEADER>E :action Switcher<cr>
-    nnoremap <LEADER>t :action FileStructurePopup<cr>
-    nnoremap <LEADER>T :action GotoSymbol<cr>
-    nnoremap <LEADER>a :action GotoAction<cr>
-    nnoremap <LEADER>b :action ToggleLineBreakpoint<cr>
-    nnoremap <LEADER>] :action GotoImplementation<cr>
-    nnoremap <LEADER>[ :action GotoSuperMethod<cr>
+    nnoremap <LEADER>fs :action FileStructurePopup<cr>
+    nnoremap <LEADER>gs :action GotoSymbol<cr>
+    nnoremap <LEADER>se :action SearchEverywhere<cr>
+    "nnoremap <LEADER>a :action GotoAction<cr>
+    " 这个东西为什么会有提示呢。
+    nnoremap <LEADER>bp :action ToggleLineBreakpoint<cr>
+    nnoremap <LEADER>ip :action GotoImplementation<cr>
+    nnoremap <LEADER>sm :action GotoSuperMethod<cr>
     nnoremap <LEADER>u :action FindUsages<cr>
     nnoremap <LEADER>gt :action GotoTest<cr>
     nnoremap <LEADER>k :action HighlightUsagesInFile<cr>
@@ -934,9 +961,11 @@ if exists('g:idea_vimrc')
     nnoremap g/ /
     nnoremap <LEADER>m   :action ActivateMavenToolWindow<cr>
     " nnoremap <LEADER>n  :action ActivateProjectToolWindow<cr>
-    nnoremap <LEADER>n <M-1>
-    nnoremap tt   :action ActivateTerminalToolWindow<cr>
-    nnoremap <LEADER>-   :action GotoPreviousBookmark<cr>
+    " nnoremap <LEADER>n <M-1>
+    nnoremap <LEADER>s :action
+    nnoremap <LEADER>n :action ActivateProjectToolWindow<CR>
+    nnoremap <LEADER>t   :action ActivateTerminalToolWindow<cr>
+    "nnoremap <LEADER>-   :action GotoPreviousBookmark<cr>
     nnoremap <LEADER>1 :action   GoToTab1<cr>
     nnoremap <LEADER>2 :action   GoToTab2<cr>
     nnoremap <LEADER>3 :action   GoToTab3<cr>
@@ -953,6 +982,6 @@ if exists('g:idea_vimrc')
     nnoremap <LEADER>r    :action ReformatCode<cr>
     nnoremap <LEADER>f   :action ToggleFullScreen<cr>
     nnoremap <LEADER>z   :action ToggleZenMode<cr>
-    nnoremap <LEADER>z    :action ZoomCurrentWindow<cr>
+    " nnoremap <LEADER>z    :action ZoomCurrentWindow<cr>
 endif
 
