@@ -111,6 +111,14 @@ map <LEADER>f :find<SPACE>
 map <LEADER>d :!mkdir -p<SPACE>
 map <LEADER>e :edit %:p:h/
 map <LEADER>s :nohlsearch<CR>
+
+" 搜索高亮 离开关掉高亮
+augroup vimrc-incsearch-highlight
+    autocmd!
+    autocmd CmdlineEnter /,\? :set hlsearch
+    autocmd CmdlineLeave /,\? :set nohlsearch
+augroup END
+
 map <LEADER>t yaw<ESC>:!pbpaste \| say<CR>
 map <LEADER>r :tabedit ~/.config/nvim<CR>:lcd ~/.config/nvim<CR>
 map <LEADER>rc :edit ~/.config/nvim/init.vim<CR>
@@ -186,7 +194,10 @@ Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'voldikss/vim-translator'
+Plug 'lyokha/vim-xkbswitch'
 call plug#end()
+"xkbswitch
+let g:XkbSwitchEnabled = 1
 " Goyo
 "
 let g:goyo_vim = 1
