@@ -37,6 +37,7 @@ let g:python_host_prog = '/usr/bin/python2'
 set helplang=cn
 set mouse=nv
 " set list
+set timeoutlen=150
 set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50
 set title titlestring=%<%F%=%l/%L-%P\ titelen=70
 set encoding=utf-8
@@ -179,19 +180,19 @@ endif
 call plug#begin("~/.config/nvim/plugged")
 Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-surround'
-Plug 'SirVer/ultisnips'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-Plug 'tpope/vim-pathogen'
+"Plug 'SirVer/ultisnips'
+"Plug 'MarcWeber/vim-addon-mw-utils'
+"Plug 'tomtom/tlib_vim'
+"Plug 'garbas/vim-snipmate'
+"Plug 'honza/vim-snippets'
+"Plug 'tpope/vim-pathogen'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'voldikss/vim-floaterm'
-Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
-Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+"Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
+"Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'voldikss/vim-translator'
 Plug 'lyokha/vim-xkbswitch'
@@ -200,7 +201,7 @@ call plug#end()
 let g:XkbSwitchEnabled = 1
 " Goyo
 "
-let g:goyo_vim = 1
+"let g:goyo_vim = 1
 if exists('g:goyo_vim')
     map gy <ESC>:Goyo<CR>
     function! s:goyo_enter()
