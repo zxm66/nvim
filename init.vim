@@ -35,6 +35,7 @@ vnoremap <silent> <expr>gg line(".")==1?"G":"gg"
 map <LEADER>rc :edit ~/.config/nvim/init.vim<CR>
 map <LEADER>sc :so ~/.config/nvim/init.vim<CR>
 map <LEADER>f :find<Space>
+
 map <LEADER>b :buffer<Space>
 map <LEADER>e :edit %:p:h
 map <LEADER>t :terminal<CR>
@@ -44,9 +45,9 @@ map <LEADER>= :tabnext<CR>
 map <LEADER>[ :bprevious<CR>
 map <LEADER>] :bnext<CR>
 tmap <ESC> <C-\><C-n>
-"inoremap <silent> <tab> call tab_keymap()
+inoremap <silent> <LEADER><tab> <C-p>
 
-function tab_keymap()
+function tab_keymap_test()
     if match(getline('.')[col('.') - 1],'[a-zA-Z0-9]') == 0
         "inoremap <tab> <tab>
     elseif
@@ -143,7 +144,7 @@ function SignFileType()
         inoremap <silent> sout System.out.println("");
         inoremap <silent> main public void static main(String[] args){}
         inoremap <silent> hashmap Map<String,Object> map = new HashMap<String,Object>();
-        inoremap <silent> list List<Object> list = new ArrayList<Object>();
+        inoremap <silent> alist List<Object> list = new ArrayList<Object>();
 
     elseif &filetype == 'scala'
     elseif &filetype == 'js'
