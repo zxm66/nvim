@@ -142,7 +142,8 @@ function SignFileType()
         "vnoremap // 0I//<ESC>:Autoformat<CR>
 
         inoremap <buffer> <silent> sout System.out.println("");
-        inoremap <buffer> <silent> main public void static main(String[] args){}
+        inoremap <buffer> <silent> test @Test<CR>public void test(){<CR>};
+        inoremap <buffer> <silent> main public void static main(String[] args){<CR>}
         inoremap <buffer> <silent> hashmap Map<String,Object> map = new HashMap<String,Object>();
         inoremap <buffer> <silent> newlist List<Object> list = new ArrayList<Object>();
         inoremap <buffer> <silent> imlist import java.util.List<CR>import java.util.ArrayList;
