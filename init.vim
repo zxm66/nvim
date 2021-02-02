@@ -13,7 +13,7 @@ let g:python_host_prog = '/usr/bin/python2'
 
 autocmd InsertLeave,WinEnter * set cursorline
 autocmd InsertEnter,WinLeave * set nocursorline
-
+autocmd BufEnter * call SignFileType()
 augroup vimrcIncsearchHighlight
     autocmd!
     autocmd CmdlineEnter /,\? :set hlsearch
@@ -23,6 +23,8 @@ augroup END
 let mapleader=" "
 map ; :
 map - $
+map f z
+map r <C-r>
 map s <nop>
 nnoremap <silent> <expr>s col(".")==1?"$":"0"
 vnoremap <silent> <expr>s col(".")==1?"$h":"0"
@@ -133,17 +135,18 @@ function SignFileType()
     elseif &filetype == 'java'
         set path=.,**
         set path+=$JAVA_HOME/src/**
-        nnoremap im /import<CR>N$a<CR>import<space>;<left>
-        nnoremap // <ESC>:s/^/\/\//g<CR>
+        " only bring into effect on current buffer
+        nnoremap <buffer> im /import<CR>N$a<CR>import<space>;<left>
+        nnoremap <buffer> // <ESC>:s/^/\/\//g<CR>
         "nnoremap // 0i//<ESC>:Autoformat<CR>
         "vnoremap // 0I//<ESC>:Autoformat<CR>
 
-        inoremap <silent> sout System.out.println("");
-        inoremap <silent> main public void static main(String[] args){}
-        inoremap <silent> hashmap Map<String,Object> map = new HashMap<String,Object>();
-        inoremap <silent> newlist List<Object> list = new ArrayList<Object>();
-        inoremap <silent> imlist import java.util.List<CR>import java.util.ArrayList;
-        inoremap <silent> newth Thread thread = new Thread();
+        inoremap <buffer> <silent> sout System.out.println("");
+        inoremap <buffer> <silent> main public void static main(String[] args){}
+        inoremap <buffer> <silent> hashmap Map<String,Object> map = new HashMap<String,Object>();
+        inoremap <buffer> <silent> newlist List<Object> list = new ArrayList<Object>();
+        inoremap <buffer> <silent> imlist import java.util.List<CR>import java.util.ArrayList;
+        inoremap <buffer> <silent> newth Thread thread = new Thread();
 
     elseif &filetype == 'scala'
     elseif &filetype == 'js'
