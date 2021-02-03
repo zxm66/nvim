@@ -23,8 +23,8 @@ augroup END
 let mapleader=" "
 map ; :
 map - $
-map f z
-map r <C-r>
+map m z
+map R <C-r>
 map s <nop>
 nnoremap <silent> <expr>s col(".")==1?"$":"0"
 vnoremap <silent> <expr>s col(".")==1?"$h":"0"
@@ -141,14 +141,18 @@ function SignFileType()
         "nnoremap // 0i//<ESC>:Autoformat<CR>
         "vnoremap // 0I//<ESC>:Autoformat<CR>
 
-        inoremap <buffer> <silent> sout System.out.println("");
-        inoremap <buffer> <silent> test @Test<CR>public void test(){<CR>};
-        inoremap <buffer> <silent> main public void static main(String[] args){<CR>}
-        inoremap <buffer> <silent> hashmap Map<String,Object> map = new HashMap<String,Object>();
-        inoremap <buffer> <silent> newlist List<Object> list = new ArrayList<Object>();
-        inoremap <buffer> <silent> imlist import java.util.List<CR>import java.util.ArrayList;
-        inoremap <buffer> <silent> newth Thread thread = new Thread();
+        " must create a habit, and not more and more alter or update the vim
+        " setting file
+        if  !exists('g:idea_vimrc')
+            inoremap <buffer> <silent> sout System.out.println("");<ESC>
+            inoremap <buffer> <silent> test @Test<CR>public void test(){<CR>}<ESC>
+            inoremap <buffer> <silent> main public void static main(String[] args){<CR>}<ESC>
+            inoremap <buffer> <silent> hashmap Map<String,Object> map = new HashMap<String,Object>();<ESC>
+            inoremap <buffer> <silent> newlist List<Object> list = new ArrayList<Object>();<ESC>
+            inoremap <buffer> <silent> imlist import java.util.List;<CR>import java.util.ArrayList;<ESC>
+            inoremap <buffer> <silent> newth Thread thread = new Thread();<ESC>
 
+        endif
     elseif &filetype == 'scala'
     elseif &filetype == 'js'
     endif
