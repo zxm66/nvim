@@ -33,11 +33,9 @@ map bg <C-z>
 map gg <nop>
 nnoremap <silent> <expr>gg line(".")==1?"G":"gg"
 vnoremap <silent> <expr>gg line(".")==1?"G":"gg"
-
 map <LEADER>rc :edit ~/.config/nvim/init.vim<CR>
 map <LEADER>sc :so ~/.config/nvim/init.vim<CR>
 map <LEADER>f :find<Space>
-
 map <LEADER>b :buffer<Space>
 map <LEADER>e :edit %:p:h
 map <LEADER>t :terminal<CR>
@@ -47,12 +45,13 @@ map <LEADER>= :tabnext<CR>
 map <LEADER>[ :bprevious<CR>
 map <LEADER>] :bnext<CR>
 tmap <ESC> <C-\><C-n>
-"inoremap <silent> <expr> <tab>  !matchstr(getline('.')[col('.') - 1],'[A-Za-z0-9]{1}')? "\t":"<C-p>"
-function CursorChartoInt()
-    return char2nr(tolower(getline('.')[col('.') - 1]))
-endfunction
-"inoremap <silent> <expr> <tab> (122 >= CursorChartoInt() && CursorChartoInt() >= 97) ?"\t":"<C-p>"
-"inoremap <silent> <expr> cp "\t"
+
+inoremap < <>
+inoremap " ""
+inoremap ' ''
+inoremap { {}
+inoremap [ []
+inoremap ( ()
 
 set helplang=cn
 set langmenu=zh_CN.UTF-8
@@ -145,8 +144,8 @@ function SignFileType()
         " setting file
         if  !exists('g:idea_vimrc')
             inoremap <buffer> <silent> sout System.out.println("");<ESC>
-            inoremap <buffer> <silent> test @Test<CR>public void test(){<CR>}<ESC>
-            inoremap <buffer> <silent> main public void static main(String[] args){<CR>}<ESC>
+            inoremap <buffer> <silent> @test @Test<CR>public void test(){<CR>}<ESC>
+            inoremap <buffer> <silent> main public static void main(String[] args){<CR>}<ESC>
             inoremap <buffer> <silent> hashmap Map<String,Object> map = new HashMap<String,Object>();<ESC>
             inoremap <buffer> <silent> newlist List<Object> list = new ArrayList<Object>();<ESC>
             inoremap <buffer> <silent> imlist import java.util.List;<CR>import java.util.ArrayList;<ESC>
