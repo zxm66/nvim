@@ -25,6 +25,7 @@ map ; :
 map - $
 map m z
 map R <C-r>
+"inoremap <C-tab> <C-p>
 map s <nop>
 nnoremap <silent> <expr>s col(".")==1?"$":"0"
 vnoremap <silent> <expr>s col(".")==1?"$h":"0"
@@ -38,7 +39,22 @@ map <LEADER>sc :so ~/.config/nvim/init.vim<CR>
 map <LEADER>f :find<Space>
 map <LEADER>b :buffer<Space>
 map <LEADER>e :edit %:p:h
+map <LEADER>k :!mkdir -p %:h
 map <LEADER>t :terminal<CR>
+" the Q is used to go into Ex mode
+"map Q Q
+" the exit command like wq ,but terminal mode is like q
+map <LEADER>q :exit<CR>
+" default <HOME>
+map H :vertical resize -10<CR>
+map J :below resize -10<CR>
+map K :below resize +10<CR>
+" default <Bottom>
+map L :vertical resize +10<CR>
+" default To Middle line of window
+map M :make %<CR>
+
+
 map <LEADER>n :Lexplore!<CR>
 map <LEADER>- :tabprevious<CR>
 map <LEADER>= :tabnext<CR>
@@ -55,8 +71,11 @@ inoremap ( ()
 
 set helplang=cn
 set langmenu=zh_CN.UTF-8
+
+set backspace=indent,eol,start
 set ruler
-"set syntax=on
+syntax on
+set confirm
 set verbose=0
 set complete-=i
 set complete-=t
@@ -68,6 +87,7 @@ set smarttab
 set expandtab
 set shiftwidth=4
 
+set autoindent
 set smartindent
 set scrolloff=4
 set scrolljump=0
@@ -84,13 +104,16 @@ set noautoindent
 set nosmartindent
 set nowrap
 set noautochdir
-
+ 
+" be used to bash user-defined alias
+set shellcmdflag=-ic
+set spelllang=en
 set nospell
 
 set foldenable
 set foldcolumn=0
 set foldmethod=indent
-set foldlevel=3
+set foldlevel=5
 
 "set backupext=.bak
 set nobackup
@@ -119,7 +142,10 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'voldikss/vim-translator'
 call plug#end()
 
-autocmd BufWrite * execute('Autoformat')
+if line('$') < 1000
+    " when the line is so big and the save motion is so slow
+    "autocmd BufWrite * execute('Autoformat')
+endif
 nmap <silent> <Leader>w <Plug>TranslateW
 vmap <silent> <Leader>w <Plug>TranslateWV
 nmap <silent> <Leader>r <Plug>TranslateR
@@ -131,9 +157,13 @@ function SignFileType()
     elseif &filetype =='cpp'
     elseif &filetype == 'python'
     elseif &filetype == 'vim'
+        " use the regix expression to change the first character to "        
+        nnoremap <buffer> // <ESC>:s/^/"/g<CR>
     elseif &filetype == 'java'
         set path=.,**
         set path+=$JAVA_HOME/src/**
+        " custom the make 
+        set makeprg=java14
         " only bring into effect on current buffer
         nnoremap <buffer> im /import<CR>N$a<CR>import<space>;<left>
         nnoremap <buffer> // <ESC>:s/^/\/\//g<CR>
@@ -148,7 +178,9 @@ function SignFileType()
             inoremap <buffer> <silent> main public static void main(String[] args){<CR>}<ESC>
             inoremap <buffer> <silent> hashmap Map<String,Object> map = new HashMap<String,Object>();<ESC>
             inoremap <buffer> <silent> newlist List<Object> list = new ArrayList<Object>();<ESC>
+            inoremap <buffer> <silent> immap import java.util.Map;<CR>import java.util.HashMap;<ESC>
             inoremap <buffer> <silent> imlist import java.util.List;<CR>import java.util.ArrayList;<ESC>
+            inoremap <buffer> <silent> pclass public class -- {<CR>}<ESC>
             inoremap <buffer> <silent> newth Thread thread = new Thread();<ESC>
 
         endif
@@ -156,7 +188,6 @@ function SignFileType()
     elseif &filetype == 'js'
     endif
 endfunction
-
 
 
 if exists('g:idea_vimrc')
