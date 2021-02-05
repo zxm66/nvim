@@ -89,9 +89,13 @@ set shiftwidth=4
 
 set autoindent
 set smartindent
-set scrolloff=4
-set scrolljump=0
-set scrollback=4
+
+if has('nvim')
+    set scrolloff=4
+    set scrolljump=0
+    set scrollback=4
+endif
+
 set signcolumn=yes
 set shortmess+=c
 set showbreak=>\
@@ -104,7 +108,7 @@ set noautoindent
 set nosmartindent
 set nowrap
 set noautochdir
- 
+
 " be used to bash user-defined alias
 set shellcmdflag=-ic
 set spelllang=en
@@ -134,10 +138,12 @@ call plug#begin("~/.config/nvim/plugged")
 Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim'
-Plug 'voldikss/vim-floaterm'
+Plug 'vimwiki/vimwiki'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'edkolev/tmuxline.vim'
+"Plug 'voldikss/vim-floaterm'
+Plug 'zxm66/potential-meme'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'voldikss/vim-translator'
 call plug#end()
@@ -157,12 +163,12 @@ function SignFileType()
     elseif &filetype =='cpp'
     elseif &filetype == 'python'
     elseif &filetype == 'vim'
-        " use the regix expression to change the first character to "        
+        " use the regix expression to change the first character to "
         nnoremap <buffer> // <ESC>:s/^/"/g<CR>
     elseif &filetype == 'java'
         set path=.,**
         set path+=$JAVA_HOME/src/**
-        " custom the make 
+        " custom the make
         set makeprg=java14
         " only bring into effect on current buffer
         nnoremap <buffer> im /import<CR>N$a<CR>import<space>;<left>
@@ -175,7 +181,8 @@ function SignFileType()
         if  !exists('g:idea_vimrc')
             inoremap <buffer> <silent> sout System.out.println("");<ESC>
             inoremap <buffer> <silent> @test @Test<CR>public void test(){<CR>}<ESC>
-            inoremap <buffer> <silent> main public static void main(String[] args){<CR>}<ESC>
+            "" you should use the psvm to instead of the main method code fragment rather than using the main.
+            inoremap <buffer> <silent> psvm public static void main(String[] args){<CR>}<ESC>
             inoremap <buffer> <silent> hashmap Map<String,Object> map = new HashMap<String,Object>();<ESC>
             inoremap <buffer> <silent> newlist List<Object> list = new ArrayList<Object>();<ESC>
             inoremap <buffer> <silent> immap import java.util.Map;<CR>import java.util.HashMap;<ESC>
