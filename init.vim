@@ -1,7 +1,7 @@
 augroup VimStartup
     " netrw
     au!
-    au VimEnter * if expand("%") == "" | Lexplore! | endif
+    "au VimEnter * if expand("%") == "" | Lexplore! | endif
 augroup END
 let g:netrw_banner=0
 let g:netrw_preview=1
@@ -145,6 +145,7 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin("~/.config/nvim/plugged")
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
