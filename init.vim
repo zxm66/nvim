@@ -25,10 +25,7 @@ augroup END
 let mapleader=" "
 map ; :
 map - $
-"the m is marks
-"map m z
 map R <C-r>
-"inoremap <C-tab> <C-p>
 map s <nop>
 nnoremap <silent> <expr>s col(".")==1?"$":"0"
 vnoremap <silent> <expr>s col(".")==1?"$h":"0"
@@ -37,22 +34,23 @@ map bg <C-z>
 map gg <nop>
 nnoremap <silent> <expr>gg line(".")==1?"G":"gg"
 vnoremap <silent> <expr>gg line(".")==1?"G":"gg"
-map <LEADER>rc :edit ~/.config/nvim/init.vim<CR>
-map <LEADER>sc :so ~/.config/nvim/init.vim<CR>
-map <LEADER>f :find<Space>
-map <LEADER>b :buffer<Space>
-map <LEADER>e :edit %:p:h
-map <LEADER>k :!mkdir -p %:h
-map <LEADER>t :terminal<CR>
-map <LEADER>a za
-nmap <tab> V>
-nmap <s-tab> V<
-vmap <tab> >gv
-vmap <s-tab> <gv
-" the Q is used to go into Ex mode
-"map Q Q
-" the exit command like wq ,but terminal mode is like q
-map <LEADER>q :exit<CR>
+    " LEADER CONFIG
+    map <LEADER>rc :edit ~/.config/nvim/init.vim<CR>
+    map <LEADER>sc :so ~/.config/nvim/init.vim<CR>
+    map <LEADER>f :find<Space>
+    map <LEADER>b :buffers<CR>
+    map <LEADER>e :edit %:p:h
+    map <LEADER>k :!mkdir -p %:h
+    map <LEADER>t :terminal<CR>
+    map <LEADER>a za
+    map <LEADER>m :marks<CR>
+    map <LEADER>n :Lexplore!<CR>
+    map <LEADER>- :tabprevious<CR>
+    map <LEADER>= :tabnext<CR>
+    map <LEADER>[ :bprevious<CR>
+    map <LEADER>] :bnext<CR>
+    " the exit command like wq ,but terminal mode is like q
+    map <LEADER>q :exit<CR>
 " default <HOME>
 map H :vertical resize -10<CR>
 map J :below resize -10<CR>
@@ -61,22 +59,24 @@ map K :below resize +10<CR>
 map L :vertical resize +10<CR>
 " default To Middle line of window
 map M :make %<CR>
-
-
-map <LEADER>n :Lexplore!<CR>
-map <LEADER>- :tabprevious<CR>
-map <LEADER>= :tabnext<CR>
-map <LEADER>[ :bprevious<CR>
-map <LEADER>] :bnext<CR>
+    " under config lead to <C-I> failture
+        "nnoremap <tab> V>
+        "nnoremap <s-tab> V<
+        "vnoremap <tab> >gv
+        "vnoremap <s-tab> <gv
+    " the Q is used to go into Ex mode
+    "map Q Q
 tmap <ESC> <C-\><C-n>
 
 if &filetype != 'vimwiki'
-inoremap < <><ESC>i
-inoremap " ""<ESC>i
-inoremap ' ''<ESC>i
-inoremap { {}<ESC>i
-inoremap [ []<ESC>i
-inoremap ( ()<ESC>i
+    " inoremap
+    inoremap < <><ESC>i
+    inoremap " ""<ESC>i
+    inoremap ' ''<ESC>i
+    inoremap { {}<ESC>i
+    inoremap [ []<ESC>i
+    inoremap ( ()<ESC>i
+    inoremap !< <!-- --><ESC>
 endif
 
 set helplang=cn
@@ -145,20 +145,22 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin("~/.config/nvim/plugged")
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Chiel92/vim-autoformat'
-Plug 'tpope/vim-surround'
-Plug 'airblade/vim-gitgutter'
-Plug 'vimwiki/vimwiki'
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-"Plug 'edkolev/tmuxline.vim'
-"Plug 'voldikss/vim-floaterm'
-Plug 'zxm66/potential-meme'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'voldikss/vim-translator'
+    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'Chiel92/vim-autoformat'
+    Plug 'tpope/vim-surround'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'vimwiki/vimwiki'
+    "Plug 'vifm/vifm.vim'
+    "Plug 'vim-airline/vim-airline'
+    "Plug 'vim-airline/vim-airline-themes'
+    "Plug 'edkolev/tmuxline.vim'
+    "Plug 'voldikss/vim-floaterm'
+    Plug 'zxm66/potential-meme'
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'voldikss/vim-translator'
 call plug#end()
 
+"let loaded_vifm=1
 if line('$') < 1000
     " when the line is so big and the save motion is so slow
     "autocmd BufWrite * execute('Autoformat')
@@ -200,17 +202,18 @@ function SignFileType()
             inoremap <buffer> <silent> pv- @Test<CR>public void --(){<CR>}<ESC>
             "" you should use the psvm to instead of the main method code fragment rather than using the main.
             inoremap <buffer> <silent> psvm public static void main(String[] args){<CR>}<ESC>
-            inoremap <buffer> <silent> m-nh Map<String,Object> -- = new HashMap<String,Object>();<ESC>
-            inoremap <buffer> <silent> l-na List<Object> -- = new ArrayList<Object>();<ESC>
+            inoremap <buffer> <silent> m-nh Map<String,--> -- = new HashMap<String,-->();<ESC>
+            inoremap <buffer> <silent> l-na List<--> -- = new ArrayList<-->();<ESC>
             inoremap <buffer> <silent> ijum import java.util.Map;<CR>import java.util.HashMap;<ESC>
             inoremap <buffer> <silent> ijul import java.util.List;<CR>import java.util.ArrayList;<ESC>
             inoremap <buffer> <silent> pc- public class -- {<CR>}<ESC>
             inoremap <buffer> <silent> pS- private String --;<ESC>
             inoremap <buffer> <silent> pI- private Integer --;<ESC>
-            inoremap <buffer> <silent> ttnt Thread thread = new Thread(--);<ESC>
+            inoremap <buffer> <silent> ttnt Thread -- = new Thread(--);<ESC>
             inoremap <buffer> <silent> iosbfa import org.springframework.beans.factory.annotation.--;<CR>
             inoremap <buffer> <silent> ioswba import org.springframework.web.bind.annotation.--;<CR>
             inoremap <buffer> <silent> ioss import org.springframework.stereotype.--;<CR>
+            " how to kown the current project's package name 
         endif
     elseif &filetype == 'scala'
     elseif &filetype == 'js'
