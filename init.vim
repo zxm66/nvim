@@ -9,6 +9,13 @@ let g:netrw_liststyle=3
 let g:netrw_browse_split=0
 let g:netrw_winsize=30
 
+augroup AutoFormat
+    " when the line is so big and the save motion is so slow
+    autocmd!
+    autocmd BufWrite * if line('$') < 1000 | Autoformat | endif
+augroup END
+
+
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
 
@@ -34,23 +41,24 @@ map bg <C-z>
 map gg <nop>
 nnoremap <silent> <expr>gg line(".")==1?"G":"gg"
 vnoremap <silent> <expr>gg line(".")==1?"G":"gg"
-    " LEADER CONFIG
-    map <LEADER>rc :edit ~/.config/nvim/init.vim<CR>
-    map <LEADER>sc :so ~/.config/nvim/init.vim<CR>
-    map <LEADER>f :find<Space>
-    map <LEADER>b :buffers<CR>
-    map <LEADER>e :edit %:p:h
-    map <LEADER>k :!mkdir -p %:h
-    map <LEADER>t :terminal<CR>
-    map <LEADER>a za
-    map <LEADER>m :marks<CR>
-    map <LEADER>n :Lexplore!<CR>
-    map <LEADER>- :tabprevious<CR>
-    map <LEADER>= :tabnext<CR>
-    map <LEADER>[ :bprevious<CR>
-    map <LEADER>] :bnext<CR>
-    " the exit command like wq ,but terminal mode is like q
-    " map <LEADER>q :exit<CR>
+
+" LEADER CONFIG
+map <LEADER>rc :edit ~/.config/nvim/init.vim<CR>
+map <LEADER>sc :so ~/.config/nvim/init.vim<CR>
+map <LEADER>f :find<Space>
+map <LEADER>b :buffers<CR>
+map <LEADER>e :edit %:p:h
+map <LEADER>k :!mkdir -p %:h
+map <LEADER>t :terminal<CR>
+map <LEADER>a za
+map <LEADER>m :marks<CR>
+map <LEADER>n :Lexplore!<CR>
+map <LEADER>- :tabprevious<CR>
+map <LEADER>= :tabnext<CR>
+map <LEADER>[ :bprevious<CR>
+map <LEADER>] :bnext<CR>
+" the exit command like wq ,but terminal mode is like q
+" map <LEADER>q :exit<CR>
 " default <HOME>
 map H :vertical resize -10<CR>
 map J :below resize -10<CR>
@@ -59,14 +67,17 @@ map K :below resize +10<CR>
 map L :vertical resize +10<CR>
 " default To Middle line of window
 map M :make %<CR>
-    " under config lead to <C-I> failture
-        "nnoremap <tab> V>
-        "nnoremap <s-tab> V<
-        "vnoremap <tab> >gv
-        "vnoremap <s-tab> <gv
-    " the Q is used to go into Ex mode
-    "map Q Q
+" under config lead to <C-I> failture
+"nnoremap <tab> V>
+"nnoremap <s-tab> V<
+"vnoremap <tab> >gv
+"vnoremap <s-tab> <gv
+" the Q is used to go into Ex mode
+"map Q Q
 tmap <ESC> <C-\><C-n>
+
+
+
 
 if &filetype != 'vimwiki'
     " inoremap config
@@ -150,26 +161,28 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin("~/.config/nvim/plugged")
-    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'Chiel92/vim-autoformat'
-    Plug 'tpope/vim-surround'
-    Plug 'airblade/vim-gitgutter'
-    Plug 'vimwiki/vimwiki'
-    "Plug 'vifm/vifm.vim'
-    "Plug 'vim-airline/vim-airline'
-    "Plug 'vim-airline/vim-airline-themes'
-    "Plug 'edkolev/tmuxline.vim'
-    "Plug 'voldikss/vim-floaterm'
-    Plug 'zxm66/potential-meme'
-    Plug 'terryma/vim-multiple-cursors'
-    Plug 'voldikss/vim-translator'
-    "Plug 'unblevable/quick-scope'
-    Plug 'mhinz/vim-signify'
-    Plug 'matze/vim-move'
+Plug 'zxm66/potential-meme'
+Plug 'Chiel92/vim-autoformat'
+Plug 'tpope/vim-surround'
+Plug 'vimwiki/vimwiki'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'voldikss/vim-translator'
+Plug 'mhinz/vim-signify'
+Plug 'matze/vim-move'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'airblade/vim-gitgutter'
+"Plug 'vifm/vifm.vim'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'edkolev/tmuxline.vim'
+"Plug 'voldikss/vim-floaterm'
+"Plug 'unblevable/quick-scope'
 call plug#end()
 
-let g:move_key_modifier = 'C'
-if exists('g:move_key_modifier')
+
+if 1 == 1
+    " Vim Move Plugin Config
+    let g:move_key_modifier = 'C'
     nnoremap <C-k>   Move current line/selections up
     nnoremap <C-j>   Move current line/selections down
 endif
@@ -186,9 +199,9 @@ if exists('g:qs_enable')
     highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
     highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
     augroup qs_colors
-      autocmd!
-      autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
-      autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+        autocmd!
+        autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+        autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
     augroup END
     let g:qs_hi_priority = 2
     " Map the leader key + q to toggle quick-scope's highlighting in normal/visual mode.
@@ -199,14 +212,7 @@ endif
 
 "let loaded_vifm=1
 
-
-if line('$') < 1000
-    " when the line is so big and the save motion is so slow
-    "autocmd BufWrite * execute('Autoformat')
-endif
-
-
-if 1 == 1 
+if 1 == 1
     " Translate
     nmap <silent> <Leader>w <Plug>TranslateW
     vmap <silent> <Leader>w <Plug>TranslateWV
@@ -259,7 +265,7 @@ function SignFileType()
             inoremap <buffer> <silent> iosbfa import org.springframework.beans.factory.annotation.--;<CR>
             inoremap <buffer> <silent> ioswba import org.springframework.web.bind.annotation.--;<CR>
             inoremap <buffer> <silent> ioss import org.springframework.stereotype.--;<CR>
-            " how to kown the current project's package name 
+            " how to kown the current project's package name
             inoremap <buffer> <silent> pced- package com.example.demo.--;<CR>
             inoremap <buffer> <silent> iced- import com.exmaple.demo.--;<CR>
             inoremap <buffer> <silent> lllg Logger logger = LoggerFactory.getLogger(--.class);<ESC>
