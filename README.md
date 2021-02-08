@@ -13,7 +13,7 @@
         * nore is NO Recurve
         * map is mapping
 * visual
-    1. you can use V v <C-v> into the visual mode 
+    1. you can use V, v, *<C-v>* into the visual mode 
 * command
     1. :terminal command is open a terminal in vim.
     2. to solve the terminal keymap confliction and you can use the tmap to change the key binding.like tmap <ESC> <C-/><C-N>
