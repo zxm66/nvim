@@ -50,7 +50,7 @@ vnoremap <silent> <expr>gg line(".")==1?"G":"gg"
     map <LEADER>[ :bprevious<CR>
     map <LEADER>] :bnext<CR>
     " the exit command like wq ,but terminal mode is like q
-    map <LEADER>q :exit<CR>
+    " map <LEADER>q :exit<CR>
 " default <HOME>
 map H :vertical resize -10<CR>
 map J :below resize -10<CR>
@@ -161,7 +161,29 @@ call plug#begin("~/.config/nvim/plugged")
     Plug 'zxm66/potential-meme'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'voldikss/vim-translator'
+    Plug 'unblevable/quick-scope'
 call plug#end()
+
+
+if g:qs_enable==1
+    " Quick Scope
+    " Trigger a highliht in the appropriate direction when pressing these keys:
+    let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+    " Trigger a highlight only when pressing f and F.
+    let g:qs_highlight_on_keys = ['f', 'F']
+    highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+    highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+    augroup qs_colors
+      autocmd!
+      autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+      autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+    augroup END
+    let g:qs_hi_priority = 2
+    " Map the leader key + q to toggle quick-scope's highlighting in normal/visual mode.
+    " Note that you must use nmap/xmap instead of their non-recursive versions (nnoremap/xnoremap).
+    nmap <leader>q <plug>(QuickScopeToggle)
+    xmap <leader>q <plug>(QuickScopeToggle)
+endif
 
 "let loaded_vifm=1
 if line('$') < 1000
