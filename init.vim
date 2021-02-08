@@ -12,7 +12,7 @@ let g:netrw_winsize=30
 augroup AutoFormat
     " when the line is so big and the save motion is so slow
     autocmd!
-    autocmd BufWrite * if line('$') < 1000 | Autoformat | endif
+    autocmd BufWrite * if line('$') < 1000 && &filetype != 'vimwiki' | Autoformat | endif
 augroup END
 
 
