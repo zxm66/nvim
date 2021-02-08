@@ -125,9 +125,12 @@ set spelllang=en
 set nospell
 
 set foldenable
-set foldcolumn=0
+set foldcolumn=1
 set foldmethod=indent
 set foldlevel=5
+highlight Folded guibg=grey guifg=blue
+highlight FoldColumn guibg=darkgrey guifg=white
+
 
 "set backupext=.bak
 set nobackup
@@ -187,7 +190,7 @@ function SignFileType()
         set makeprg=java14
         " only bring into effect on current buffer
         nnoremap <buffer> im /import<CR>N$a<CR>import<space>;<left>
-        nnoremap <buffer> <C-/> <ESC>:s/^/\/\//g<CR>
+        nnoremap <buffer> <Leader>/ <ESC>:s/^/\/\//g<CR>
         nnoremap <buffer> F- 0f-2xi
         nnoremap <buffer> f- f-2xi
         " use the // to  annotation code lead to single / become slow
@@ -200,13 +203,16 @@ function SignFileType()
             " Only edit java code by vim
             inoremap <buffer> <silent> sout System.out.println(--);<ESC>
             inoremap <buffer> <silent> pv- @Test<CR>public void --(){<CR>}<ESC>
-            "" you should use the psvm to instead of the main method code fragment rather than using the main.
+            "" you should use the psvm to instead of the main method code fragment rather than using the keyword of main.
             inoremap <buffer> <silent> psvm public static void main(String[] args){<CR>}<ESC>
             inoremap <buffer> <silent> m-nh Map<String,--> -- = new HashMap<String,-->();<ESC>
             inoremap <buffer> <silent> l-na List<--> -- = new ArrayList<-->();<ESC>
+            inoremap <buffer> <silent> l-nl List<--> -- = new LinkedList<-->();<ESC>
             inoremap <buffer> <silent> ijum import java.util.Map;<CR>import java.util.HashMap;<ESC>
             inoremap <buffer> <silent> ijul import java.util.List;<CR>import java.util.ArrayList;<ESC>
             inoremap <buffer> <silent> pc- public class -- {<CR>}<ESC>
+            " method , variable
+            inoremap <buffer> <silent> --- -- -- -- <ESC>
             inoremap <buffer> <silent> pS- private String --;<ESC>
             inoremap <buffer> <silent> pI- private Integer --;<ESC>
             inoremap <buffer> <silent> ttnt Thread -- = new Thread(--);<ESC>
@@ -214,6 +220,11 @@ function SignFileType()
             inoremap <buffer> <silent> ioswba import org.springframework.web.bind.annotation.--;<CR>
             inoremap <buffer> <silent> ioss import org.springframework.stereotype.--;<CR>
             " how to kown the current project's package name 
+            inoremap <buffer> <silent> pced- package com.example.demo.--;<CR>
+            inoremap <buffer> <silent> iced- import com.exmaple.demo.--;<CR>
+            inoremap <buffer> <silent> lllg Logger logger = LoggerFactory.getLogger(--.class);<ESC>
+            inoremap <buffer> <silent> isceduas import static com.example.demo.util.Assertion.state;<CR>
+            inoremap <buffer> <silent> iosL import org.slf4j.Logger;<CR>import org.slf4j.LoggerFactory;<CR><ESC>
         endif
     elseif &filetype == 'scala'
     elseif &filetype == 'js'
