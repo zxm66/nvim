@@ -69,7 +69,7 @@ map M :make %<CR>
 tmap <ESC> <C-\><C-n>
 
 if &filetype != 'vimwiki'
-    " inoremap
+    " inoremap config
     inoremap < <><ESC>i
     inoremap " ""<ESC>i
     inoremap ' ''<ESC>i
@@ -82,6 +82,8 @@ endif
 set helplang=cn
 set langmenu=zh_CN.UTF-8
 set backspace=indent,eol,start
+"default updatetime 4000ms is not good for async update
+set updatetime=100
 set ruler
 syntax on
 set confirm
@@ -128,8 +130,8 @@ set foldenable
 set foldcolumn=1
 set foldmethod=indent
 set foldlevel=5
-highlight Folded guibg=grey guifg=blue
-highlight FoldColumn guibg=darkgrey guifg=white
+highlight Folded guibg=red guifg=blue
+highlight FoldColumn guibg=grey guifg=white
 
 
 "set backupext=.bak
@@ -161,16 +163,26 @@ call plug#begin("~/.config/nvim/plugged")
     Plug 'zxm66/potential-meme'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'voldikss/vim-translator'
-    Plug 'unblevable/quick-scope'
+    "Plug 'unblevable/quick-scope'
+    Plug 'mhinz/vim-signify'
+    Plug 'matze/vim-move'
 call plug#end()
 
+let g:move_key_modifier = 'C'
+if exists('g:move_key_modifier')
+    nnoremap <C-k>   Move current line/selections up
+    nnoremap <C-j>   Move current line/selections down
+endif
 
-if g:qs_enable==1
+
+if exists('g:qs_enable')
     " Quick Scope
     " Trigger a highliht in the appropriate direction when pressing these keys:
     let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
     " Trigger a highlight only when pressing f and F.
     let g:qs_highlight_on_keys = ['f', 'F']
+    let g:qs_lazy_highlight = 1
+    let g:qs_delay = 0
     highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
     highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
     augroup qs_colors
@@ -186,16 +198,22 @@ if g:qs_enable==1
 endif
 
 "let loaded_vifm=1
+
+
 if line('$') < 1000
     " when the line is so big and the save motion is so slow
     "autocmd BufWrite * execute('Autoformat')
 endif
-nmap <silent> <Leader>w <Plug>TranslateW
-vmap <silent> <Leader>w <Plug>TranslateWV
-nmap <silent> <Leader>r <Plug>TranslateR
-vmap <silent> <Leader>r <Plug>TranslateRV
-nmap <silent> <Leader>x <Plug>TranslateX
 
+
+if 1 == 1 
+    " Translate
+    nmap <silent> <Leader>w <Plug>TranslateW
+    vmap <silent> <Leader>w <Plug>TranslateWV
+    nmap <silent> <Leader>r <Plug>TranslateR
+    vmap <silent> <Leader>r <Plug>TranslateRV
+    nmap <silent> <Leader>x <Plug>TranslateX
+endif
 
 function SignFileType()
     if &filetype == 'c' || &filetype == 'h'
@@ -257,7 +275,7 @@ endfunction
 
 
 if exists('g:idea_vimrc')
-    " use IDEA plugin
+    "IDEA Action Config
     nnoremap ; :action RunAnything<cr>
     set keep-english-in-normal
     set keep-english-in-normal-and-restore-in-insert
