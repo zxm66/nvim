@@ -157,7 +157,7 @@ filetype plugin indent on
 
 
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirshttps://raw.GitHub.com/junegunn/vim-plug/master/plug.vim
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dir https://raw.GitHub.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin("~/.config/nvim/plugged")
@@ -224,6 +224,9 @@ endif
 function SignFileType()
     if &filetype == 'c' || &filetype == 'h'
     elseif &filetype =='cpp'
+    elseif &filetype == 'sh'
+        " shell
+        set makeprg=zsh
     elseif &filetype == 'python'
     elseif &filetype == 'vim'
         " use the regix expression to change the first character to "
