@@ -1,3 +1,4 @@
+
 augroup VimStartup
     " netrw
     au!
@@ -92,6 +93,12 @@ endif
 
 set helplang=cn
 set langmenu=zh_CN.UTF-8
+set splitright
+set splitbelow
+set hidden
+if has("termguicolors")
+    set termguicolors
+endif
 set backspace=indent,eol,start
 "default updatetime 4000ms is not good for async update
 set updatetime=100
@@ -119,9 +126,11 @@ if has('nvim')
     set scrollback=4
 endif
 
+set showmatch
 set signcolumn=yes
 set shortmess+=c
-set showbreak=>\
+"set wrap
+"set showbreak=>\
 set path+=**
 set wildmenu
 set wildmode=list:full
@@ -140,7 +149,7 @@ set nospell
 set foldenable
 set foldcolumn=1
 set foldmethod=indent
-set foldlevel=5
+set foldlevel=99
 highlight Folded guibg=red guifg=blue
 highlight FoldColumn guibg=grey guifg=white
 
@@ -157,7 +166,7 @@ filetype plugin indent on
 
 
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dir https://raw.GitHub.com/junegunn/vim-plug/master/plug.vim
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.GitHub.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin("~/.config/nvim/plugged")
@@ -171,7 +180,7 @@ Plug 'mhinz/vim-signify'
 Plug 'matze/vim-move'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'airblade/vim-gitgutter'
-"Plug 'vifm/vifm.vim'
+Plug 'vifm/vifm.vim'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 "Plug 'edkolev/tmuxline.vim'
