@@ -1,4 +1,3 @@
-
 augroup VimStartup
     " netrw
     au!
@@ -77,9 +76,6 @@ map M :make %<CR>
 "map Q Q
 tmap <ESC> <C-\><C-n>
 
-
-
-
 if &filetype != 'vimwiki'
     " inoremap config
     inoremap < <><ESC>i
@@ -93,6 +89,7 @@ endif
 
 set helplang=cn
 set langmenu=zh_CN.UTF-8
+set autowrite
 set splitright
 set splitbelow
 set hidden
@@ -180,7 +177,8 @@ Plug 'mhinz/vim-signify'
 Plug 'matze/vim-move'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'airblade/vim-gitgutter'
-Plug 'vifm/vifm.vim'
+"Plug 'vifm/vifm.vim'
+"Plug 'vifm/neovim-vifm'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 "Plug 'edkolev/tmuxline.vim'
@@ -231,7 +229,9 @@ if 1 == 1
 endif
 
 function SignFileType()
+    " set different config by filetype
     if &filetype == 'c' || &filetype == 'h'
+        set makeprg=gcc
     elseif &filetype =='cpp'
     elseif &filetype == 'sh'
         " shell
@@ -258,10 +258,12 @@ function SignFileType()
         " must create a habit, and not more and more alter or update the vim
         " setting file
         if  !exists('g:idea_vimrc')
-            " Only edit java code by vim
+            " Only edit java code by vim,IDEA load the config
             inoremap <buffer> <silent> sout System.out.println(--);<ESC>
             inoremap <buffer> <silent> pv- @Test<CR>public void --(){<CR>}<ESC>
-            "" you should use the psvm to instead of the main method code fragment rather than using the keyword of main.
+            inoremap <buffer> <silent> as- assert --:--;<ESC>
+            inoremap <buffer> <silent> psv- @Test<CR>public static void --(){<CR>}<ESC>
+            " you should use the psvm to instead of the main method code fragment rather than using the keyword of main.
             inoremap <buffer> <silent> psvm public static void main(String[] args){<CR>}<ESC>
             inoremap <buffer> <silent> m-nh Map<String,--> -- = new HashMap<String,-->();<ESC>
             inoremap <buffer> <silent> l-na List<--> -- = new ArrayList<-->();<ESC>
@@ -269,6 +271,7 @@ function SignFileType()
             inoremap <buffer> <silent> ijum import java.util.Map;<CR>import java.util.HashMap;<ESC>
             inoremap <buffer> <silent> ijul import java.util.List;<CR>import java.util.ArrayList;<ESC>
             inoremap <buffer> <silent> pc- public class -- {<CR>}<ESC>
+            inoremap <buffer> <silent> pi- public interface --{<CR>}<ESC>
             " method , variable
             inoremap <buffer> <silent> --- -- -- -- <ESC>
             inoremap <buffer> <silent> pS- private String --;<ESC>
@@ -279,7 +282,9 @@ function SignFileType()
             inoremap <buffer> <silent> ioss import org.springframework.stereotype.--;<CR>
             " how to kown the current project's package name
             inoremap <buffer> <silent> pced- package com.example.demo.--;<CR>
-            inoremap <buffer> <silent> iced- import com.exmaple.demo.--;<CR>
+            inoremap <buffer> <silent> iced- import com.example.demo.--;<CR>
+            inoremap <buffer> <silent> ijnc- import java.nio.channels.--;<CR>
+            inoremap <buffer> <silent> ijn- import java.nio.--;<CR>
             inoremap <buffer> <silent> lllg Logger logger = LoggerFactory.getLogger(--.class);<ESC>
             inoremap <buffer> <silent> isceduas import static com.example.demo.util.Assertion.state;<CR>
             inoremap <buffer> <silent> iosL import org.slf4j.Logger;<CR>import org.slf4j.LoggerFactory;<CR><ESC>
@@ -290,48 +295,5 @@ function SignFileType()
         map <silent> <Leader>v :VimwikiGoto<CR>
     endif
 endfunction
-
-
-if exists('g:idea_vimrc')
-    "IDEA Action Config
-    nnoremap ; :action RunAnything<cr>
-    set keep-english-in-normal
-    set keep-english-in-normal-and-restore-in-insert
-    noremap gf <ESC>:action GotoFile<CR>
-    noremap <leader>` <ESC>:action SelectInProjectView<CR>
-    nnoremap <C-l> <Right>
-    nnoremap <C-j> <Down>
-    nnoremap <C-h> <Left>
-    nnoremap <C-k> <Up>
-    nnoremap <C-O> <ESC>:action Back<CR>
-    nnoremap <C-I> <ESC>:action Forward<CR>
-    nnoremap <LEADER>ga :action  GotoAction<CR>
-    nnoremap <LEADER>nb :action ActivateNavBar<CR>
-    nnoremap <LEADER>l :action ShowPopupMenu<cr>
-    nnoremap <LEADER>q :action CloseContent<cr>
-    nnoremap <LEADER>Q :action ReopenClosedTab<cr>
-    nnoremap <LEADER>\ :action VimFilePrevious<cr>
-    nnoremap <LEADER>e :action SearchEverywhere<cr>
-    nnoremap <LEADER>E :action Switcher<cr>
-    nnoremap <LEADER>fs :action FileStructurePopup<cr>
-    nnoremap <LEADER>gs :action GotoSymbol<cr>
-    nnoremap <LEADER>se :action SearchEverywhere<cr>
-    nnoremap <LEADER>1 :action   GoToTab1<cr>
-    nnoremap <LEADER>2 :action   GoToTab2<cr>
-    nnoremap <LEADER>3 :action   GoToTab3<cr>
-    nnoremap <LEADER>4 :action   GoToTab4<cr>
-    nnoremap <LEADER>5 :action   GoToTab5<cr>
-    nnoremap <LEADER>6 :action   GoToTab6<cr>
-    nnoremap <LEADER>7 :action   GoToTab7<cr>
-    nnoremap <LEADER>8 :action   GoToTab8<cr>
-    nnoremap <LEADER>9 :action   GoToTab9<cr>
-    nnoremap <LEADER>b    :action HideActiveWindow<cr>
-    nnoremap <LEADER>sc   <ESC>:action IdeaVim.ReloadVimRc.reload<cr>
-    nnoremap <LEADER>-    :action NextTab<cr>
-    nnoremap <LEADER>=   :action PreviousTab<cr>
-    nnoremap <LEADER>r    :action ReformatCode<cr>
-    nnoremap <LEADER>f   :action ToggleFullScreen<cr>
-    nnoremap <LEADER>z   :action ToggleZenMode<cr>
-endif
 
 
